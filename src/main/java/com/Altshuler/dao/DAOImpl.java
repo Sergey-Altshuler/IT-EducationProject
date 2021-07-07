@@ -11,7 +11,7 @@ import java.util.List;
 
 
 public class DAOImpl<T> implements DAO<T> {
-    private static final Session session = SessionUtil.getSession();
+    protected static final Session session = SessionUtil.getSession();
     private static final Transaction transaction = session.getTransaction();
     @Override
     public void save(T t) {

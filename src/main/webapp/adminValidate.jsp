@@ -13,6 +13,17 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-
+<h1> You are Admin. <br> Please, fill the form below! </h1>
+<form action="adminServlet", method="post">
+    Insert Admin login:
+    <br>
+    <input name="login" type="text"/>
+    <br>
+    Insert Admin password:
+    <br>
+    <input name="password" type="password"/>
+    <br>
+    <input type="submit" value="OK" />
+</form>
 </body>
 </html>
