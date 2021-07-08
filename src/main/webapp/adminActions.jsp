@@ -12,58 +12,14 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
-<body>
-<h1> Create a new course </h1>
-<br>
-<br>
-<br>
-<form action="addCourseServlet" method="POST">
-    <br>
-    Title:
-    <br>
-    <input name="title" required type="text">
-    <br>
-    Education type:
-    <br>
-    <select name="educationType" required>
-        <option disabled> Please choose type of course</option>
-        <option value="online"> online</option>
-        <option value="evening"> evening</option>
-    </select>
-    <br>
-    Price:
-    <br>
-    <input name="price" required type="text">
-    <br>
-    Address:
-    <br>
-    <select name="address" required>
-        <option disabled> Please choose an address</option>
-        <option value="Минск, Скрыганова-14"> Минск, Скрыганова-14</option>
-        <option value="Минск, Гикало-3"> Минск, Гикало-3</option>
-        <option value="Могилев"> Могилев</option>
-    </select>
-    <br>
-    Number of students:
-    <br>
-    <select name="numOfStudents" required>
-        <option disabled> How many students are in the group?</option>
-        <option value="3"> 3</option>
-        <option value="4"> 4</option>
-        <option value="5"> 5</option>
-        <option value="6"> 6</option>
-    </select>
-    <br>
-    Start Date (enter like YYYY-MM-dd)
-    <br>
-    <input name="startDate" type="text" required>
-    <br>
-    Finish Date (enter like YYYY-MM-dd)
-    <br>
-    <input name="finishDate" type="text" required>
-    <br>
-    <input type="submit" value="create a Course"/>
 
-</form>
+<h1> Choose what you want to do </h1>
+<br>
+<br>
+<a href="adminAddCourse.jsp"> Create new Course </a>
+<a href="adminDeleteCourse.jsp"> Delete a Course </a>
+<a href="adminDisplayCourses.jsp"> DisplayCourses </a>
+<a href="adminStartCourse.jsp"> DisplayCourses </a>
+<a href="adminDisplayStats.jsp"> DisplayCourses </a>
 </body>
 </html>

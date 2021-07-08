@@ -38,7 +38,12 @@ public class Course implements Serializable {
     private Date startDate;
     @Column
     private Date finishDate;
-
+    @Column
+    private int numOfLessons;
+    @Column
+    private String isStarted;
+    @Column
+    private int remaining;
     @OneToMany(mappedBy = "course")
     private Set<Student> students = new HashSet<>();
 
