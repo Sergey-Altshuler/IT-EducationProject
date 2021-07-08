@@ -41,7 +41,7 @@
     <input name="interests" required type="text">
     <br>
     <br>
-    <input type="submit" value="create a Course"/>
+    <input type="submit" value="confirm registration"/>
 
 </form>
 </body>

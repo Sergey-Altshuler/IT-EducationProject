@@ -57,7 +57,7 @@
     Number of lessons:
     <br>
     <select name="numOfLessons" required>
-        <option disabled> How many students are in the group?</option>
+        <option disabled> How many lessons are in the course?</option>
         <option value="4"> 4</option>
         <option value="5"> 5</option>
         <option value="6"> 6</option>

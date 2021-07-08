@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1>Congratulations! You have successfully enrolled in the course!</h1>
+<h1>Congratulations! You have successfully been enrolled in the course!</h1>
 <br>
 <br>
 <a href="studentValidate.jsp"> return back </a>

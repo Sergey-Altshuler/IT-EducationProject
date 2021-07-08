@@ -42,6 +42,7 @@
             <td>${courses.remaining}</td>
         </tr>
     </c:forEach>
+</table>
 
     <br>
     <h3>Please, insert the number of course you want to be enrolled</h3>
@@ -53,7 +54,7 @@
         <br>
         <input type="submit" value="OK"/>
     </form>
-</table>
+
 
 </body>
 </html>
