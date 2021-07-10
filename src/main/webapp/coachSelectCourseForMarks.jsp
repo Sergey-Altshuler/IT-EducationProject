@@ -1,20 +1,19 @@
 <%--
   Created by IntelliJ IDEA.
   User: ASUS
-  Date: 08.07.2021
-  Time: 13:36
+  Date: 10.07.2021
+  Time: 14:56
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java"%>
 <html>
 <head>
-    <title>Admin_deleteCourse</title>
+    <title>CoachSelectCourseForMarks</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1>Please, select a course you want to drop</h1>
 <table>
     <tr>
         <th>id</th>
@@ -26,6 +25,8 @@
         <th>startDate</th>
         <th>finishDate</th>
         <th>Remaining</th>
+        <th>CoachRequired</th>
+        <th>IsStarted</th>
     </tr>
     <c:forEach var="courses" items="${courses}">
         <tr>
@@ -38,14 +39,16 @@
             <td>${courses.startDate}</td>
             <td>${courses.finishDate}</td>
             <td>${courses.remaining}</td>
+            <td>${courses.coachRequired}</td>
+            <td>${courses.isStarted}
         </tr>
     </c:forEach>
 </table>
-
 <br>
-<h3>Please, insert the number of course you want to drop</h3>
+<br>
+<h3> Please, insert the number of course you want to put down marks</h3>
 
-<form action="adminDropCourseServlet" method="post">
+<form action="coachPutMarksServlet" method="post">
     Number of course:
     <br>
     <input name="number" type="text"/>

@@ -17,7 +17,7 @@
 <br>
 <br>
 <br>
-<form action="addCourseServlet" method="POST">
+<form action="adminAddCourseServlet" method="POST">
     <br>
     Title:
     <br>

@@ -1,7 +1,11 @@
 package com.Altshuler.info;
 
 import com.Altshuler.model.Coach;
+import com.Altshuler.model.Course;
 import com.Altshuler.model.Student;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ProjectInfo {
     private static final String adminLogin="admin";

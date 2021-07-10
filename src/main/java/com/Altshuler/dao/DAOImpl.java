@@ -12,7 +12,7 @@ import java.util.List;
 
 public class DAOImpl<T> implements DAO<T> {
     protected static final Session session = SessionUtil.getSession();
-    private static final Transaction transaction = session.getTransaction();
+    protected static final Transaction transaction = session.getTransaction();
     @Override
     public void save(T t) {
         try {
@@ -39,6 +39,8 @@ public class DAOImpl<T> implements DAO<T> {
             Query query = session.createQuery("delete from " + annotationName);
             query.executeUpdate();
     }
+
+
 
     @Override
     public void saveAll(List<T> t) throws SQLException {

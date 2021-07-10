@@ -10,6 +10,7 @@ public interface DAO<T> {
 
     void deleteAll(Class<T> generic);
 
+
     void saveAll(List<T> t) throws SQLException;
 
     List<T> getAll(Class<T> generic) throws SQLException;

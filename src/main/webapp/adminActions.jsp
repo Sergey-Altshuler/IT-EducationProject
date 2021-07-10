@@ -18,11 +18,9 @@
 <br>
 <a href="adminAddCourse.jsp"> Create new Course </a>
 <br>
-<a href="adminDeleteCourse.jsp"> Delete a Course </a>
+<a href="adminUtilDeleteCourseServlet"> Delete a Course </a>
 <br>
-<a href="adminDisplayCourses.jsp"> Display Courses </a>
-<br>
-<a href="adminStartCourse.jsp"> Launch a Course </a>
+<a href="adminUtilLaunchCourseServlet"> Launch a Course </a>
 <br>
 <a href="adminDisplayStats.jsp"> Display Statistics </a>
 </body>

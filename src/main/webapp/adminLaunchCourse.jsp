@@ -2,19 +2,19 @@
   Created by IntelliJ IDEA.
   User: ASUS
   Date: 08.07.2021
-  Time: 13:36
+  Time: 13:45
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java"%>
 <html>
 <head>
-    <title>Admin_deleteCourse</title>
+    <title>Admin_launchCourse</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1>Please, select a course you want to drop</h1>
+<h1>Please, select a course you want to launch</h1>
 <table>
     <tr>
         <th>id</th>
@@ -43,9 +43,9 @@
 </table>
 
 <br>
-<h3>Please, insert the number of course you want to drop</h3>
+<h3>Please, insert the number of course you want to launch</h3>
 
-<form action="adminDropCourseServlet" method="post">
+<form action="adminLaunchCourseServlet" method="post">
     Number of course:
     <br>
     <input name="number" type="text"/>

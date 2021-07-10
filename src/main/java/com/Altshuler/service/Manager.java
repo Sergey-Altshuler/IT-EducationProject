@@ -35,5 +35,8 @@ public class Manager {
     public static List<Coach> getAllCoaches() throws SQLException {
         return daoCoach.getAll(Coach.class);
     }
+    public static void deleteCourseById(int id) throws SQLException {
+        daoCourse.deleteById(id);
+    }
 
 }

@@ -29,6 +29,7 @@
         <th>finishDate</th>
         <th>Remaining</th>
         <th>CoachRequired</th>
+        <th>IsStarted</th>
     </tr>
     <c:forEach var="courses" items="${courses}">
         <tr>
@@ -42,6 +43,7 @@
             <td>${courses.finishDate}</td>
             <td>${courses.remaining}</td>
             <td>${courses.coachRequired}</td>
+            <td>${courses.isStarted}
         </tr>
     </c:forEach>
 </table>
@@ -56,5 +58,8 @@
     <br>
     <input type="submit" value="OK"/>
 </form>
+<br>
+<br>
+<a href="coachSelectCourseForMarksServlet">If you have already lead any course and want to put marks down, click here</a>
 </body>
 </html>
