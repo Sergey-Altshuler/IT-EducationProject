@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
-
+<body>
 <h1> Choose what you want to do </h1>
 <br>
 <br>
@@ -23,5 +23,8 @@
 <a href="adminUtilLaunchCourseServlet"> Launch a Course </a>
 <br>
 <a href="adminDisplayStats.jsp"> Display Statistics </a>
+<br>
+<a href="index.jsp"> Move to start page </a>
+
 </body>
 </html>

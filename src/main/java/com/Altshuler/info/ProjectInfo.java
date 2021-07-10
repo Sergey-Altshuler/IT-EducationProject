@@ -12,6 +12,15 @@ public class ProjectInfo {
     private static final String adminPassword="password";
     private static Student student=null;
     private static Coach coach = null;
+    private static Map<Course,Map<Student, Map<String, String>>> marks = new HashMap<>();
+
+    public static Map<Course, Map<Student, Map<String, String>>> getMarks() {
+        return marks;
+    }
+
+    public static void setMarks(Map<Course, Map<Student, Map<String, String>>> marks) {
+        ProjectInfo.marks = marks;
+    }
 
     public static Student getStudent() {
         return student;

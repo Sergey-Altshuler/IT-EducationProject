@@ -2,6 +2,7 @@ package com.Altshuler.servlets;
 
 import com.Altshuler.model.Course;
 import com.Altshuler.service.Manager;
+import com.Altshuler.service.MarkSetter;
 import lombok.SneakyThrows;
 
 import javax.servlet.RequestDispatcher;
@@ -21,6 +22,7 @@ public class adminLaunchCourseServlet extends HttpServlet {
         int num = Integer.parseInt(request.getParameter("number"));
         Course course = Manager.getCourseById(num);
         course.setIsStarted("true");
+        MarkSetter.initializeMarks(course);
         RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/adminActions.jsp");
         requestDispatcher.forward(request, response);
     }
