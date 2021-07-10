@@ -1,6 +1,7 @@
 package com.Altshuler.service;
 
 import com.Altshuler.dao.*;
+import com.Altshuler.model.Coach;
 import com.Altshuler.model.Course;
 import com.Altshuler.model.Student;
 
@@ -27,6 +28,12 @@ public class Manager {
     }
     public static void addStudent(Student student) throws SQLException {
         daoStudent.save(student);
+    }
+    public static void addCoach(Coach coach) throws SQLException {
+        daoCoach.save(coach);
+    }
+    public static List<Coach> getAllCoaches() throws SQLException {
+        return daoCoach.getAll(Coach.class);
     }
 
 }

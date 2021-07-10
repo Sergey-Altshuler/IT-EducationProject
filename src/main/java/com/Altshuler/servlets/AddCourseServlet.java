@@ -31,10 +31,11 @@ public class AddCourseServlet extends HttpServlet {
         course.setStartDate(startDate);
         course.setFinishDate(finishDate);
         course.setIsStarted("false");
+        course.setCoachRequired("Yes");
         course.setRemaining(course.getNumOfStudents());
         Manager.addCourse(course);
 
-       RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/index.jsp");
+       RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/adminActions.jsp");
         requestDispatcher.forward(request, response);
     }
 }

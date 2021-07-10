@@ -13,6 +13,19 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-
+Please, fill the form below!
+<form action="coachServlet" method="post">
+    Insert Coach login:
+    <br>
+    <input name="login" type="text"/>
+    <br>
+    Insert Coach password:
+    <br>
+    <input name="password" type="password"/>
+    <br>
+    <input type="submit" value="OK" />
+</form>
+<h3>If you have not been registered yet, click on the link below.</h3>
+<a href="coachRegister.jsp"> register</a>
 </body>
 </html>

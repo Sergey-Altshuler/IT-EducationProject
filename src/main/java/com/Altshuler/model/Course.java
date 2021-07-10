@@ -44,6 +44,8 @@ public class Course implements Serializable {
     private String isStarted;
     @Column
     private int remaining;
+    @Column
+    private String coachRequired;
     @OneToMany(mappedBy = "course")
     private Set<Student> students = new HashSet<>();
 
@@ -73,12 +75,15 @@ public class Course implements Serializable {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", subgroupNum=" + subgroupNum +
-                ", learnType='" + educationType + '\'' +
+                ", educationType='" + educationType + '\'' +
                 ", price=" + price +
                 ", address='" + address + '\'' +
                 ", numOfStudents=" + numOfStudents +
                 ", startDate=" + startDate +
                 ", finishDate=" + finishDate +
+                ", numOfLessons=" + numOfLessons +
+                ", isStarted='" + isStarted + '\'' +
+                ", remaining=" + remaining +
                 '}';
     }
 }

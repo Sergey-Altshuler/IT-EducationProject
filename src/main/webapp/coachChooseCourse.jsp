@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: ASUS
-  Date: 08.07.2021
-  Time: 14:14
+  Date: 09.07.2021
+  Time: 20:09
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -28,6 +28,7 @@
         <th>startDate</th>
         <th>finishDate</th>
         <th>Remaining</th>
+        <th>CoachRequired</th>
     </tr>
     <c:forEach var="courses" items="${courses}">
         <tr>
@@ -40,21 +41,20 @@
             <td>${courses.startDate}</td>
             <td>${courses.finishDate}</td>
             <td>${courses.remaining}</td>
+            <td>${courses.coachRequired}</td>
         </tr>
     </c:forEach>
 </table>
 
+<br>
+<h3>Please, insert the number of course you want to lead</h3>
+
+<form action="coachChooseCourseServlet" method="post">
+    Number of course:
     <br>
-    <h3>Please, insert the number of course you want to be enrolled</h3>
-
-    <form action="studentChooseCourseServlet" method="post">
-        Number of course:
-        <br>
-        <input name="number" type="text"/>
-        <br>
-        <input type="submit" value="OK"/>
-    </form>
-
-
+    <input name="number" type="text"/>
+    <br>
+    <input type="submit" value="OK"/>
+</form>
 </body>
 </html>
