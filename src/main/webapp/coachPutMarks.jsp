@@ -36,12 +36,11 @@
 
     <br>
     <br>
-    <c:set var="num"  value="${numToFill}"/>
-     <c:if test="${num}==0">
-         <h3>Course has been finished. Click on the link below to generate stats.</h3>
+
+         <h3>If the latest lesson has been finished, click on the link below and generate total stats.</h3>
          <a href="calculateServlet"> click here </a>
-     </c:if>
-    <c:if test="${num}!=0">
+
+
         <br>
         <br>
         <form action="coachFillMarksServlet" method="POST">
@@ -54,7 +53,7 @@
             </c:forEach>
                 <input type="submit"  value="put Marks"/>
         </form>
-    </c:if>
+
 </table>
 </body>
 </html>

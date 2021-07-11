@@ -2,6 +2,7 @@ package com.Altshuler.servlets;
 
 import com.Altshuler.info.ProjectInfo;
 import com.Altshuler.model.Course;
+import com.Altshuler.service.Manager;
 import com.Altshuler.service.MarkSetter;
 import lombok.SneakyThrows;
 
@@ -32,7 +33,7 @@ public class CoachFillMarksServlet extends HttpServlet {
                 studentsAndMarks.put(param, request.getParameter(param));
         }
         MarkSetter.setLessonMarks(course, studentsAndMarks, numLesson);
-
+        request.setAttribute("courses", Manager.getAllCourses());
         RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/coachSelectCourseForMarks.jsp");
         requestDispatcher.forward(request, response);
     }

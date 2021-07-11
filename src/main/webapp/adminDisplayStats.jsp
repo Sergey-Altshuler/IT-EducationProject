@@ -18,7 +18,7 @@
 <table>
     <tr>
         <th>id</th>
-        <th>Title of Course</th>
+        <th>Title_of_Course</th>
         <th>Subgroup</th>
         <th>averageMark</th>
         <th>attendance</th>

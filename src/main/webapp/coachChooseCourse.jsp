@@ -60,6 +60,7 @@
 </form>
 <br>
 <br>
-<a href="coachSelectCourseForMarksServlet">If you have already lead any course and want to put marks down, click here</a>
+Click here if you have led one or more courses.
+<a href="coachSelectCourseForMarksServlet">Put marks</a>
 </body>
 </html>

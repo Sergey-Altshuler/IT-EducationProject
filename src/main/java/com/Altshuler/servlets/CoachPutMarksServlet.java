@@ -30,7 +30,6 @@ public class CoachPutMarksServlet extends HttpServlet {
         Map<Student, Map<String,String>> courseMap = ProjectInfo.getMarks().get(course);
         request.setAttribute("courseMap",courseMap);
         request.setAttribute("titles", courseMap.get(student));
-        request.setAttribute("numToFill", MarkSetter.getIsFinished(course));
         Map<Integer, String> studentAdditionalMap = new LinkedHashMap<>();
         for (Student stud: course.getStudents()){
             studentAdditionalMap.put(stud.getId(), DataParser.parseStudent(stud));

@@ -15,7 +15,7 @@ import java.io.IOException;
 @WebServlet(name = "adminDisplayStatsServlet", value = "/adminDisplayStatsServlet")
 public class AdminDisplayStatsServlet extends HttpServlet {
     @SneakyThrows
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         ServletContext servletContext = getServletContext();
         request.setAttribute("stats", Manager.getAllStats());
         RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/adminDisplayStats.jsp");
