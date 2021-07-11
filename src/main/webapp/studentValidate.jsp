@@ -28,6 +28,6 @@ Please, fill the form below!
 <h3>If you have not been registered yet, click on the link below.</h3>
 <a href="studentRegister.jsp"> register</a>
 <h3>Click here if you want to move to start page</h3>
-<a href="studentRegister.jsp"> move to start page</a>
+<a href="index.jsp"> move to start page</a>
 </body>
 </html>
