@@ -22,7 +22,7 @@
 <br>
 <a href="adminUtilLaunchCourseServlet"> Launch a Course </a>
 <br>
-<a href="adminDisplayStats.jsp"> Display Statistics </a>
+<a href="adminDisplayStatsServlet"> Display Statistics </a>
 <br>
 <a href="index.jsp"> Move to start page </a>
 

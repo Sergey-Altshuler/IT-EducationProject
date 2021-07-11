@@ -3,6 +3,7 @@ package com.Altshuler.service;
 import com.Altshuler.dao.*;
 import com.Altshuler.model.Coach;
 import com.Altshuler.model.Course;
+import com.Altshuler.model.Stats;
 import com.Altshuler.model.Student;
 
 import java.sql.SQLException;
@@ -37,6 +38,15 @@ public class Manager {
     }
     public static void deleteCourseById(int id) throws SQLException {
         daoCourse.deleteById(id);
+    }
+    public static Student getStudentById(int id) throws SQLException {
+        return daoStudent.get(id, Student.class);
+    }
+    public static void addStats(Stats stats) throws SQLException {
+        daoStats.save(stats);
+    }
+    public static List<Stats> getAllStats() throws SQLException {
+        return daoStats.getAll(Stats.class);
     }
 
 }

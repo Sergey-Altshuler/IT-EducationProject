@@ -25,18 +25,36 @@
 </c:forEach>
 
     </tr>
-   <%-- <c:forEach var="table" items="${table}">
+    <c:forEach var="courseMap" items="${courseMap}">
+        <c:set var="miniMap" value="${courseMap.value}"/>
     <tr>
-        <td>${table.id}</td>
-        <td>${table.student_name}</td>
-        <td>${table.student_surname}</td>
-        <td>${table.mark}</td>
-        <td>${table.review}</td>
-        <td>${table.course_name}</td>
-        <td>${table.coachYouHaveWorked}</td>
+        <c:forEach var="miniMap" items="${miniMap}">
+        <td>${miniMap.value}</td>
+        </c:forEach>
     </tr>
-    </c:forEach>--%>
+    </c:forEach>
 
+    <br>
+    <br>
+    <c:set var="num"  value="${numToFill}"/>
+     <c:if test="${num}==0">
+         <h3>Course has been finished. Click on the link below to generate stats.</h3>
+         <a href="calculateServlet"> click here </a>
+     </c:if>
+    <c:if test="${num}!=0">
+        <br>
+        <br>
+        <form action="coachFillMarksServlet" method="POST">
+            Insert number of lesson: <input required name="numLesson" type="text">
+            <c:forEach var="student" items="${studentMap}">
+                <br>
+                Mark for ${student.value} :  <input required name=${student.key} type="text">
+                <br>
+
+            </c:forEach>
+                <input type="submit"  value="put Marks"/>
+        </form>
+    </c:if>
 </table>
 </body>
 </html>
