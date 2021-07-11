@@ -46,7 +46,7 @@
 </table>
 <br>
 <br>
-<h3> Please, insert the number of course you want to put down marks</h3>
+<h3> Please, insert the number of course you want to put marks down </h3>
 
 <form action="coachPutMarksServlet" method="post">
     Number of course:

@@ -20,7 +20,7 @@ public class CalculateServlet extends HttpServlet {
         ServletContext servletContext = getServletContext();
         MarkSetter.calculateIndividualStatistics(ProjectInfo.getCourse());
         MarkSetter.calculateTotalStatistics(ProjectInfo.getCourse());
-        RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/index.jsp");
+        RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/coachValidate.jsp");
         requestDispatcher.forward(request, response);
     }
 }

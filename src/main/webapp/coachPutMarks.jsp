@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1>This is rank table. Please, put marks.</h1>
+<h1>This is rank table. Please, put marks. Insert numbers 0-10 or "N"(if the student is not absent)</h1>
 <br>
 <br>
 <table>

@@ -6,7 +6,6 @@ import com.Altshuler.model.Stats;
 import com.Altshuler.model.Student;
 
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -74,7 +73,7 @@ public class MarkSetter {
                     numOfAbsence++;
             }
             double avgMark = sumMarks / (numOfLessons - numOfAbsence);
-            double percentAttendance = (double) (numOfAbsence) / numOfLessons * 100;
+            double percentAttendance = 100.0-((double) (numOfAbsence) / numOfLessons * 100);
             String avg = String.format("%.2f", avgMark);
             String attend = String.format("%.1f", percentAttendance);
             middleMap.get(student).put("Avg_mark", avg);
@@ -92,9 +91,11 @@ public class MarkSetter {
         double avgMark = 0d;
         for (Map.Entry<Student, Map<String, String>> miniMapEntry : middleMap.entrySet()) {
             String attend = miniMapEntry.getValue().get("attendance");
-            avgAttendance = avgAttendance + Double.parseDouble(attend);
+            String attendFinal = attend.replace(",",".");
+            avgAttendance = avgAttendance + Double.parseDouble(attendFinal);
             String avg = miniMapEntry.getValue().get("Avg_mark");
-            avgMark = avgMark + Double.parseDouble(avg);
+            String avgFinal = avg.replace(",",".");
+            avgMark = avgMark + Double.parseDouble(avgFinal);
         }
         double courseAttendance = avgAttendance / numOfStudents;
         double courseMark = avgMark / numOfStudents;

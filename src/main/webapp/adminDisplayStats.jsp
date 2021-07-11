@@ -28,7 +28,7 @@
             <td>${stats.id}</td>
             <c:set var="course" value="${stats.course}"/>
             <c:set var="title" value="${course.title}"/>
-            <c:set var="subgroup" value="${course.subgroup}"/>
+            <c:set var="subgroup" value="${course.subgroupNum}"/>
             <td>${title}</td>
             <td>${subgroup}</td>
             <td>${stats.avgMark}</td>
