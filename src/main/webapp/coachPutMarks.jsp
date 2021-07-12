@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1>This is rank table. Please, put marks. Insert numbers 0-10 or "N"(if the student is not absent)</h1>
+<h1>This is rank table. Please, put marks. Insert numbers 0-10 or "N"(if the student is absent)</h1>
 <br>
 <br>
 <table>
@@ -34,26 +34,24 @@
     </tr>
     </c:forEach>
 
-    <br>
-    <br>
-
-         <h3>If the latest lesson has been finished, click on the link below and generate total stats.</h3>
-         <a href="calculateServlet"> click here </a>
-
-
-        <br>
-        <br>
-        <form action="coachFillMarksServlet" method="POST">
-            Insert number of lesson: <input required name="numLesson" type="text">
-            <c:forEach var="student" items="${studentMap}">
-                <br>
-                Mark for ${student.value} :  <input required name=${student.key} type="text">
-                <br>
-
-            </c:forEach>
-                <input type="submit"  value="put Marks"/>
-        </form>
-
 </table>
+
+
+<br>
+<br>
+<form action="coachFillMarksServlet" method="POST">
+    Insert number of lesson: <input required name="numLesson" type="text">
+    <c:forEach var="student" items="${studentMap}">
+        <br>
+        Mark for ${student.value} :  <input required name=${student.key} type="text">
+        <br>
+
+    </c:forEach>
+    <input type="submit"  value="put Marks"/>
+</form>
+<br>
+<br>
+<h3>If the latest lesson has been finished, click on the link below and generate total stats.</h3>
+<a href="calculateServlet"> click here </a>
 </body>
 </html>

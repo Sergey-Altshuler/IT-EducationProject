@@ -50,7 +50,7 @@
 
 <br>
 <h3>Please, insert the number of course you want to lead</h3>
-
+<div align="center">
 <form action="coachChooseCourseServlet" method="post">
     Number of course:
     <br>
@@ -58,9 +58,11 @@
     <br>
     <input type="submit" value="OK"/>
 </form>
+</div>
 <br>
 <br>
-Click here if you have led one or more courses.
+    <h3>Click here if you have led one or more courses.</h3>
+    <br>
 <a href="coachSelectCourseForMarksServlet">Put marks</a>
 </body>
 </html>

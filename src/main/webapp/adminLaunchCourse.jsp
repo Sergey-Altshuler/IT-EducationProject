@@ -25,7 +25,9 @@
         <th>address</th>
         <th>startDate</th>
         <th>finishDate</th>
-        <th>Remaining</th>
+        <th>Places Remaining</th>
+        <th>Coach Required</th>
+        <th>Is started</th>
     </tr>
     <c:forEach var="courses" items="${courses}">
         <tr>
@@ -38,19 +40,23 @@
             <td>${courses.startDate}</td>
             <td>${courses.finishDate}</td>
             <td>${courses.remaining}</td>
+            <td>${courses.coachRequired}</td>
+            <td>${courses.isStarted}</td>
         </tr>
     </c:forEach>
 </table>
 
 <br>
 <h3>Please, insert the number of course you want to launch</h3>
-
+<br>
+<div align="center">
 <form action="adminLaunchCourseServlet" method="post">
     Number of course:
     <br>
     <input name="number" type="text"/>
     <br>
-    <input type="submit" value="OK"/>
+    <input type="submit" value="OK" class="button"/>
 </form>
+</div>
 </body>
 </html>

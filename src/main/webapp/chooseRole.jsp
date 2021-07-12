@@ -14,12 +14,13 @@
 </head>
 <body>
 <h1> Select your role </h1>
+<div align="center">
 <form action="chooseRole-servlet" method="post">
     <p><input name="role" type="radio" value="admin"> Administrator</p>
     <p><input name="role" type="radio" value="student"> Student</p>
     <p><input name="role" type="radio" value="coach" checked> Coach</p>
-    <p><input type="submit" value="Choose your role"></p>
+    <p><input type="submit" value="Confirm" class="button"></p>
 </form>
-
+</div>
 </body>
 </html>

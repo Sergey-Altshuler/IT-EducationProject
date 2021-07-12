@@ -27,7 +27,7 @@
         <th>address</th>
         <th>startDate</th>
         <th>finishDate</th>
-        <th>Remaining</th>
+        <th>Students Remaining</th>
     </tr>
     <c:forEach var="courses" items="${courses}">
         <tr>
@@ -46,14 +46,15 @@
 
     <br>
     <h3>Please, insert the number of course you want to be enrolled</h3>
-
+      <div align="center">
     <form action="studentChooseCourseServlet" method="post">
         Number of course:
         <br>
         <input name="number" type="text"/>
         <br>
-        <input type="submit" value="OK"/>
+        <input type="submit" value="OK" class="button"/>
     </form>
+      </div>
 
 
 </body>

@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-Please, fill the form below!
+<h1>Please, fill the form below!</h1>
+<div align="center">
 <form action="studentServlet" method="post">
     Insert Student login:
     <br>
@@ -23,11 +24,16 @@ Please, fill the form below!
     <br>
     <input name="password" type="password"/>
     <br>
-    <input type="submit" value="OK" />
+    <input type="submit" value="OK" class="button"/>
 </form>
+</div>
 <h3>If you have not been registered yet, click on the link below.</h3>
+<div align="center">
 <a href="studentRegister.jsp"> register</a>
+</div>
 <h3>Click here if you want to move to start page</h3>
+<div align="center">
 <a href="index.jsp"> move to start page</a>
+</div>
 </body>
 </html>

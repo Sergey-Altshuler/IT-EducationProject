@@ -37,6 +37,8 @@
     </c:forEach>
 </table>
 <h3> Click here to return</h3>
-<a href="adminValidate.jsp">Go back</a>
+<div align="center">
+<a href="adminActions.jsp">Go back</a>
+</div>
 </body>
 </html>

@@ -1,0 +1,77 @@
+h1 {
+    color: aliceblue;
+    background-color: darkblue;
+    text-align: center;
+    font-family: Arial, serif;
+    font-weight: bold;
+}
+h2 {
+    color: blue;
+    background-color: cornsilk;
+    text-align: center;
+    font-family: Arial, serif;
+    font-weight: bolder;
+}
+h3 {
+    color: black;
+    font-family: "Arial Black", sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+a {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 15px 25px;
+    padding: 15px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    transition: 0.5s ease-in-out;
+}
+.button {
+    background: -moz-linear-gradient(#D0ECF4, #5BC9E1, #D0ECF4);
+    background: -webkit-gradient(linear, 0 0, 0  100%, from(#D0ECF4), to(#D0ECF4), color-stop(0.5, #5BC9E1));
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
+    padding: 3px 7px;
+    color: #333;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #666;
+}
+form {
+    font-size: 25px;
+    font-family: "Arial Black", serif;
+    font-weight: bold;
+}
+table, th, td {
+    border: 2px solid black;
+
+}
+
+th {
+    height: 75px;
+    background-color: green;
+    color: azure;
+    font-weight: bold;
+}
+
+td {
+    text-align: center;
+}
+
+th, td {
+    padding: 10px;
+    font-size: xx-large;
+}
+
+table {
+    width: 70%;
+    border-collapse: collapse;
+}
+
+tr {
+    height: 40px;
+}

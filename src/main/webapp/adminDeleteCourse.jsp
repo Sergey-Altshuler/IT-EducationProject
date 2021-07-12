@@ -25,7 +25,8 @@
         <th>address</th>
         <th>startDate</th>
         <th>finishDate</th>
-        <th>Remaining</th>
+        <th>Places remaining</th>
+        <th>Is started</th>
     </tr>
     <c:forEach var="courses" items="${courses}">
         <tr>
@@ -38,19 +39,21 @@
             <td>${courses.startDate}</td>
             <td>${courses.finishDate}</td>
             <td>${courses.remaining}</td>
+            <td>${courses.isStarted}</td>
         </tr>
     </c:forEach>
 </table>
 
 <br>
 <h3>Please, insert the number of course you want to drop</h3>
-
+<div align="center">
 <form action="adminDropCourseServlet" method="post">
     Number of course:
     <br>
     <input name="number" type="text"/>
     <br>
-    <input type="submit" value="OK"/>
+    <input type="submit" value="OK" class="button"/>
 </form>
+</div>
 </body>
 </html>

@@ -14,6 +14,7 @@
 </head>
 <body>
 <h1>Fill in the form below</h1>
+<div align="center">
 <form action="studentRegisterServlet" method="POST">
     <br>
     Login:
@@ -41,8 +42,9 @@
     <input name="interests" required type="text">
     <br>
     <br>
-    <input type="submit" value="confirm registration"/>
+    <input type="submit" value="confirm registration" class="button"/>
 
 </form>
+</div>
 </body>
 </html>

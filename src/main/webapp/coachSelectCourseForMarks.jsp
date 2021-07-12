@@ -22,10 +22,6 @@
         <th>EducationType</th>
         <th>price</th>
         <th>address</th>
-        <th>startDate</th>
-        <th>finishDate</th>
-        <th>Remaining</th>
-        <th>CoachRequired</th>
         <th>IsStarted</th>
     </tr>
     <c:forEach var="courses" items="${courses}">
@@ -36,10 +32,6 @@
             <td>${courses.educationType}</td>
             <td>${courses.price}</td>
             <td>${courses.address}</td>
-            <td>${courses.startDate}</td>
-            <td>${courses.finishDate}</td>
-            <td>${courses.remaining}</td>
-            <td>${courses.coachRequired}</td>
             <td>${courses.isStarted}
         </tr>
     </c:forEach>
@@ -47,13 +39,14 @@
 <br>
 <br>
 <h3> Please, insert the number of course you want to put marks down </h3>
-
+<div align="center">
 <form action="coachPutMarksServlet" method="post">
     Number of course:
     <br>
     <input name="number" type="text"/>
     <br>
-    <input type="submit" value="OK"/>
+    <input type="submit" value="OK" class="button"/>
 </form>
+</div>
 </body>
 </html>

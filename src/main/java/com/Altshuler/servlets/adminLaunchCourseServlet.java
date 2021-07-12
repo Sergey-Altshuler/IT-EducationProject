@@ -23,7 +23,7 @@ public class adminLaunchCourseServlet extends HttpServlet {
         Course course = Manager.getCourseById(num);
         course.setIsStarted("true");
         MarkSetter.initializeMarks(course);
-        RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/adminActions.jsp");
+        RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/adminSuccessLaunch.jsp");
         requestDispatcher.forward(request, response);
     }
 }

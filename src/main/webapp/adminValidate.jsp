@@ -14,7 +14,8 @@
 </head>
 <body>
 <h1> You are Admin. <br> Please, fill the form below! </h1>
-<form action="adminServlet", method="post">
+<div align="center">
+<form action="adminServlet" method="post">
     Insert Admin login:
     <br>
     <input name="login" type="text"/>
@@ -23,7 +24,8 @@
     <br>
     <input name="password" type="password"/>
     <br>
-    <input type="submit" value="OK" />
+    <input type="submit" value="OK" class="button"/>
 </form>
+</div>
 </body>
 </html>

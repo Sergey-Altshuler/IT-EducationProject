@@ -35,7 +35,7 @@ public class AdminAddCourseServlet extends HttpServlet {
         course.setRemaining(course.getNumOfStudents());
         Manager.addCourse(course);
 
-       RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/adminActions.jsp");
+       RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/adminSuccessAdd.jsp");
         requestDispatcher.forward(request, response);
     }
 }

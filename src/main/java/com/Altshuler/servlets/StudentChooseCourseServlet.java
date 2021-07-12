@@ -24,7 +24,7 @@ public class StudentChooseCourseServlet extends HttpServlet {
         ServletContext servletContext = getServletContext();
         int num = Integer.parseInt(request.getParameter("number"));
         Course course = Manager.getCourseById(num);
-        Student student= ProjectInfo.getStudent();
+        Student student = ProjectInfo.getStudent();
         if (course.getStudents() == null) {
             Set<Student> newSet = new HashSet<>();
             newSet.add(student);
@@ -32,7 +32,7 @@ public class StudentChooseCourseServlet extends HttpServlet {
         } else {
             course.getStudents().add(student);
         }
-        course.setRemaining(course.getRemaining()-1);
+        course.setRemaining(course.getRemaining() - 1);
         student.setCourse(course);
         Manager.addCourse(course);
         Manager.addStudent(student);
