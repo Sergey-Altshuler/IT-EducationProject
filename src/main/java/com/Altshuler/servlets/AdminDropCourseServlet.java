@@ -19,7 +19,7 @@ public class AdminDropCourseServlet extends HttpServlet {
         ServletContext servletContext = getServletContext();
         int num = Integer.parseInt(request.getParameter("number"));
         Manager.deleteCourseById(num);
-        RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/adminActions.jsp");
+        RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/adminSuccessDrop.jsp");
         requestDispatcher.forward(request, response);
     }
 }

@@ -39,19 +39,24 @@
 
 <br>
 <br>
+<div align="center">
 <form action="coachFillMarksServlet" method="POST">
     Insert number of lesson: <input required name="numLesson" type="text">
+    <br>
     <c:forEach var="student" items="${studentMap}">
         <br>
         Mark for ${student.value} :  <input required name=${student.key} type="text">
         <br>
 
     </c:forEach>
-    <input type="submit"  value="put Marks"/>
+    <input type="submit"  value="put Marks" class="button"/>
 </form>
+</div>
 <br>
 <br>
 <h3>If the latest lesson has been finished, click on the link below and generate total stats.</h3>
-<a href="calculateServlet"> click here </a>
+<div align="center">
+<a href="calculateServlet"> generate statistics and finish the course </a>
+</div>
 </body>
 </html>

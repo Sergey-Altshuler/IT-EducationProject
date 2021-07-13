@@ -34,7 +34,7 @@ public class CoachFillMarksServlet extends HttpServlet {
         }
         MarkSetter.setLessonMarks(course, studentsAndMarks, numLesson);
         request.setAttribute("courses", Manager.getAllCourses());
-        RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/coachSelectCourseForMarks.jsp");
+        RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/coachSuccessPutMarks.jsp");
         requestDispatcher.forward(request, response);
     }
 }

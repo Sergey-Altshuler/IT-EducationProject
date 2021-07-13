@@ -63,6 +63,8 @@
 <br>
     <h3>Click here if you have led one or more courses.</h3>
     <br>
+<div align="center">
 <a href="coachSelectCourseForMarksServlet">Put marks</a>
+</div>
 </body>
 </html>
