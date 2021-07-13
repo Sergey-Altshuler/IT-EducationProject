@@ -13,7 +13,7 @@
         <property name="hibernate.hbm2ddl.auto">create</property>
         <!-- Assume test is the database name -->
         <property name="hibernate.connection.url">
-            jdbc:mysql://localhost/it_centre
+            jdbc:mysql://localhost/it_centre?createDatabaseIfNotExist=true
         </property>
         <property name="hibernate.connection.username">
             root
