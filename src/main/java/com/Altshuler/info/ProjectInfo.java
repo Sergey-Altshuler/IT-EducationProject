@@ -8,19 +8,17 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class ProjectInfo {
-    private static final String adminLogin="admin"; // сделать новую сущность!!!!!
-    private static final String adminPassword="password";
-    private static Student student=null;
-    private static Coach coach = null;
-    private static Course course = null;
-    private static Map<Course,Map<Student, Map<String, String>>> marks = new LinkedHashMap<>();
+    private static Student currentStudent = null;
+    private static Coach currentCoach = null;
+    private static Course currentCourse = null;
+    private static Map<Course, Map<Student, Map<String, String>>> marks = new LinkedHashMap<>();
 
     public static Course getCourse() {
-        return course;
+        return currentCourse;
     }
 
     public static void setCourse(Course course) {
-        ProjectInfo.course = course;
+        ProjectInfo.currentCourse = course;
     }
 
     public static Map<Course, Map<Student, Map<String, String>>> getMarks() {
@@ -32,26 +30,19 @@ public class ProjectInfo {
     }
 
     public static Student getStudent() {
-        return student;
+        return currentStudent;
     }
 
     public static void setStudent(Student student) {
-        ProjectInfo.student = student;
+        ProjectInfo.currentStudent = student;
     }
 
     public static Coach getCoach() {
-        return coach;
+        return currentCoach;
     }
 
     public static void setCoach(Coach coach) {
-        ProjectInfo.coach = coach;
+        ProjectInfo.currentCoach = coach;
     }
 
-    public static String getAdminLogin() {
-        return adminLogin;
-    }
-
-    public static String getAdminPassword() {
-        return adminPassword;
-    }
 }

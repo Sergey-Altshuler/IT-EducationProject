@@ -16,10 +16,10 @@ public class AdminFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         String contextPath = req.getContextPath();
-        if ((req.getParameter("login").equals(ProjectInfo.getAdminLogin())) &&
+       /* if ((req.getParameter("login").equals(ProjectInfo.getAdminLogin())) &&
                 (req.getParameter("password").equals(ProjectInfo.getAdminPassword())))
             filterChain.doFilter(req, resp);
-        else resp.sendRedirect(contextPath + "/wrongData.jsp");
+        else resp.sendRedirect(contextPath + "/wrongData.jsp");*/
 
     }
 

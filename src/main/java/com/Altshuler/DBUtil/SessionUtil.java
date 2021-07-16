@@ -1,4 +1,4 @@
-package com.Altshuler.util;
+package com.Altshuler.DBUtil;
 
 import com.Altshuler.model.Coach;
 import com.Altshuler.model.Course;

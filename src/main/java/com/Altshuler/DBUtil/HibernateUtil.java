@@ -1,4 +1,4 @@
-package com.Altshuler.util;
+package com.Altshuler.DBUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
