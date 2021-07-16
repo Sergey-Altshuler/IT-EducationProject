@@ -22,7 +22,7 @@ public class CoachFilter implements Filter {
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         String contextPath = req.getContextPath();
         List<Coach> coachList = Manager.getAllCoaches();
-        boolean isCoach = false;
+        boolean isCoach = false; // проще сделать запрос с этими параметрами в бд
         for (Coach coach: coachList) {
             if ((req.getParameter("login").equals(coach.getLogin())) && (req.getParameter("password")).equals(coach.getPassword())) {
                 {

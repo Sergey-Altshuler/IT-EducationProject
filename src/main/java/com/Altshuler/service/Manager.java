@@ -9,7 +9,7 @@ import com.Altshuler.model.Student;
 import java.sql.SQLException;
 import java.util.List;
 
-public class Manager {
+public class Manager { // убрать статику. сделать как service и имплементацию
     public static final DAOStudent daoStudent = new DAOStudentImpl();
     public static final DAOCourse daoCourse = new DAOCourseImpl();
     public static final DAOStats daoStats = new DAOStatsImpl();
@@ -37,7 +37,7 @@ public class Manager {
         return daoCoach.getAll(Coach.class);
     }
     public static void deleteCourseById(int id) throws SQLException {
-        daoCourse.deleteById(id);
+        daoCourse.delete(id, Course.class);
     }
     public static Student getStudentById(int id) throws SQLException {
         return daoStudent.get(id, Student.class);

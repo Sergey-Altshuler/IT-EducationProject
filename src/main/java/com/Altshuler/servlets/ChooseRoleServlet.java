@@ -15,7 +15,7 @@ public class ChooseRoleServlet extends HttpServlet {
 
         ServletContext servletContext = getServletContext();
         String role = request.getParameter("role");
-        String path = "";
+        String path = ""; // через Map role-path
         switch (role) {
             case "admin": {
                 path = "/adminValidate.jsp";

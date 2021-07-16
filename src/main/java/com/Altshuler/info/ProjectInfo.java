@@ -8,7 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class ProjectInfo {
-    private static final String adminLogin="admin";
+    private static final String adminLogin="admin"; // сделать новую сущность!!!!!
     private static final String adminPassword="password";
     private static Student student=null;
     private static Coach coach = null;

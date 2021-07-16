@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class DataParserTest {
 
     @Test
-    public void parseDate(){
+    public void parseDate(){ // переделать с h2!! после того, как поменяешь логику всю! после того как почистишь ui
         String example = "2020-12-02";
         Date date = Date.valueOf(LocalDate.parse(example));
         assertEquals(date, DataParser.parseDate(example));

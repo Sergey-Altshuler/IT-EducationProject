@@ -38,7 +38,7 @@ public class Coach {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Coach coach = (Coach) o;
-        return id == coach.id && age == coach.age && Objects.equals(login, coach.login) && Objects.equals(password, coach.password) && Objects.equals(name, coach.name) && Objects.equals(surname, coach.surname);
+        return id == coach.id;
     }
 
     @Override

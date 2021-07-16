@@ -40,7 +40,7 @@ public class SessionUtil {
     }
 
     public static void stopSessionFactory() {
-        if (sessionFactory != null)
+        if (sessionFactory != null) // когда закрываешь, нужен ли hibernateUtil
             sessionFactory.close();
     }
 }

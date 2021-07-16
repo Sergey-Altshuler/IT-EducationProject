@@ -27,7 +27,7 @@ public class CoachChooseCourseServlet extends HttpServlet {
         Course course = Manager.getCourseById(num);
         Coach coach = ProjectInfo.getCoach();
 
-        if (coach.getCourseSet() == null) {
+        if (coach.getCourseSet() == null) { //метод на уровне coach с проверкой есть там hashset или нет
             Set<Course> newSet = new HashSet<>();
             newSet.add(course);
             coach.setCourseSet(newSet);

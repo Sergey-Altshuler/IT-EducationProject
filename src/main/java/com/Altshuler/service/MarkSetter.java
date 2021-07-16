@@ -23,7 +23,7 @@ public class MarkSetter {
         Map<Student, Map<String, String>> middleMap = new LinkedHashMap<>();
         for (Student student : course.getStudents()) {
             Map<String, String> newMap = new LinkedHashMap<>(miniMap);
-            newMap.put("Student", DataParser.parseStudent(student));
+            newMap.put("Student", DataParser.parseStudent(student)); //newMap суть переменной
             middleMap.put(student, new LinkedHashMap<>(newMap));
         }
         markMap.put(course, middleMap);
@@ -37,7 +37,7 @@ public class MarkSetter {
         Map<String, String> miniMap = utilMap.get(student);
         int result = 0;
         for (int i = 1; i < miniMap.size() - 2; i++) {
-            if (miniMap.get(String.valueOf(i)).equals("-")) {
+            if (miniMap.get(String.valueOf(i)).equals("-")) { // exception если minimap.get(i)==null
                 result = i;
                 break;
             }
@@ -67,7 +67,7 @@ public class MarkSetter {
             int numOfAbsence = 0;
             double sumMarks = 0;
             for (Map.Entry<String, String> miniMapEntry : miniMap.entrySet()) {
-                if (miniMapEntry.getValue().matches("[0-9]|10"))
+                if (miniMapEntry.getValue().matches("[0-9]|10")) // в константы!!!!!
                     sumMarks += Double.parseDouble(miniMapEntry.getValue());
                 if (miniMapEntry.getValue().matches("N"))
                     numOfAbsence++;

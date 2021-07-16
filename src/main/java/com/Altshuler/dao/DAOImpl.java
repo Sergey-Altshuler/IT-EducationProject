@@ -55,4 +55,15 @@ public class DAOImpl<T> implements DAO<T> {
         Query query = session.createQuery("from " + annotationName);
         return query.getResultList();
     }
+
+    @Override
+    public void delete(int id, Class<T> generic) throws SQLException {
+        transaction.begin();
+        String annotationName = generic.getAnnotation(Entity.class).name();
+        String annotationHQL = " " + annotationName + " ";
+        Query query = session.createQuery("delete from" + annotationHQL + "where id= :id");
+        query.setParameter("id", id);
+        query.executeUpdate();
+        transaction.commit();
+    }
 }

@@ -34,7 +34,7 @@ public class Stats {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Stats stats = (Stats) o;
-        return id == stats.id && Double.compare(stats.avgMark, avgMark) == 0 && Double.compare(stats.attendance, attendance) == 0;
+        return id == stats.id;
     }
 
     @Override

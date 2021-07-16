@@ -14,4 +14,6 @@ public interface DAO<T> {
     void saveAll(List<T> t) throws SQLException;
 
     List<T> getAll(Class<T> generic) throws SQLException;
+
+    void delete(int id, Class<T> generic) throws SQLException;
 }

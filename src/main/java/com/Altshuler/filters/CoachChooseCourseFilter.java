@@ -24,7 +24,7 @@ public class CoachChooseCourseFilter implements Filter {
 
         Course course = Manager.getCourseById(Integer.parseInt(req.getParameter("number")));
 
-        if (course.getCoachRequired().equals("Yes")){
+        if (("Yes").equals(course.getCoachRequired())){
             course.setCoachRequired("No");
             filterChain.doFilter(req, resp);
         }
