@@ -1,12 +1,8 @@
 package com.Altshuler.servlets;
 
 import com.Altshuler.model.Course;
-import com.Altshuler.service.Manager;
-import com.Altshuler.service.MarkSetter;
-import lombok.SneakyThrows;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
+import com.Altshuler.servletService.CourseServletService;
+import com.Altshuler.util.MarkUtil;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "adminLaunchCourseServlet", value = "/adminLaunchCourseServlet")
+@WebServlet("/adminLaunchCourseServlet")
 public class adminLaunchCourseServlet extends HttpServlet {
-    @SneakyThrows
+    CourseServletService courseServletService = new CourseServletService();
+    MarkUtil markUtil = new MarkUtil();
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        ServletContext servletContext = getServletContext();
-        int num = Integer.parseInt(request.getParameter("number"));
-        Course course = Manager.getCourseById(num);
+        Course course = courseServletService.getById(Integer.parseInt(request.getParameter("number")));
         course.setIsStarted("true");
-        MarkSetter.initializeMarks(course);
-        RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/adminSuccessLaunch.jsp");
-        requestDispatcher.forward(request, response);
+        courseServletService.add(course);
+        markUtil.initializeMarks(course);
+        request.getRequestDispatcher("/adminSuccessLaunch.jsp").forward(request, response);
     }
 }

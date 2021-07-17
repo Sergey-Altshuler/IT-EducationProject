@@ -1,8 +1,6 @@
 package com.Altshuler.filters;
 
 import com.Altshuler.info.ProjectInfo;
-import com.Altshuler.model.Coach;
-import com.Altshuler.service.Manager;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -10,10 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Enumeration;
-import java.util.List;
 
 @WebFilter(urlPatterns = "/coachFillMarksServlet")
-public class CoachMarksAbsenceFilter implements Filter {
+public class CoachFillMarksFilter implements Filter {
+    private final String regex = "[0-9]|10|N";
+
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
@@ -23,7 +22,12 @@ public class CoachMarksAbsenceFilter implements Filter {
         while (params.hasMoreElements()) {
             String param = params.nextElement();
             if (!param.equals("numLesson")) {
-                if (!req.getParameter(param).matches("[0-9]|10|N")) {
+                if (!req.getParameter(param).matches(regex)) {
+                    areRightParams = false;
+                }
+            } else {
+                int numLesson = Integer.parseInt(req.getParameter("numLesson"));
+                if ((numLesson < 0) || (numLesson > ProjectInfo.getCourse().getNumOfLessons())) {
                     areRightParams = false;
                 }
             }

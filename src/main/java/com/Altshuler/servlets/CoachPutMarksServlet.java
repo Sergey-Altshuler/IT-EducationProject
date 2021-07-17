@@ -4,12 +4,10 @@ import com.Altshuler.info.ProjectInfo;
 import com.Altshuler.model.Course;
 import com.Altshuler.model.Student;
 import com.Altshuler.service.DataParser;
-import com.Altshuler.service.Manager;
-import com.Altshuler.service.MarkSetter;
-import lombok.SneakyThrows;
+import com.Altshuler.servletService.CourseServletService;
+import com.Altshuler.util.ParseUtil;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,25 +17,24 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-@WebServlet(name = "coachPutMarksServlet", value = "/coachPutMarksServlet")
+@WebServlet("/coachPutMarksServlet")
 public class CoachPutMarksServlet extends HttpServlet {
-    @SneakyThrows
+    CourseServletService courseServletService = new CourseServletService();
+    ParseUtil parseUtil = new ParseUtil();
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        ServletContext servletContext = getServletContext();
-        Course course = Manager.getCourseById(Integer.parseInt(request.getParameter("number")));
+
+        Course course = courseServletService.getById(Integer.parseInt(request.getParameter("number")));
         ProjectInfo.setCourse(course);
-        Student student = course.getStudents().stream().findAny().get();
+        Student anyStudent = course.getStudents().stream().findAny().get();
         Map<Student, Map<String,String>> courseMap = ProjectInfo.getMarks().get(course);
         request.setAttribute("courseMap",courseMap);
-        request.setAttribute("titles", courseMap.get(student));
+        request.setAttribute("titles", courseMap.get(anyStudent));
         Map<Integer, String> studentAdditionalMap = new LinkedHashMap<>();
-        for (Student stud: course.getStudents()){
-            studentAdditionalMap.put(stud.getId(), DataParser.parseStudent(stud));
+        for (Student student: course.getStudents()){
+            studentAdditionalMap.put(student.getId(), parseUtil.parseStudent(student));
         }
         request.setAttribute("studentMap", studentAdditionalMap);
-
-        RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/coachPutMarks.jsp");
-        requestDispatcher.forward(request, response);
+        request.getRequestDispatcher("/coachPutMarks.jsp").forward(request,response);
 
     }
 }

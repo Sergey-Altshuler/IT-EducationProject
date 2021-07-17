@@ -1,41 +1,22 @@
 package com.Altshuler.servlets;
 
-import com.Altshuler.model.Course;
-import com.Altshuler.service.DataParser;
-import com.Altshuler.service.HQLWorker;
-import com.Altshuler.service.Manager;
-import lombok.SneakyThrows;
+import com.Altshuler.converter.CourseConverter;
+import com.Altshuler.servletService.CourseServletService;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Date;
 
-@WebServlet(name = "adminAddCourseServlet", value = "/adminAddCourseServlet")
+@WebServlet("/adminAddCourseServlet")
 public class AdminAddCourseServlet extends HttpServlet {
-    @SneakyThrows
+    CourseServletService courseServletService = new CourseServletService();
+    CourseConverter courseConverter = new CourseConverter();
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        ServletContext servletContext = getServletContext();
-        Course course = Course.builder().title(request.getParameter("title")).educationType
-                (request.getParameter("educationType")).price(Integer.parseInt(request.getParameter("price"))).numOfLessons(Integer.parseInt(request.getParameter("numOfLessons"))).address(request.getParameter("address")).numOfStudents(Integer.parseInt(request.getParameter("numOfStudents"))).build();
-        int subgroupNum= HQLWorker.getSubgroupNum(request.getParameter("title"));
+      courseServletService.add(courseConverter.convert(request));
+      request.getRequestDispatcher("/adminSuccessAdd.jsp").forward(request, response);
 
-        Date startDate = DataParser.parseDate(request.getParameter("startDate"));
-        Date finishDate = DataParser.parseDate(request.getParameter("finishDate"));
-        course.setSubgroupNum(subgroupNum);
-        course.setStartDate(startDate);
-        course.setFinishDate(finishDate);
-        course.setIsStarted("false");
-        course.setCoachRequired("Yes");
-        course.setRemaining(course.getNumOfStudents());
-        Manager.addCourse(course);
-
-       RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/adminSuccessAdd.jsp");
-        requestDispatcher.forward(request, response);
     }
 }

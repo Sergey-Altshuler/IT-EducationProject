@@ -18,7 +18,7 @@ public class StatsServletService {
             e.printStackTrace();
         }
     }
-    public List<Stats> getAllStats()  {
+    public List<Stats> getAll()  {
         List<Stats> statsList=null;
         try {
             statsList =  daoStats.getAll(Stats.class);

@@ -1,9 +1,6 @@
-package com.Altshuler.DBUtil;
+package com.Altshuler.util;
 
-import com.Altshuler.model.Coach;
-import com.Altshuler.model.Course;
-import com.Altshuler.model.Stats;
-import com.Altshuler.model.Student;
+import com.Altshuler.model.*;
 import lombok.Getter;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -21,6 +18,7 @@ public class SessionUtil {
             configuration.addAnnotatedClass(Course.class);
             configuration.addAnnotatedClass(Stats.class);
             configuration.addAnnotatedClass(Student.class);
+            configuration.addAnnotatedClass(Admin.class);
             StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
             sessionFactory = configuration.buildSessionFactory(builder.build());
         } catch (Exception e) {

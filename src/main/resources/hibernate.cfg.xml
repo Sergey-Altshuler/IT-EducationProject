@@ -26,5 +26,6 @@
         <mapping class="com.Altshuler.model.Coach"/>
         <mapping class="com.Altshuler.model.Course"/>
         <mapping class="com.Altshuler.model.Stats"/>
+        <mapping class="com.Altshuler.model.Admin"/>
     </session-factory>
 </hibernate-configuration>

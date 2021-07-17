@@ -1,23 +1,23 @@
 package com.Altshuler.servlets;
 
-import java.io.*;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import com.Altshuler.servletService.AdminServletService;
 
-@WebServlet(name = "helloServlet", value = "/start-servlet")
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet("/start-servlet")
 public class StartServlet extends HttpServlet {
+    private final AdminServletService adminServletService = new AdminServletService();
 
     public void init() {
+        adminServletService.initialize();
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        ServletContext servletContext = getServletContext();
-        RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/chooseRole.jsp");
-        requestDispatcher.forward(request,response);
+        request.getRequestDispatcher("/welcome.jsp").forward(request, response);
     }
-
-
 }

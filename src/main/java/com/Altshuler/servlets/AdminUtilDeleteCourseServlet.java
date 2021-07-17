@@ -1,11 +1,7 @@
 package com.Altshuler.servlets;
 
-import com.Altshuler.info.ProjectInfo;
-import com.Altshuler.service.Manager;
-import lombok.SneakyThrows;
+import com.Altshuler.servletService.CourseServletService;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,13 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "adminUtilDeleteCourseServlet", value = "/adminUtilDeleteCourseServlet")
+@WebServlet("/adminUtilDeleteCourseServlet")
 public class AdminUtilDeleteCourseServlet extends HttpServlet {
-    @SneakyThrows
+   CourseServletService courseServletService= new CourseServletService();
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        ServletContext servletContext = getServletContext();
-        request.setAttribute("courses", Manager.getAllCourses());
-        RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/adminDeleteCourse.jsp");
-        requestDispatcher.forward(request, response);
+        request.setAttribute("courses", courseServletService.getAll());
+        request.getRequestDispatcher("/adminDeleteCourse.jsp").forward(request, response);
     }
 }

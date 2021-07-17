@@ -33,6 +33,16 @@ public class Coach {
     @OneToMany (mappedBy = "coach")
     Set<Course> courseSet = new HashSet<>();
 
+    public void addCourse(Course course){
+        if (courseSet == null) {
+            Set<Course> courseEmptySet = new HashSet<>();
+            courseEmptySet.add(course);
+            setCourseSet(courseEmptySet);
+        } else {
+            courseSet.add(course);
+        }
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -12,7 +12,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "admin")
+@Table(name = "administrator")
 @Entity(name = "admin")
 public class Admin {
     @Id

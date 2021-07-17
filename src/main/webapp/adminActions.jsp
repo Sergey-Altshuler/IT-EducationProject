@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ASUS
-  Date: 07.07.2021
-  Time: 18:26
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -24,7 +17,8 @@
 <br>
 <a href="adminDisplayStatsServlet"> Display Statistics </a>
 <br>
+<a href="adminChangeProperties.jsp"> Change admin login and password </a>
+<br>
 <a href="index.jsp"> Move to start page </a>
-
 </body>
 </html>

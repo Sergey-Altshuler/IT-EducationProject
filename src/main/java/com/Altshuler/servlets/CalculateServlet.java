@@ -1,11 +1,8 @@
 package com.Altshuler.servlets;
 
 import com.Altshuler.info.ProjectInfo;
-import com.Altshuler.service.MarkSetter;
-import lombok.SneakyThrows;
+import com.Altshuler.util.MarkUtil;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,14 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "calculateServlet", value = "/calculateServlet")
+@WebServlet("/calculateServlet")
 public class CalculateServlet extends HttpServlet {
-    @SneakyThrows
+    MarkUtil markUtil = new MarkUtil();
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        ServletContext servletContext = getServletContext();
-        MarkSetter.calculateIndividualStatistics(ProjectInfo.getCourse());
-        MarkSetter.calculateTotalStatistics(ProjectInfo.getCourse());
-        RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/successGenerateStats.jsp");
-        requestDispatcher.forward(request, response);
+        markUtil.calculateIndividualStatistics(ProjectInfo.getCourse());
+        markUtil.calculateTotalStatistics(ProjectInfo.getCourse());
+        request.getRequestDispatcher("/successGenerateStats.jsp").forward(request, response);
     }
 }

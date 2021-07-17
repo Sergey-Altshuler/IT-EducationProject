@@ -8,6 +8,7 @@
         <class>com.Altshuler.model.Course</class>
         <class>com.Altshuler.model.Coach</class>
         <class>com.Altshuler.model.Student</class>
+        <class>com.Altshuler.model.Admin</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url"

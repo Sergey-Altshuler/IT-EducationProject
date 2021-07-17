@@ -1,6 +1,6 @@
 package com.Altshuler.dao;
 
-import com.Altshuler.DBUtil.SessionUtil;
+import com.Altshuler.util.SessionUtil;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -36,8 +36,11 @@ public class DAOImpl<T> implements DAO<T> {
     public void deleteAll(Class<T> generic) {
         String annotationName = generic.getAnnotation(Entity.class).name();
         Session session = SessionUtil.getSession();
+        session.getTransaction().begin();
         Query query = session.createQuery("delete from " + annotationName);
         query.executeUpdate();
+        session.getTransaction().commit();
+        session.close();
 
     }
 
@@ -52,8 +55,10 @@ public class DAOImpl<T> implements DAO<T> {
     @Override
     public List<T> getAll(Class<T> generic) throws SQLException {
         Session session = SessionUtil.getSession();
+        session.getTransaction().begin();
         String annotationName = generic.getAnnotation(Entity.class).name();
         Query query = session.createQuery("from " + annotationName);
+        session.getTransaction().commit();
         session.close();
         return query.getResultList();
     }

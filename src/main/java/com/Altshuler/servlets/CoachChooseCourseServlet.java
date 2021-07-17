@@ -3,43 +3,30 @@ package com.Altshuler.servlets;
 import com.Altshuler.info.ProjectInfo;
 import com.Altshuler.model.Coach;
 import com.Altshuler.model.Course;
-import com.Altshuler.model.Student;
-import com.Altshuler.service.Manager;
-import lombok.SneakyThrows;
+import com.Altshuler.servletService.CoachServletService;
+import com.Altshuler.servletService.CourseServletService;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
 
-@WebServlet(name = "coachChooseCourseServlet", value = "/coachChooseCourseServlet")
+@WebServlet("/coachChooseCourseServlet")
 public class CoachChooseCourseServlet extends HttpServlet {
-    @SneakyThrows
+    CoachServletService coachServletService = new CoachServletService();
+    CourseServletService courseServletService = new CourseServletService();
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        ServletContext servletContext = getServletContext();
-        int num = Integer.parseInt(request.getParameter("number"));
-        Course course = Manager.getCourseById(num);
+        Course course = courseServletService.getById(Integer.parseInt(request.getParameter("number")));
         Coach coach = ProjectInfo.getCoach();
-
-        if (coach.getCourseSet() == null) { //метод на уровне coach с проверкой есть там hashset или нет
-            Set<Course> newSet = new HashSet<>();
-            newSet.add(course);
-            coach.setCourseSet(newSet);
-        } else {
-            coach.getCourseSet().add(course);
-        }
+        coach.addCourse(course);
         course.setCoach(coach);
-        Manager.addCoach(coach);
-        Manager.addCourse(course);
+        coachServletService.add(coach);
+        courseServletService.add(course);
         ProjectInfo.setCoach(coach);
+        request.getRequestDispatcher("/coachSuccessEnroll.jsp").forward(request, response);
 
-        RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/coachSuccessEnroll.jsp");
-        requestDispatcher.forward(request, response);
     }
 }

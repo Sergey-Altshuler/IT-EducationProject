@@ -1,10 +1,7 @@
 package com.Altshuler.servlets;
 
-import com.Altshuler.service.Manager;
-import lombok.SneakyThrows;
+import com.Altshuler.servletService.StatsServletService;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,13 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "adminDisplayStatsServlet", value = "/adminDisplayStatsServlet")
+@WebServlet("/adminDisplayStatsServlet")
 public class AdminDisplayStatsServlet extends HttpServlet {
-    @SneakyThrows
+    StatsServletService statsServletService = new StatsServletService();
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        ServletContext servletContext = getServletContext();
-        request.setAttribute("stats", Manager.getAllStats());
-        RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/adminDisplayStats.jsp");
-        requestDispatcher.forward(request, response);
+        request.setAttribute("stats", statsServletService.getAll());
+        request.getRequestDispatcher("/adminDisplayStats.jsp").forward(request, response);
     }
 }

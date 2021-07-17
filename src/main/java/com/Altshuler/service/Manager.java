@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class Manager { // убрать статику. сделать как service и имплементацию
-    public static final DAOStudent daoStudent = new DAOStudentImpl();
+   /* public static final DAOStudent daoStudent = new DAOStudentImpl();
     public static final DAOCourse daoCourse = new DAOCourseImpl();
     public static final DAOStats daoStats = new DAOStatsImpl();
     public static final DAOCoach daoCoach = new DAOCoachImpl();
@@ -47,6 +47,6 @@ public class Manager { // убрать статику. сделать как ser
     }
     public static List<Stats> getAllStats() throws SQLException {
         return daoStats.getAll(Stats.class);
-    }
+    }*/
 
 }
