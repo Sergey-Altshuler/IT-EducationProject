@@ -7,6 +7,7 @@
 </head>
 <body>
 <h1> Select your role </h1>
+<a href="welcome.jsp"> Go back </a>
 <div align="center">
 <form action="chooseRole-servlet" method="post">
     <p><input name="role" type="radio" value="admin"> Administrator</p>

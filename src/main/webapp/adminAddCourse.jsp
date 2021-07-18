@@ -6,9 +6,11 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1> Create a new course </h1>
+<h1> Your role: Admin <br> Create a new course </h1>
 <br>
 <br>
+<a href="adminValidate.jsp"> Log out </a>
+<a href="adminActions.jsp"> Go back </a>
 <br>
 <div align="center">
 <form action="adminAddCourseServlet" method="POST">
@@ -68,6 +70,7 @@
     Finish Date (enter like YYYY-MM-dd)
     <br>
     <input name="finishDate" type="text" required>
+    <br>
     <br>
     <input type="submit" value="create a Course" class="button"/>
 

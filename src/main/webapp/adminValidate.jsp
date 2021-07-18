@@ -6,18 +6,20 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1> You are Admin. <br> Please, fill the form below! </h1>
+<h1> You role: Admin. <br> Please, fill the form below! </h1>
+<a href="chooseRole.jsp"> Go back </a>
 <div align="center">
 <form action="adminServlet" method="post">
-    Insert Admin login:
+    Login:
     <br>
     <input name="login" type="text"/>
     <br>
-    Insert Admin password:
+    Password:
     <br>
     <input name="password" type="password"/>
     <br>
-    <input type="submit" value="OK" class="button"/>
+    <br>
+    <input type="submit" value="Login" class="button"/>
 </form>
 </div>
 </body>
