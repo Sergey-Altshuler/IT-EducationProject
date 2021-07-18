@@ -1,6 +1,6 @@
 package com.Altshuler.servlets;
 
-import com.Altshuler.servletService.CourseServletService;
+import com.Altshuler.servlce.CourseServletService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

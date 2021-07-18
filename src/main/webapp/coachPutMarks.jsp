@@ -1,3 +1,4 @@
+<%@ page import="com.Altshuler.info.ProjectInfo" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -7,8 +8,12 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1>This is rank table. Please, put marks. Insert numbers 0-10 or "N"(if the student is absent)</h1>
+<h1>Hello, <%=ProjectInfo.getCoach().getName()%> <%=ProjectInfo.getCoach().getSurname()%>!<br>
+    Put marks (numbers 0-10 or "N")</h1>
 <br>
+<br>
+<a href="coachValidate.jsp"> Log out </a>
+<a href="coachRedirect.jsp"> Go back </a>
 <br>
 <table>
     <tr>

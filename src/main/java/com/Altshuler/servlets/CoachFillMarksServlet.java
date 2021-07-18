@@ -1,13 +1,9 @@
 package com.Altshuler.servlets;
 
 import com.Altshuler.info.ProjectInfo;
-import com.Altshuler.model.Course;
-import com.Altshuler.service.Manager;
-import com.Altshuler.service.MarkSetter;
-import com.Altshuler.servletService.CourseServletService;
+import com.Altshuler.servlce.CourseServletService;
 import com.Altshuler.util.MarkUtil;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,6 +31,6 @@ public class CoachFillMarksServlet extends HttpServlet {
         }
         markUtil.setLessonMarks(ProjectInfo.getCourse(), studentsAndMarks, numLesson);
         request.setAttribute("courses", courseServletService.getAll());
-        request.getRequestDispatcher("/coachSuccessPutMarks.jsp").forward(request, response);
+        request.getRequestDispatcher("/coachChooseCourse.jsp").forward(request, response);
     }
 }

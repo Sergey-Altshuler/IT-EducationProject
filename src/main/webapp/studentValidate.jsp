@@ -6,27 +6,25 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1>Please, fill the form below!</h1>
+<h1>Your role: Student. <br> Fill the form below!</h1>
+<a href="chooseRole.jsp"> Go back </a>
+<br>
 <div align="center">
-<form action="studentServlet" method="post">
-    Insert Student login:
+<form action="studentServlet" method="get">
+    Login:
     <br>
-    <input name="login" type="text"/>
+    <input required name="login" type="text"/>
     <br>
-    Insert Student password:
+    Password:
     <br>
-    <input name="password" type="password"/>
+    <input required name="password" type="password"/>
     <br>
-    <input type="submit" value="OK" class="button"/>
+    <input type="submit" value="Login" class="button"/>
 </form>
 </div>
 <h3>If you have not been registered yet, click on the link below.</h3>
 <div align="center">
 <a href="studentRegister.jsp"> register</a>
-</div>
-<h3>Click here if you want to move to start page</h3>
-<div align="center">
-<a href="index.jsp"> move to start page</a>
 </div>
 </body>
 </html>

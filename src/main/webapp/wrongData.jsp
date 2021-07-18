@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h3> You have entered incorrect login or password.</h3>
-<a href="index.jsp"> Return to the start page</a>
+<h1> Error! Incorrect Data!</h1>
+<a href="welcome.jsp"> Return to the start page</a>
 </body>
 </html>

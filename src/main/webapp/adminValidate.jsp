@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1> You role: Admin. <br> Please, fill the form below! </h1>
+<h1> Your role: Admin. <br> Fill the form below! </h1>
 <a href="chooseRole.jsp"> Go back </a>
 <div align="center">
 <form action="adminServlet" method="post">

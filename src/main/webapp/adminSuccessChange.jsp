@@ -13,12 +13,19 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1> Your changes have been confirmed!</h1>
+<h1> Your role: Admin <br> New login and password </h1>
 <br>
 <br>
-<h3> Click here to return back </h3>
+<a href="adminValidate.jsp"> Log out </a>
+<a href="adminActions.jsp"> Go back </a>
+<br>
+<h3> The changes have been confirmed. </h3>
+<br>
 <div align="center">
-    <a href="adminActions.jsp">return back</a>
+    <h3>
+        New login: ${login}
+        New password: ${password}
+    </h3>
 </div>
 </body>
 </html>

@@ -7,12 +7,18 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1>Please, select a course you want to launch</h1>
+<h1>Your role: Admin <br> Launch a course</h1>
+<br>
+<br>
+<a href="adminValidate.jsp"> Log out </a>
+<a href="adminActions.jsp"> Go back </a>
+<br>
 <table>
     <tr>
         <th>id</th>
         <th>title</th>
         <th>subgroup</th>
+        <th>Number of students</th>
         <th>EducationType</th>
         <th>price</th>
         <th>address</th>
@@ -21,12 +27,14 @@
         <th>Places Remaining</th>
         <th>Coach Required</th>
         <th>Is started</th>
+        <th>Press here and launch</th>
     </tr>
     <c:forEach var="courses" items="${courses}">
         <tr>
             <td>${courses.id}</td>
             <td>${courses.title}</td>
             <td>${courses.subgroupNum}</td>
+            <td>${courses.numOfStudents}</td>
             <td>${courses.educationType}</td>
             <td>${courses.price}</td>
             <td>${courses.address}</td>
@@ -35,21 +43,9 @@
             <td>${courses.remaining}</td>
             <td>${courses.coachRequired}</td>
             <td>${courses.isStarted}</td>
+            <td><a href="adminLaunchCourseServlet?launchId=${courses.id}"> launch </a> </td>
         </tr>
     </c:forEach>
 </table>
-
-<br>
-<h3>Please, insert the number of course you want to launch</h3>
-<br>
-<div align="center">
-<form action="adminLaunchCourseServlet" method="post">
-    Number of course:
-    <br>
-    <input name="number" type="text"/>
-    <br>
-    <input type="submit" value="OK" class="button"/>
-</form>
-</div>
 </body>
 </html>

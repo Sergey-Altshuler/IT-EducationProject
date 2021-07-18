@@ -1,6 +1,6 @@
 package com.Altshuler.servlets;
 
-import com.Altshuler.servletService.AdminServletService;
+import com.Altshuler.servlce.AdminServletService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/start-servlet")
+@WebServlet("/startServlet")
 public class StartServlet extends HttpServlet {
     private final AdminServletService adminServletService = new AdminServletService();
 

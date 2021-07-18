@@ -1,7 +1,7 @@
 package com.Altshuler.servlets;
 
 import com.Altshuler.converters.CoachConverter;
-import com.Altshuler.servletService.CoachServletService;
+import com.Altshuler.servlce.CoachServletService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +17,8 @@ public class CoachRegisterServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         coachServletService.add(coachConverter.convert(request));
+        request.setAttribute("login", request.getParameter("login"));
+        request.setAttribute("password", request.getParameter("password"));
         request.getRequestDispatcher("/coachSuccessRegister.jsp").forward(request, response);
     }
 

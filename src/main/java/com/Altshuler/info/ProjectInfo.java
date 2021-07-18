@@ -4,9 +4,7 @@ import com.Altshuler.model.Coach;
 import com.Altshuler.model.Course;
 import com.Altshuler.model.Student;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 public class ProjectInfo {
     private static Student currentStudent = null;

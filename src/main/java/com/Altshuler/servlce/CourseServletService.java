@@ -1,4 +1,4 @@
-package com.Altshuler.servletService;
+package com.Altshuler.servlce;
 
 import com.Altshuler.dao.DAOCourse;
 import com.Altshuler.dao.DAOCourseImpl;

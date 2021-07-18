@@ -6,11 +6,16 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<body>
-<h1>Congratulations! You have successfully registered</h1>
+<h1> Your role: Coach <br> You have been successfully registered! </h1>
 <br>
 <br>
-<a href="coachValidate.jsp"> return back </a>
-</body>
+<a href="coachValidate.jsp"> Go back </a>
+<br>
+<div align="center">
+    <h3>
+        Your login: <br>${login} <br>
+        Your password: <br>${password}
+    </h3>
+</div>
 </body>
 </html>

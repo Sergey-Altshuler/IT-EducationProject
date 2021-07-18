@@ -16,7 +16,7 @@ public class CalculateFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         String contextPath = req.getContextPath();
-        if (markUtil.getIsFinished(ProjectInfo.getCourse()) == 0)
+        if (markUtil.getIsFinished(ProjectInfo.getCourse()) == 0 && (ProjectInfo.getCourse().getStats()==null))
             filterChain.doFilter(req, resp);
         else resp.sendRedirect(contextPath + "/wrongOperation.jsp");
 

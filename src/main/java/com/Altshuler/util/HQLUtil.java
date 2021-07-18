@@ -32,13 +32,4 @@ public class HQLUtil {
             return null;
         } else return resultList.get(0);
     }
-
-    public boolean checkCourseById(int id) {
-        Session session = SessionUtil.getSession();
-        Query query = session.createQuery("from course c where c.id = :id");
-        query.setParameter("id", id);
-        List<Course> resultList = query.getResultList();
-        session.close();
-        return (resultList != null) && (resultList.size() != 0);
-    }
 }

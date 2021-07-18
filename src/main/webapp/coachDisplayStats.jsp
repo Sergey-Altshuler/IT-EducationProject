@@ -1,17 +1,19 @@
+<%@ page import="com.Altshuler.info.ProjectInfo" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>adminDisplayStats</title>
+    <title>CoachDisplayStats</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1> Your role: Admin <br> Statistics </h1>
+<h1>Hello, <%=ProjectInfo.getCoach().getName()%> <%=ProjectInfo.getCoach().getSurname()%>!<br>
+Total Stats</h1>
 <br>
 <br>
-<a href="adminValidate.jsp"> Log out </a>
-<a href="adminActions.jsp"> Go back </a>
+<a href="coachValidate.jsp"> Log out </a>
+<a href="coachRedirect.jsp"> Go back </a>
 <br>
 <table>
     <tr>

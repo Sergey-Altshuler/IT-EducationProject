@@ -4,9 +4,9 @@ import com.Altshuler.info.ProjectInfo;
 import com.Altshuler.model.Course;
 import com.Altshuler.model.Stats;
 import com.Altshuler.model.Student;
-import com.Altshuler.servletService.CourseServletService;
-import com.Altshuler.servletService.StatsServletService;
-import com.Altshuler.servletService.StudentServletService;
+import com.Altshuler.servlce.CourseServletService;
+import com.Altshuler.servlce.StatsServletService;
+import com.Altshuler.servlce.StudentServletService;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

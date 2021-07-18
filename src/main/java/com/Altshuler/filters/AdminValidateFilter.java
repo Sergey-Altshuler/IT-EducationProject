@@ -1,6 +1,6 @@
 package com.Altshuler.filters;
 
-import com.Altshuler.servletService.AdminServletService;
+import com.Altshuler.servlce.AdminServletService;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

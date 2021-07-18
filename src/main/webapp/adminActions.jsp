@@ -14,7 +14,7 @@
 <br>
 <a href="adminDropCourseServlet"> Delete a Course </a>
 <br>
-<a href="adminUtilLaunchCourseServlet"> Launch a Course </a>
+<a href="adminLaunchCourseServlet"> Launch a Course </a>
 <br>
 <a href="adminDisplayStatsServlet"> Display Statistics </a>
 <br>

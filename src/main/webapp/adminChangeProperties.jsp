@@ -13,14 +13,19 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1> Please, change your login and password </h1>
+<h1>Your role: Admin <br> Launch a course</h1>
+<br>
+<br>
+<a href="adminValidate.jsp"> Log out </a>
+<a href="adminActions.jsp"> Go back </a>
+<br>
 <div align="center">
     <form action="adminChangePropertiesServlet" method="post">
-        Insert your new login:
+        Insert new admin login:
         <br>
         <input name="login" type="text"/>
         <br>
-        Insert your new password:
+        Insert new admin password:
         <br>
         <input name="password" type="password"/>
         <br>

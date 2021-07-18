@@ -1,6 +1,6 @@
 package com.Altshuler.filters;
 
-import com.Altshuler.servletService.StudentServletService;
+import com.Altshuler.servlce.StudentServletService;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -17,10 +17,13 @@ public class StudentValidateFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         String contextPath = req.getContextPath();
-
-        if (studentServletService.validate(req.getParameter("login"), req.getParameter("password"))) {
-            studentServletService.logIn(req.getParameter("login"), req.getParameter("password"));
+        if ((req.getParameter("login") == null) && (req.getParameter("password") == null))
             filterChain.doFilter(req, resp);
-        } else resp.sendRedirect(contextPath + "/wrongData.jsp");
+        else {
+            if (studentServletService.validate(req.getParameter("login"), req.getParameter("password"))) {
+                studentServletService.logIn(req.getParameter("login"), req.getParameter("password"));
+                filterChain.doFilter(req, resp);
+            } else resp.sendRedirect(contextPath + "/wrongData.jsp");
+        }
     }
 }

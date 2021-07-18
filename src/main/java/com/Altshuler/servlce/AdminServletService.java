@@ -1,8 +1,7 @@
-package com.Altshuler.servletService;
+package com.Altshuler.servlce;
 
 import com.Altshuler.dao.DAOAdmin;
 import com.Altshuler.dao.DAOAdminImpl;
-import com.Altshuler.info.ProjectInfo;
 import com.Altshuler.model.Admin;
 
 import java.sql.SQLException;

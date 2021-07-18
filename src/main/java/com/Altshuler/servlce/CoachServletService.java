@@ -1,4 +1,4 @@
-package com.Altshuler.servletService;
+package com.Altshuler.servlce;
 
 import com.Altshuler.dao.DAOCoach;
 import com.Altshuler.dao.DAOCoachImpl;
@@ -27,7 +27,5 @@ public class CoachServletService {
     public void logIn(String login, String password){
          ProjectInfo.setCoach(hqlUtil.checkCoach(login, password));
     }
-    public void logOut(){
-        ProjectInfo.setCoach(null);
-    }
+
 }

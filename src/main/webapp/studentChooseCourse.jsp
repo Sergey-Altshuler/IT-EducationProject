@@ -1,3 +1,4 @@
+<%@ page import="com.Altshuler.info.ProjectInfo" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java"%>
 <html>
@@ -7,8 +8,11 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1>Please, select a course</h1>
+<h1>Hello, <%=ProjectInfo.getStudent().getName()%> <%=ProjectInfo.getStudent().getSurname()%>!<br>
+Select a course</h1>
 <br>
+<br>
+<a href="studentValidate.jsp"> Log out </a>
 <br>
 <table>
     <tr>
@@ -21,6 +25,7 @@
         <th>startDate</th>
         <th>finishDate</th>
         <th>Students Remaining</th>
+        <th>Press here and enroll</th>
     </tr>
     <c:forEach var="courses" items="${courses}">
         <tr>
@@ -33,22 +38,10 @@
             <td>${courses.startDate}</td>
             <td>${courses.finishDate}</td>
             <td>${courses.remaining}</td>
+            <td><a href="studentChooseCourseServlet?number=${courses.id}"> enroll </a> </td>
         </tr>
     </c:forEach>
 </table>
-
-    <br>
-    <h3>Please, insert the number of course you want to be enrolled</h3>
-      <div align="center">
-    <form action="studentChooseCourseServlet" method="post">
-        Number of course:
-        <br>
-        <input name="number" type="text"/>
-        <br>
-        <input type="submit" value="OK" class="button"/>
-    </form>
-      </div>
-
 
 </body>
 </html>

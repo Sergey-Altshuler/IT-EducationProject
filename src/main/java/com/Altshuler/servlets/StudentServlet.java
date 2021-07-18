@@ -1,6 +1,6 @@
 package com.Altshuler.servlets;
 
-import com.Altshuler.servletService.CourseServletService;
+import com.Altshuler.servlce.CourseServletService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +13,7 @@ import java.io.IOException;
 public class StudentServlet extends HttpServlet {
     CourseServletService courseServletService = new CourseServletService();
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         request.setAttribute("courses", courseServletService.getAll());
         request.getRequestDispatcher("/studentChooseCourse.jsp").forward(request, response);

@@ -6,7 +6,11 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1>Fill in the form below</h1>
+<h1>Your role: Student <br> Fill the form below!</h1>
+<br>
+<br>
+<a href="studentValidate.jsp"> Go back </a>
+<br>
 <div align="center">
 <form action="studentRegisterServlet" method="POST">
     <br>
@@ -30,12 +34,12 @@
     <br>
     <input name="age" required type="text">
     <br>
-    Interests
+    Interests:
     <br>
     <input name="interests" required type="text">
     <br>
     <br>
-    <input type="submit" value="confirm registration" class="button"/>
+    <input type="submit" value="confirm" class="button"/>
 
 </form>
 </div>

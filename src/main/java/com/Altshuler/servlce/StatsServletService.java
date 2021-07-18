@@ -1,4 +1,4 @@
-package com.Altshuler.servletService;
+package com.Altshuler.servlce;
 
 import com.Altshuler.dao.DAOStats;
 import com.Altshuler.dao.DAOStatsImpl;

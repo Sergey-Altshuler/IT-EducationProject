@@ -1,9 +1,8 @@
-package com.Altshuler.servletService;
+package com.Altshuler.servlce;
 
 import com.Altshuler.dao.DAOStudent;
 import com.Altshuler.dao.DAOStudentImpl;
 import com.Altshuler.info.ProjectInfo;
-import com.Altshuler.model.Coach;
 import com.Altshuler.model.Student;
 import com.Altshuler.util.HQLUtil;
 
@@ -38,7 +37,5 @@ public class StudentServletService {
     public void logIn(String login, String password){
         ProjectInfo.setStudent(hqlUtil.checkStudent(login, password));
     }
-    public void logOut(){
-        ProjectInfo.setStudent(null);
-    }
+
 }
