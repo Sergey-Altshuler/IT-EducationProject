@@ -1,4 +1,4 @@
-package com.Altshuler.converter;
+package com.Altshuler.converters;
 
 import com.Altshuler.model.Course;
 import com.Altshuler.util.CourseGroupUtil;

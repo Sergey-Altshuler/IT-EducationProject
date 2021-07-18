@@ -30,7 +30,7 @@ public class Coach {
     private String surname;
     @Column
     private int age;
-    @OneToMany (mappedBy = "coach")
+    @OneToMany (mappedBy = "coach", fetch = FetchType.EAGER)
     Set<Course> courseSet = new HashSet<>();
 
     public void addCourse(Course course){

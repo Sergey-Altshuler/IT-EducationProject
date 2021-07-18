@@ -46,7 +46,7 @@ public class Course implements Serializable {
     private int remaining;
     @Column
     private String coachRequired;
-    @OneToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
     private Set<Student> students = new HashSet<>();
 
     @ManyToOne(cascade = CascadeType.PERSIST)

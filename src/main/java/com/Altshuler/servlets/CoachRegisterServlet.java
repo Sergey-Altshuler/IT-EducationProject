@@ -1,6 +1,6 @@
 package com.Altshuler.servlets;
 
-import com.Altshuler.converter.CoachConverter;
+import com.Altshuler.converters.CoachConverter;
 import com.Altshuler.servletService.CoachServletService;
 
 import javax.servlet.ServletException;

@@ -16,8 +16,9 @@ public class MarkUtil {
     private final CourseServletService courseServletService = new CourseServletService();
     private final StudentServletService studentServletService = new StudentServletService();
     private final StatsServletService statsServletService = new StatsServletService();
-    private final String regexMark="[0-9]|10";
-    private final String regexAttendance="N";
+    private final String regexMark = "[0-9]|10";
+    private final String regexAttendance = "N";
+
     public void initializeMarks(Course course) {
         Map<Course, Map<Student, Map<String, String>>> markMap = ProjectInfo.getMarks();
         Map<String, String> miniMap = new LinkedHashMap<>();
@@ -29,9 +30,9 @@ public class MarkUtil {
         miniMap.put("attendance", "-");
         Map<Student, Map<String, String>> middleMap = new LinkedHashMap<>();
         for (Student student : course.getStudents()) {
-            Map<String, String> newMap = new LinkedHashMap<>(miniMap);
-            newMap.put("Student", parseUtil.parseStudent(student)); //newMap суть переменной
-            middleMap.put(student, new LinkedHashMap<>(newMap));
+            Map<String, String> studentMarkMap = new LinkedHashMap<>(miniMap);
+            studentMarkMap.put("Student", parseUtil.parseStudent(student));
+            middleMap.put(student, new LinkedHashMap<>(studentMarkMap));
         }
         markMap.put(course, middleMap);
         ProjectInfo.setMarks(markMap);
@@ -52,7 +53,7 @@ public class MarkUtil {
         return result;
     }
 
-    public void setLessonMarks(Course course, Map<String, String> studentsMarksMap, int numLesson)  {
+    public void setLessonMarks(Course course, Map<String, String> studentsMarksMap, int numLesson) {
         Map<Course, Map<Student, Map<String, String>>> markMap = ProjectInfo.getMarks();
         Map<Student, Map<String, String>> middleMap = markMap.get(course);
         for (Map.Entry<String, String> mapEntry : studentsMarksMap.entrySet()) {
@@ -104,8 +105,8 @@ public class MarkUtil {
             String avgFinal = avg.replace(",", ".");
             avgMark = avgMark + Double.parseDouble(avgFinal);
         }
-        double courseAttendance = avgAttendance / numOfStudents;
-        double courseMark = avgMark / numOfStudents;
+        double courseAttendance = (Math.round(avgAttendance / numOfStudents * 1000)) / 1000.0;
+        double courseMark = (Math.round(avgMark / numOfStudents * 1000)) / 1000.0;
         Stats stats = Stats.builder().avgMark(courseMark).attendance(courseAttendance).build();
         stats.setCourse(course);
         course.setStats(stats);

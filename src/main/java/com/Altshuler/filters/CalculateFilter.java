@@ -18,7 +18,7 @@ public class CalculateFilter implements Filter {
         String contextPath = req.getContextPath();
         if (markUtil.getIsFinished(ProjectInfo.getCourse()) == 0)
             filterChain.doFilter(req, resp);
-        else resp.sendRedirect(contextPath + "/wrongData.jsp");
+        else resp.sendRedirect(contextPath + "/wrongOperation.jsp");
 
     }
 }

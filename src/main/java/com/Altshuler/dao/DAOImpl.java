@@ -57,10 +57,10 @@ public class DAOImpl<T> implements DAO<T> {
         Session session = SessionUtil.getSession();
         session.getTransaction().begin();
         String annotationName = generic.getAnnotation(Entity.class).name();
-        Query query = session.createQuery("from " + annotationName);
+        List<T> resultList = session.createQuery("from " + annotationName).getResultList();
         session.getTransaction().commit();
         session.close();
-        return query.getResultList();
+        return resultList;
     }
 
     @Override

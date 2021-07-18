@@ -34,7 +34,7 @@ public class CoachFillMarksFilter implements Filter {
         }
         if (areRightParams)
             filterChain.doFilter(req, resp);
-        else resp.sendRedirect(contextPath + "/wrongData.jsp");
+        else resp.sendRedirect(contextPath + "/wrongOperation.jsp");
 
     }
 }

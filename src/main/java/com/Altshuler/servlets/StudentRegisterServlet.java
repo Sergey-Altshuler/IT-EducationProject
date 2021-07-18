@@ -1,6 +1,6 @@
 package com.Altshuler.servlets;
 
-import com.Altshuler.converter.StudentConverter;
+import com.Altshuler.converters.StudentConverter;
 import com.Altshuler.servletService.StudentServletService;
 
 import javax.servlet.ServletException;
