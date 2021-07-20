@@ -94,6 +94,7 @@ public class Course implements Serializable {
                 ", numOfLessons=" + numOfLessons +
                 ", isStarted='" + isStarted + '\'' +
                 ", remaining=" + remaining +
+                ", coachRequired='" + coachRequired + '\'' +
                 '}';
     }
 }

@@ -1,19 +1,25 @@
 <%@ page import="com.Altshuler.info.ProjectInfo" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="language"
+       value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}"
+       scope="session"/>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="text"/>
+<html lang="${language}">
 <head>
     <title>CoachPutMarks</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1>Hello, <%=ProjectInfo.getCoach().getName()%> <%=ProjectInfo.getCoach().getSurname()%>!<br>
-    Put marks (numbers 0-10 or "N")</h1>
+<h1><fmt:message key="label.hello"/> <%=ProjectInfo.getCoach().getName()%> <%=ProjectInfo.getCoach().getSurname()%>!<br>
+    <fmt:message key="label.putMarksAttendance"/></h1>
 <br>
 <br>
-<a href="coachValidate.jsp"> Log out </a>
-<a href="coachRedirect.jsp"> Go back </a>
+<a href="coachValidate.jsp"> <fmt:message key="label.logOut"/>  </a>
+<a href="coachRedirect.jsp"> <fmt:message key="label.goBack"/> </a>
 <br>
 <table>
     <tr>
@@ -39,22 +45,22 @@
 <br>
 <div align="center">
 <form action="coachFillMarksServlet" method="POST">
-    Insert number of lesson: <input required name="numLesson" type="text">
+    <fmt:message key="label.NumOfLesson"/> <input required name="numLesson" type="text">
     <br>
     <c:forEach var="student" items="${studentMap}">
         <br>
-        Mark for ${student.value} :  <input required name=${student.key} type="text">
+        <fmt:message key="label.mark"/> ${student.value} :  <input required name=${student.key} type="text">
         <br>
 
     </c:forEach>
-    <input type="submit"  value="put Marks" class="button"/>
+    <input type="submit"  value="OK" class="button"/>
 </form>
 </div>
 <br>
 <br>
-<h3>If the latest lesson has been finished, click on the link below and generate total stats.</h3>
+<h3><fmt:message key="label.generateTotalStats"/></h3>
 <div align="center">
-<a href="calculateServlet"> generate statistics and finish the course </a>
+<a href="calculateServlet"> <fmt:message key="label.generate"/> </a>
 </div>
 </body>
 </html>

@@ -18,6 +18,6 @@ public class StartServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        request.getRequestDispatcher("/welcome.jsp").forward(request, response);
+        request.getRequestDispatcher("/chooseLanguage.jsp").forward(request, response);
     }
 }

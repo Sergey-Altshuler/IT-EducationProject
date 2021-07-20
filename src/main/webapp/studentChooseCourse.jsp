@@ -1,31 +1,37 @@
 <%@ page import="com.Altshuler.info.ProjectInfo" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" language="java"%>
-<html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="language"
+       value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}"
+       scope="session"/>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="text"/>
+<html lang="${language}">
 <head>
     <title>StudentChooseCourse</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1>Hello, <%=ProjectInfo.getStudent().getName()%> <%=ProjectInfo.getStudent().getSurname()%>!<br>
-Select a course</h1>
+<h1><fmt:message key="label.hello"/> <%=ProjectInfo.getStudent().getName()%> <%=ProjectInfo.getStudent().getSurname()%>!<br>
+    <fmt:message key="label.selectCourse"/></h1>
 <br>
 <br>
-<a href="studentValidate.jsp"> Log out </a>
+<a href="studentValidate.jsp"> <fmt:message key="label.logOut"/> </a>
 <br>
 <table>
     <tr>
-        <th>id</th>
-        <th>title</th>
-        <th>subgroup</th>
-        <th>EducationType</th>
-        <th>price</th>
-        <th>address</th>
-        <th>startDate</th>
-        <th>finishDate</th>
-        <th>Students Remaining</th>
-        <th>Press here and enroll</th>
+        <th><fmt:message key="label.id"/></th>
+        <th><fmt:message key="label.title"/></th>
+        <th><fmt:message key="label.subgroup"/></th>
+        <th><fmt:message key="label.edType"/></th>
+        <th><fmt:message key="label.price"/></th>
+        <th><fmt:message key="label.address"/></th>
+        <th><fmt:message key="label.startDate"/></th>
+        <th><fmt:message key="label.finishDate"/></th>
+        <th><fmt:message key="label.placesRemaining"/></th>
+        <th><fmt:message key="label.pressAndRegister"/> </th>
     </tr>
     <c:forEach var="courses" items="${courses}">
         <tr>
@@ -38,7 +44,7 @@ Select a course</h1>
             <td>${courses.startDate}</td>
             <td>${courses.finishDate}</td>
             <td>${courses.remaining}</td>
-            <td><a href="studentChooseCourseServlet?number=${courses.id}"> enroll </a> </td>
+            <td><a href="studentChooseCourseServlet?number=${courses.id}"> <fmt:message key="label.pressAndRegister"/>  </a> </td>
         </tr>
     </c:forEach>
 </table>

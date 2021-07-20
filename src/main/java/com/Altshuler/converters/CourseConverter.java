@@ -21,7 +21,7 @@ public class CourseConverter {
                 .subgroupNum(courseGroupUtil.getCourseGroup(request.getParameter("title")))
                 .startDate(parseUtil.parseDate(request.getParameter("startDate")))
                 .finishDate(parseUtil.parseDate(request.getParameter("finishDate")))
-                .isStarted("false")
+                .isStarted("No")
                 .coachRequired("Yes")
                 .remaining(Integer.parseInt(request.getParameter("numOfStudents"))).build();
 

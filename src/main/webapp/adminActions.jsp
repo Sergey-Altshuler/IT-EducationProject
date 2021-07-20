@@ -1,25 +1,30 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="language"
+       value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}"
+       scope="session"/>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="text"/>
+<html lang="${language}">
 <head>
     <title>Admin_actions</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1> Your role: Admin <br> Make your choice </h1>
+<h1> <fmt:message key="label.yourRoleAdmin"/><br> <fmt:message key="label.makeYourChoice"/> </h1>
 <br>
-<a href="adminValidate.jsp"> Log out </a>
+<a href="adminValidate.jsp"><fmt:message key="label.logOut"/></a>
 <br>
-<a href="adminAddCourse.jsp"> Create new Course </a>
+<a href="adminAddCourse.jsp"><fmt:message key="label.createNewCourse"/> </a>
 <br>
-<a href="adminDropCourseServlet"> Delete a Course </a>
+<a href="adminDropCourseServlet"><fmt:message key="label.deleteCourse"/></a>
 <br>
-<a href="adminLaunchCourseServlet"> Launch a Course </a>
+<a href="adminLaunchCourseServlet"> <fmt:message key="label.launchCourse"/></a>
 <br>
-<a href="adminDisplayStatsServlet"> Display Statistics </a>
+<a href="adminDisplayStatsServlet"><fmt:message key="label.displayStatistics"/></a>
 <br>
-<a href="adminChangeProperties.jsp"> Change admin login and password </a>
-<br>
-<a href="welcome.jsp"> Move to start page </a>
+<a href="adminChangeProperties.jsp"><fmt:message key="label.changeAdminLoginPassword"/></a>
 </body>
 </html>

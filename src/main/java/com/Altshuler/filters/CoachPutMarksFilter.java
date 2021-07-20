@@ -21,7 +21,7 @@ public class CoachPutMarksFilter implements Filter {
         String contextPath = req.getContextPath();
 
             Course course = courseServletService.getById(Integer.parseInt(req.getParameter("number")));
-            if (("true").equals(course.getIsStarted())&&((ProjectInfo.getCoach()).equals(course.getCoach()))) {
+            if (("Yes").equals(course.getIsStarted())&&((ProjectInfo.getCoach()).equals(course.getCoach()))) {
                 filterChain.doFilter(req, resp);
             } else resp.sendRedirect(contextPath + "/wrongOperation.jsp");
         }

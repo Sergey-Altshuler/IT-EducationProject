@@ -1,49 +1,56 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="language"
+       value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}"
+       scope="session"/>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="text"/>
+<html lang="${language}">
 <head>
     <title>Admin_addCourse</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1> Your role: Admin <br> Create a new course </h1>
+<h1> <fmt:message key="label.yourRoleAdmin"/> <br> <fmt:message key="label.createNewCourse"/></h1>
 <br>
 <br>
-<a href="adminValidate.jsp"> Log out </a>
-<a href="adminActions.jsp"> Go back </a>
+<a href="adminValidate.jsp"> <fmt:message key="label.logOut"/></a>
+<a href="adminActions.jsp"><fmt:message key="label.goBack"/></a>
 <br>
 <div align="center">
 <form action="adminAddCourseServlet" method="POST">
     <br>
-    Title:
+    <fmt:message key="label.title"/>
     <br>
     <input name="title" required type="text">
     <br>
-    Education type:
+    <fmt:message key="label.edType"/>
     <br>
     <select name="educationType" required>
-        <option disabled selected> Please choose type of course</option>
-        <option value="online"> online</option>
-        <option value="evening"> evening</option>
+        <option disabled selected><fmt:message key="label.chooseTypeOfEducation"/> </option>
+        <option value="online"> <fmt:message key="label.online"/> </option>
+        <option value="evening"> <fmt:message key="label.evening"/> </option>
     </select>
     <br>
-    Price:
+    <fmt:message key="label.price"/>
     <br>
     <input name="price" required type="text">
     <br>
-    Address:
+    <fmt:message key="label.address"/>
     <br>
     <select name="address" required>
-        <option disabled selected> Please choose an address</option>
-        <option value="Минск, Скрыганова-14"> Минск, Скрыганова-14</option>
-        <option value="Минск, Гикало-3"> Минск, Гикало-3</option>
-        <option value="Могилев"> Могилев</option>
+        <option disabled selected><fmt:message key="label.chooseAddress"/> </option>
+        <option value="Минск, Скрыганова-14"> <fmt:message key="label.chooseAddress1"/> </option>
+        <option value="Минск, Гикало-3"> <fmt:message key="label.chooseAddress2"/></option>
+        <option value="Могилев"> <fmt:message key="label.chooseAddress3"/></option>
     </select>
     <br>
-    Number of students:
+    <fmt:message key="label.numOfStudents"/>
     <br>
     <select name="numOfStudents" required>
-        <option disabled selected> How many students are in the group?</option>
+        <option disabled selected> <fmt:message key="label.chooseNumberOfStudents"/></option>
         <option value="1"> 1</option>
         <option value="2"> 2</option>
         <option value="3"> 3</option>
@@ -52,10 +59,10 @@
         <option value="6"> 6</option>
     </select>
     <br>
-    Number of lessons:
+    <fmt:message key="label.numOfLessons"/>
     <br>
     <select name="numOfLessons" required>
-        <option disabled selected> How many lessons are in the course?</option>
+        <option disabled selected> <fmt:message key="label.chooseNumberOfLessons"/></option>
         <option value="4"> 4</option>
         <option value="5"> 5</option>
         <option value="6"> 6</option>
@@ -63,16 +70,16 @@
         <option value="8"> 8</option>
     </select>
     <br>
-    Start Date (enter like YYYY-MM-dd)
+    <fmt:message key="label.startDate"/>
     <br>
     <input name="startDate" type="text" required>
     <br>
-    Finish Date (enter like YYYY-MM-dd)
+    <fmt:message key="label.finishDate"/>
     <br>
     <input name="finishDate" type="text" required>
     <br>
     <br>
-    <input type="submit" value="create a Course" class="button"/>
+    <input type="submit" value="<fmt:message key="label.createNewCourse"/>" class="button"/>
 
 </form>
 </div>

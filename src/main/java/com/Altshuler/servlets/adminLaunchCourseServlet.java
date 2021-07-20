@@ -19,7 +19,7 @@ public class adminLaunchCourseServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if (request.getParameter("launchId") != null) {
             Course course = courseServletService.getById(Integer.parseInt(request.getParameter("launchId")));
-            course.setIsStarted("true");
+            course.setIsStarted("Yes");
             courseServletService.add(course);
             markUtil.initializeMarks(course);
         }

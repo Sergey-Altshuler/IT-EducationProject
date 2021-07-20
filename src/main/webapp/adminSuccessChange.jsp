@@ -1,30 +1,30 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ASUS
-  Date: 17.07.2021
-  Time: 14:02
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="language"
+       value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}"
+       scope="session"/>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="text"/>
+<html lang="${language}">
 <head>
     <title>Admin_successChange</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-<h1> Your role: Admin <br> New login and password </h1>
+<h1> <fmt:message key="label.yourRoleAdmin"/><br> <fmt:message key="label.newLoginAndPassword"/></h1>
 <br>
 <br>
-<a href="adminValidate.jsp"> Log out </a>
-<a href="adminActions.jsp"> Go back </a>
+<a href="adminValidate.jsp"> <fmt:message key="label.logOut"/></a>
+<a href="adminActions.jsp"><fmt:message key="label.goBack"/></a>
 <br>
-<h3> The changes have been confirmed. </h3>
+<h3> <fmt:message key="label.changesConfirmed"/> </h3>
 <br>
 <div align="center">
     <h3>
-        New login: ${login}
-        New password: ${password}
+        <fmt:message key="label.newLogin"/> ${login}
+        <fmt:message key="label.newPassword"/> ${password}
     </h3>
 </div>
 </body>
