@@ -11,15 +11,15 @@
 <head>
   <title>StudentSuccessEnroll</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css" type="text/css">
+  <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
 <h1><fmt:message key="label.hello"/> <%=ProjectInfo.getStudent().getName()%> <%=ProjectInfo.getStudent().getSurname()%>!<br>
   <fmt:message key="label.successEnroll"/></h1>
 <br>
 <br>
-<a href="coachValidate.jsp"> <fmt:message key="label.logOut"/> </a>
-<a href="coachRedirect.jsp"> <fmt:message key="label.goBack"/> </a>
+<a href="studentValidate.jsp"> <fmt:message key="label.logOut"/> </a>
+<a href="studentRedirect.jsp"> <fmt:message key="label.goBack"/> </a>
 <br>
 <table>
   <tr>

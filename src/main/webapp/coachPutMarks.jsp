@@ -11,7 +11,7 @@
 <head>
     <title>CoachPutMarks</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
 <h1><fmt:message key="label.hello"/> <%=ProjectInfo.getCoach().getName()%> <%=ProjectInfo.getCoach().getSurname()%>!<br>
@@ -23,11 +23,12 @@
 <br>
 <table>
     <tr>
-
+        <th><fmt:message key="label.student"/> </th>
 <c:forEach var="mapElement" items="${titles}">
         <th>${mapElement.key}</th>
 </c:forEach>
-
+        <th> <fmt:message key="label.avgMark"/></th>
+        <th> <fmt:message key="label.attendance"/></th>
     </tr>
     <c:forEach var="courseMap" items="${courseMap}">
         <c:set var="miniMap" value="${courseMap.value}"/>

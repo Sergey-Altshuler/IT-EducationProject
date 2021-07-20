@@ -10,7 +10,7 @@
 <head>
     <title>Admin_addCourse</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
 <h1> <fmt:message key="label.yourRoleAdmin"/> <br> <fmt:message key="label.createNewCourse"/></h1>
@@ -30,8 +30,8 @@
     <br>
     <select name="educationType" required>
         <option disabled selected><fmt:message key="label.chooseTypeOfEducation"/> </option>
-        <option value="online"> <fmt:message key="label.online"/> </option>
-        <option value="evening"> <fmt:message key="label.evening"/> </option>
+        <option value="<fmt:message key="label.online"/>"> <fmt:message key="label.online"/> </option>
+        <option value="<fmt:message key="label.evening"/>"> <fmt:message key="label.evening"/> </option>
     </select>
     <br>
     <fmt:message key="label.price"/>
@@ -42,9 +42,9 @@
     <br>
     <select name="address" required>
         <option disabled selected><fmt:message key="label.chooseAddress"/> </option>
-        <option value="Минск, Скрыганова-14"> <fmt:message key="label.chooseAddress1"/> </option>
-        <option value="Минск, Гикало-3"> <fmt:message key="label.chooseAddress2"/></option>
-        <option value="Могилев"> <fmt:message key="label.chooseAddress3"/></option>
+        <option value="<fmt:message key="label.chooseAddress1"/>"> <fmt:message key="label.chooseAddress1"/> </option>
+        <option value="<fmt:message key="label.chooseAddress2"/>"> <fmt:message key="label.chooseAddress2"/></option>
+        <option value="<fmt:message key="label.chooseAddress3"/>"> <fmt:message key="label.chooseAddress3"/></option>
     </select>
     <br>
     <fmt:message key="label.numOfStudents"/>
@@ -79,7 +79,7 @@
     <input name="finishDate" type="text" required>
     <br>
     <br>
-    <input type="submit" value="<fmt:message key="label.createNewCourse"/>" class="button"/>
+    <input type="submit" class="button" value="<fmt:message key="label.createNewCourse"/>
 
 </form>
 </div>

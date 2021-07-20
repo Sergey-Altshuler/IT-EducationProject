@@ -11,7 +11,7 @@
 <head>
   <title>WrongData</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css" type="text/css">
+  <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
 <h1><fmt:message key="label.incorrectOperation"/> </h1>

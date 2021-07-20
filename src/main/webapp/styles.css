@@ -30,6 +30,30 @@ a {
     font-family: 'Montserrat', sans-serif;
     transition: 0.5s ease-in-out;
 }
+
+form {
+    font-size: 25px;
+    font-family: "Arial Black", serif;
+    font-weight: bold;
+}
+input {
+    width: 25%;
+}
+.radio {
+    width: auto;
+}
+input[type=text], input[type=password] {
+    padding: 10px 20px;
+    margin: 6px 3px;
+    box-sizing: border-box;
+    border: 3px solid red;
+    border-radius: 3px;
+}
+
+input[type=text]:focus {
+    background-color: chartreuse;
+}
+
 .button {
     background: -moz-linear-gradient(#D0ECF4, #5BC9E1, #D0ECF4);
     background: -webkit-gradient(linear, 0 0, 0  100%, from(#D0ECF4), to(#D0ECF4), color-stop(0.5, #5BC9E1));
@@ -40,11 +64,14 @@ a {
     -webkit-border-radius: 5px;
     border-radius: 5px;
     border: 1px solid #666;
+    cursor: pointer;
 }
-form {
-    font-size: 25px;
-    font-family: "Arial Black", serif;
-    font-weight: bold;
+select {
+    width: 20%;
+    padding: 12px 18px;
+    border: red;
+    border-radius: 3px;
+    background-color: azure;
 }
 table, th, td {
     border: 2px solid black;

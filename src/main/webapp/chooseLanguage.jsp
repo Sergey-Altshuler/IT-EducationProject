@@ -11,7 +11,7 @@
 <head>
     <title>ChooseLanguage</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
 <h1 align="center" style="color: aliceblue;
@@ -36,8 +36,10 @@ text-align: center;"><fmt:message key="label.chooseLanguage"/></h3>
     padding: 5px 10px;
     border-radius: 2px;
     background-color: antiquewhite;" onchange="submit()">
-            <option value="ru" ${language == 'ru' ? 'selected' : ''} style="font-size: 20px">Russian</option>
-            <option value="en" ${language == 'en' ? 'selected' : ''} style="font-size: 20px">English</option>
+            <option value="ru" ${language == 'ru' ? 'selected' : ''} style="font-size: 20px"><fmt:message
+                    key="label.Russian"/></option>
+            <option value="en" ${language == 'en' ? 'selected' : ''} style="font-size: 20px"><fmt:message
+                    key="label.English"/></option>
         </select>
     </form>
 </div>
@@ -46,7 +48,18 @@ text-align: center;"><fmt:message key="label.chooseLanguage"/></h3>
 <br>
 <br>
 <div align="center">
-    <a href="welcome.jsp" style="font-size: 25px"><fmt:message key="label.continue"/></a>
+    <a href="welcome.jsp" style="
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 15px 25px;
+    padding: 15px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    transition: 0.5s ease-in-out;
+"><fmt:message key="label.continue"/></a>
 </div>
 </body>
 </html>

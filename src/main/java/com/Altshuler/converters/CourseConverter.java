@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 public class CourseConverter {
     CourseGroupUtil courseGroupUtil = new CourseGroupUtil();
     ParseUtil parseUtil = new ParseUtil();
-    public Course convert (HttpServletRequest request){
 
+    public Course convert (HttpServletRequest request){
         return Course.builder()
                 .title(request.getParameter("title"))
                 .educationType(request.getParameter("educationType"))

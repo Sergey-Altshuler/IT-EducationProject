@@ -22,16 +22,16 @@ public class MarkUtil {
     public void initializeMarks(Course course) {
         Map<Course, Map<Student, Map<String, String>>> markMap = ProjectInfo.getMarks();
         Map<String, String> miniMap = new LinkedHashMap<>();
-        miniMap.put("Student", null);
+        miniMap.put("student", null);
         for (int i = 0; i < course.getNumOfLessons(); i++) {
             miniMap.put(String.valueOf(i + 1), "-");
         }
-        miniMap.put("Avg_mark", "-");
+        miniMap.put("avgMark", "-");
         miniMap.put("attendance", "-");
         Map<Student, Map<String, String>> middleMap = new LinkedHashMap<>();
         for (Student student : course.getStudents()) {
             Map<String, String> studentMarkMap = new LinkedHashMap<>(miniMap);
-            studentMarkMap.put("Student", parseUtil.parseStudent(student));
+            studentMarkMap.put("student", parseUtil.parseStudent(student));
             middleMap.put(student, new LinkedHashMap<>(studentMarkMap));
         }
         markMap.put(course, middleMap);
@@ -84,7 +84,7 @@ public class MarkUtil {
             double percentAttendance = 100.0 - ((double) (numOfAbsence) / numOfLessons * 100);
             String avg = String.format("%.2f", avgMark);
             String attend = String.format("%.1f", percentAttendance);
-            middleMap.get(student).put("Avg_mark", avg);
+            middleMap.get(student).put("avgMark", avg);
             middleMap.get(student).put("attendance", attend);
         }
         markMap.put(course, middleMap);
@@ -101,7 +101,7 @@ public class MarkUtil {
             String attend = miniMapEntry.getValue().get("attendance");
             String attendFinal = attend.replace(",", ".");
             avgAttendance = avgAttendance + Double.parseDouble(attendFinal);
-            String avg = miniMapEntry.getValue().get("Avg_mark");
+            String avg = miniMapEntry.getValue().get("avgMark");
             String avgFinal = avg.replace(",", ".");
             avgMark = avgMark + Double.parseDouble(avgFinal);
         }
