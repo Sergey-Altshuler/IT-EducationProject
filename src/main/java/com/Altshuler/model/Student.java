@@ -31,8 +31,8 @@ public class Student {
     @Column
     private String interests;
 
-    @ManyToOne (cascade = CascadeType.PERSIST)
-    @JoinColumn (name= "course_id")
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "course_id")
     private Course course;
 
     @Override
