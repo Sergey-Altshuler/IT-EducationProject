@@ -42,7 +42,7 @@
         <input name="age" required type="text">
         <br>
         <br>
-        <input type="submit" value="OK" class="button"/>
+        <input type="submit" value="OK" />
     </form>
 </div>
 </body>

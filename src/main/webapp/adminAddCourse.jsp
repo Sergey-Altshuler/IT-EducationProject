@@ -57,6 +57,9 @@
         <option value="4"> 4</option>
         <option value="5"> 5</option>
         <option value="6"> 6</option>
+        <option value="7"> 7</option>
+        <option value="8"> 8</option>
+        <option value="9"> 9</option>
     </select>
     <br>
     <fmt:message key="label.numOfLessons"/>
@@ -68,6 +71,7 @@
         <option value="6"> 6</option>
         <option value="7"> 7</option>
         <option value="8"> 8</option>
+        <option value="9"> 9</option>
     </select>
     <br>
     <fmt:message key="label.startDate"/>
@@ -79,8 +83,7 @@
     <input name="finishDate" type="text" required>
     <br>
     <br>
-    <input type="submit" class="button" value="<fmt:message key="label.createNewCourse"/>
-
+    <input  value=<fmt:message key="label.createNewCourse"/> type="submit" />
 </form>
 </div>
 </body>

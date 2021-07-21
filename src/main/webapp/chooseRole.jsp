@@ -20,7 +20,7 @@
     <p><input name="role" type="radio" value="admin" checked class="radio"> <fmt:message key="label.admin"/></p>
     <p><input name="role" type="radio" value="student" class="radio"> <fmt:message key="label.student"/></p>
     <p><input name="role" type="radio" value="coach" class="radio"> <fmt:message key="label.coach"/></p>
-    <p><input type="submit" value="OK" class="button"></p>
+    <p><input type="submit" value="OK"></p>
 </form>
 </div>
 </body>

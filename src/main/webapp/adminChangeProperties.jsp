@@ -29,7 +29,7 @@
         <br>
         <input name="password" type="password"/>
         <br>
-        <input type="submit" value="OK" class="button"/>
+        <input type="submit" value="OK"/>
     </form>
 </div>
 </body>

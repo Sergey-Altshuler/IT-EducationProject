@@ -15,16 +15,18 @@
 </head>
 <body>
 <h1 align="center" style="color: aliceblue;
-    background-color: darkblue;
+    background-color: purple;
     text-align: center;
     font-family: Arial, serif;
-    font-weight: bold;"><fmt:message key="label.welcomeToITWorld"/>
+    font-weight: bold;
+width: auto;"><fmt:message key="label.welcomeToITWorld"/>
 </h1>
 <br>
-<h3 align="center" style="color: black;
-    font-family: Arial, sans-serif;
+<h2 align="center" style="color: black;
+    font-family: Arial, serif;
 font-weight: bold;
-text-align: center;"><fmt:message key="label.chooseLanguage"/></h3>
+text-align: center;
+width: auto"><fmt:message key="label.chooseLanguage"/></h2>
 <br>
 <br>
 <br>

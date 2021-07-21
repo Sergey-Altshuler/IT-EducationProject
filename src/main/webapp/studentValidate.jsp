@@ -25,10 +25,10 @@
     <br>
     <input required name="password" type="password"/>
     <br>
-    <input type="submit" value="OK" class="button"/>
+    <input type="submit" value="OK"/>
 </form>
 </div>
-<h3><fmt:message key="label.ifNotRegistered"/></h3>
+<h2><fmt:message key="label.ifNotRegistered"/></h2>
 <div align="center">
 <a href="studentRegister.jsp"> <fmt:message key="label.register"/></a>
 </div>

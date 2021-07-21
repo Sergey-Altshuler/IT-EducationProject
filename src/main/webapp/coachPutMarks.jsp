@@ -45,22 +45,22 @@
 <br>
 <br>
 <div align="center">
-<form action="coachFillMarksServlet" method="POST">
-    <fmt:message key="label.NumOfLesson"/> <input required name="numLesson" type="text">
-    <br>
+<form action="coachFillMarksServlet" method="POST" class="decor">
+    <div class="form-inner">
+    <fmt:message key="label.NumOfLesson"/>  <input required name="numLesson" type="text">
     <c:forEach var="student" items="${studentMap}">
-        <br>
-        <fmt:message key="label.mark"/> ${student.value} :  <input required name=${student.key} type="text">
-        <br>
+        <fmt:message key="label.mark"/> ${student.value} <input required name=${student.key} type="text">
 
     </c:forEach>
-    <input type="submit"  value="OK" class="button"/>
+    <input type="submit"  value="OK"/>
+    </div>
 </form>
 </div>
 <br>
 <br>
-<h3><fmt:message key="label.generateTotalStats"/></h3>
 <div align="center">
+<h2><fmt:message key="label.generateTotalStats"/></h2>
+<br>
 <a href="calculateServlet"> <fmt:message key="label.generate"/> </a>
 </div>
 </body>

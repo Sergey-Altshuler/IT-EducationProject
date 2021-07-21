@@ -19,13 +19,13 @@
 <a href="adminValidate.jsp"> <fmt:message key="label.logOut"/></a>
 <a href="adminActions.jsp"><fmt:message key="label.goBack"/></a>
 <br>
-<h3> <fmt:message key="label.changesConfirmed"/> </h3>
+<h2> <fmt:message key="label.changesConfirmed"/> </h2>
 <br>
 <div align="center">
-    <h3>
+    <h2>
         <fmt:message key="label.newLogin"/> ${login} <br>
         <fmt:message key="label.newPassword"/> ${password}
-    </h3>
+    </h2>
 </div>
 </body>
 </html>

@@ -19,10 +19,10 @@
 <a href="coachValidate.jsp"> <fmt:message key="label.goBack"/> </a>
 <br>
 <div align="center">
-    <h3>
+    <h2>
         <fmt:message key="label.login"/> ${login} <br>
         <fmt:message key="label.password"/> ${password}
-    </h3>
+    </h2>
 </div>
 </body>
 </html>
