@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
-<h1><fmt:message key="label.yourRoleCoach"/> <br> <fmt:message key="label.fillTheForm"/> </h1>
+<h1><fmt:message key="label.yourRoleCoach"/> <br> <fmt:message key="label.fillTheForm"/></h1>
 <br>
 <br>
 <a href="coachValidate.jsp"> <fmt:message key="label.goBack"/> </a>
@@ -42,7 +42,7 @@
         <input name="age" required type="text">
         <br>
         <br>
-        <input type="submit" value="OK" />
+        <input type="submit" value="OK"/>
     </form>
 </div>
 </body>

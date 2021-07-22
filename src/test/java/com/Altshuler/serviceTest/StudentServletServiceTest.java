@@ -13,42 +13,43 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StudentServletServiceTest {
-    DAOStudent daoStudent= new DAOStudentImpl();
+    DAOStudent daoStudent = new DAOStudentImpl();
     StudentServletService studentServletService = new StudentServletService();
 
     @Test
-    void add(){
+    void add() {
         try {
-            List<Student> list1 =  daoStudent.getAll(Student.class);
+            List<Student> list1 = daoStudent.getAll(Student.class);
             studentServletService.add(Student.builder().name("new Student").build());
-            List<Student> list2 =  daoStudent.getAll(Student.class);
-            assertEquals(list1.size()+1, list2.size());
-        }
-        catch (SQLException e){
+            List<Student> list2 = daoStudent.getAll(Student.class);
+            assertEquals(list1.size() + 1, list2.size());
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
     @Test
-    void validate(){
+    void validate() {
         studentServletService.add(Student.builder().login("test").password("test").build());
         assertTrue(studentServletService.validate("test", "test"));
     }
+
     @Test
-    void logIn(){
-       studentServletService.add(Student.builder().login("test2").password("test2").build());
-        studentServletService.logIn("test2","test2");
-        assertEquals(ProjectInfo.getStudent().getPassword(),"test2");
+    void logIn() {
+        studentServletService.add(Student.builder().login("test2").password("test2").build());
+        studentServletService.logIn("test2", "test2");
+        assertEquals(ProjectInfo.getStudent().getPassword(), "test2");
     }
+
     @Test
-     void getById(){
+    void getById() {
         studentServletService.add(Student.builder().name("New student").build());
-        Student student1=null;
-        Student student2=null;
+        Student student1 = null;
+        Student student2 = null;
         try {
             student1 = daoStudent.get(1, Student.class);
             student2 = studentServletService.getById(1);
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         assertNotNull(student1);

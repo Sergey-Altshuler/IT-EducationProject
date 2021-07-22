@@ -12,6 +12,7 @@ import java.io.IOException;
 @WebServlet("/coachServlet")
 public class CoachServlet extends HttpServlet {
     CourseServletService courseServletService = new CourseServletService();
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.setAttribute("courses", courseServletService.getAll());
         request.getRequestDispatcher("/coachChooseCourse.jsp").forward(request, response);

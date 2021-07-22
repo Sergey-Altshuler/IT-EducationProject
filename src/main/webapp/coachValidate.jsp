@@ -29,7 +29,7 @@
         <input type="submit" value="OK"/>
     </form>
 </div>
-<h2> <fmt:message key="label.ifNotRegistered"/></h2>
+<h2><fmt:message key="label.ifNotRegistered"/></h2>
 <div align="center">
     <a href="coachRegister.jsp"> <fmt:message key="label.register"/></a>
 </div>

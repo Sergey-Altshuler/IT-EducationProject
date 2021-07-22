@@ -30,10 +30,10 @@ public class Coach {
     private String surname;
     @Column
     private int age;
-    @OneToMany (mappedBy = "coach", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "coach", fetch = FetchType.EAGER)
     Set<Course> courseSet = new HashSet<>();
 
-    public void addCourse(Course course){
+    public void addCourse(Course course) {
         if (courseSet == null) {
             Set<Course> courseEmptySet = new HashSet<>();
             courseEmptySet.add(course);

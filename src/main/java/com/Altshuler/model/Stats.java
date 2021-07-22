@@ -19,8 +19,8 @@ public class Stats {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToOne ( cascade = CascadeType.ALL)
-    @JoinColumn (name = "course_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "course_id")
     private Course course;
 
     @Column

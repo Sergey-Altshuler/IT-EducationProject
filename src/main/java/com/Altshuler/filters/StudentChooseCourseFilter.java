@@ -19,12 +19,12 @@ public class StudentChooseCourseFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         String contextPath = req.getContextPath();
-            Course course = courseServletService.getById(Integer.parseInt(req.getParameter("number")));
-            if ((course.getRemaining()>0)&&(ProjectInfo.getStudent().getCourse()==null)) {
-                course.setRemaining(course.getRemaining()-1);
-                courseServletService.add(course);
-                filterChain.doFilter(req, resp);
-            } else resp.sendRedirect(contextPath + "/wrongOperation.jsp");
+        Course course = courseServletService.getById(Integer.parseInt(req.getParameter("number")));
+        if ((course.getRemaining() > 0) && (ProjectInfo.getStudent().getCourse() == null)) {
+            course.setRemaining(course.getRemaining() - 1);
+            courseServletService.add(course);
+            filterChain.doFilter(req, resp);
+        } else resp.sendRedirect(contextPath + "/wrongOperation.jsp");
 
     }
 }

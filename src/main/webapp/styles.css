@@ -6,12 +6,14 @@ h1 {
     font-weight: bold;
     width: auto;
 }
+
 h2 {
     text-align: center;
     font-family: Arial, serif;
     font-weight: bold;
     width: auto;
 }
+
 a {
     display: inline-block;
     text-decoration: none;
@@ -30,12 +32,15 @@ form {
     font-family: "Arial Black", serif;
     font-weight: bold;
 }
+
 input {
     width: auto;
 }
+
 .radio {
     width: auto;
 }
+
 input[type=text], input[type=password] {
     padding: 10px 20px;
     margin: 6px 3px;
@@ -53,7 +58,7 @@ input[type=text]:focus, input[type=password]:focus {
 
 input[type=submit] {
     background: -moz-linear-gradient(#D0ECF4, #5BC9E1, #D0ECF4);
-    background: -webkit-gradient(linear, 0 0, 0  100%, from(#D0ECF4), to(#D0ECF4), color-stop(0.5, #5BC9E1));
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#D0ECF4), to(#D0ECF4), color-stop(0.5, #5BC9E1));
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
     padding: 3px 7px;
     color: #333;
@@ -63,6 +68,7 @@ input[type=submit] {
     border: 1px solid #666;
     cursor: pointer;
 }
+
 select {
     width: auto;
     padding: 8px 14px;
@@ -71,9 +77,11 @@ select {
     font-size: 24px;
     font-family: Arial, sans-serif;
 }
+
 select:focus {
     background-color: aqua;
 }
+
 table, th, td {
     border: 2px solid orange;
 
@@ -101,16 +109,19 @@ table {
     width: 80%;
     border-collapse: collapse;
 }
-table tbody tr:nth-child(odd){
+
+table tbody tr:nth-child(odd) {
     background: white;
 }
-table tbody tr:nth-child(even){
+
+table tbody tr:nth-child(even) {
     background: navajowhite;
 }
 
 tr {
     height: 35px;
 }
+
 .decor {
     position: relative;
     max-width: 400px;
@@ -118,10 +129,12 @@ tr {
     background: lightyellow;
     border-radius: 30px;
 }
+
 .form-inner {
-     padding: 20px;
- }
-.form-inner input[type=text]  {
+    padding: 20px;
+}
+
+.form-inner input[type=text] {
     display: block;
     width: 20%;
     padding: 0 20px;
@@ -132,9 +145,11 @@ tr {
     border-radius: 20px;
     color: beige;
 }
+
 .form-inner input:focus {
     background-color: darkblue;
 }
+
 .form-inner input[type="submit"] {
     margin-top: 30px;
     background: #f69a73;
@@ -142,6 +157,7 @@ tr {
     color: white;
     font-size: 16px;
 }
+
 body {
     background: radial-gradient(yellow, snow);;
 }

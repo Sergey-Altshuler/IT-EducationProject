@@ -38,11 +38,10 @@ public class CourseServletService {
         return courseList;
     }
 
-    public void deleteById (int id){
+    public void deleteById(int id) {
         try {
             daoCourse.delete(id, Course.class);
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

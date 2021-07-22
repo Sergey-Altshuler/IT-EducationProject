@@ -5,7 +5,7 @@ import com.Altshuler.model.Student;
 import javax.servlet.http.HttpServletRequest;
 
 public class StudentConverter {
-    public Student convert(HttpServletRequest request){
+    public Student convert(HttpServletRequest request) {
         return Student.builder()
                 .login(request.getParameter("login"))
                 .age(Integer.parseInt(request.getParameter("age")))

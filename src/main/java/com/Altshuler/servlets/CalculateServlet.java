@@ -15,6 +15,7 @@ import java.io.IOException;
 public class CalculateServlet extends HttpServlet {
     MarkUtil markUtil = new MarkUtil();
     StatsServletService statsServletService = new StatsServletService();
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         markUtil.calculateIndividualStatistics(ProjectInfo.getCourse());
         markUtil.calculateTotalStatistics(ProjectInfo.getCourse());

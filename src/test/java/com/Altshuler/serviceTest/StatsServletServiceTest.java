@@ -14,27 +14,27 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class StatsServletServiceTest {
     StatsServletService statsServletService = new StatsServletService();
     DAOStats daoStats = new DAOStatsImpl();
+
     @Test
-    void add(){
+    void add() {
         try {
             List<Stats> list1 = daoStats.getAll(Stats.class);
             statsServletService.add(Stats.builder().avgMark(1d).build());
             List<Stats> list2 = daoStats.getAll(Stats.class);
             assertEquals(list1.size() + 1, list2.size());
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
     @Test
-    void getAll(){
-        try{
+    void getAll() {
+        try {
             statsServletService.add(Stats.builder().avgMark(5d).build());
             List<Stats> daoList = daoStats.getAll(Stats.class);
             List<Stats> serviceList = statsServletService.getAll();
             assertEquals(daoList, serviceList);
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

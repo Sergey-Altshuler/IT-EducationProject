@@ -13,21 +13,21 @@
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
-<h1> <fmt:message key="label.yourRoleAdmin"/><br> <fmt:message key="label.fillTheForm"/></h1>
+<h1><fmt:message key="label.yourRoleAdmin"/><br> <fmt:message key="label.fillTheForm"/></h1>
 <a href="chooseRole.jsp"><fmt:message key="label.goBack"/></a>
 <div align="center">
-<form action="adminServlet" method="post">
-    <fmt:message key="label.login"/>
-    <br>
-    <input name="login" type="text"/>
-    <br>
-    <fmt:message key="label.password"/>
-    <br>
-    <input name="password" type="password"/>
-    <br>
-    <br>
-    <input type="submit" value="OK"/>
-</form>
+    <form action="adminServlet" method="post">
+        <fmt:message key="label.login"/>
+        <br>
+        <input name="login" type="text"/>
+        <br>
+        <fmt:message key="label.password"/>
+        <br>
+        <input name="password" type="password"/>
+        <br>
+        <br>
+        <input type="submit" value="OK"/>
+    </form>
 </div>
 </body>
 </html>

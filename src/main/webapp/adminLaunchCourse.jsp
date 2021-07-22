@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
-<h1> <fmt:message key="label.yourRoleAdmin"/><br> <fmt:message key="label.launchCourse"/></h1>
+<h1><fmt:message key="label.yourRoleAdmin"/><br> <fmt:message key="label.launchCourse"/></h1>
 <br>
 <br>
 <a href="adminValidate.jsp"> <fmt:message key="label.logOut"/></a>
@@ -49,7 +49,8 @@
             <td>${courses.remaining}</td>
             <td>${courses.coachRequired}</td>
             <td>${courses.isStarted}</td>
-            <td><a href="adminLaunchCourseServlet?launchId=${courses.id}"> <fmt:message key="label.launchCourse"/> </a> </td>
+            <td><a href="adminLaunchCourseServlet?launchId=${courses.id}"> <fmt:message key="label.launchCourse"/> </a>
+            </td>
         </tr>
     </c:forEach>
 </table>

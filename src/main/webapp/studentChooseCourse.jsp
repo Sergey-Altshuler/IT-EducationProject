@@ -31,7 +31,7 @@
         <th><fmt:message key="label.startDate"/></th>
         <th><fmt:message key="label.finishDate"/></th>
         <th><fmt:message key="label.placesRemaining"/></th>
-        <th><fmt:message key="label.pressAndRegister"/> </th>
+        <th><fmt:message key="label.pressAndRegister"/></th>
     </tr>
     <c:forEach var="courses" items="${courses}">
         <tr>
@@ -44,7 +44,8 @@
             <td>${courses.startDate}</td>
             <td>${courses.finishDate}</td>
             <td>${courses.remaining}</td>
-            <td><a href="studentChooseCourseServlet?number=${courses.id}"> <fmt:message key="label.pressAndRegister"/>  </a> </td>
+            <td><a href="studentChooseCourseServlet?number=${courses.id}"> <fmt:message
+                    key="label.pressAndRegister"/> </a></td>
         </tr>
     </c:forEach>
 </table>

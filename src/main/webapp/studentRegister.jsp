@@ -13,42 +13,42 @@
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
-<h1><fmt:message key="label.yourRoleStudent"/>  <br> <fmt:message key="label.fillTheForm"/> </h1>
+<h1><fmt:message key="label.yourRoleStudent"/> <br> <fmt:message key="label.fillTheForm"/></h1>
 <br>
 <br>
-<a href="studentValidate.jsp"> <fmt:message key="label.goBack"/>  </a>
+<a href="studentValidate.jsp"> <fmt:message key="label.goBack"/> </a>
 <br>
 <div align="center">
-<form action="studentRegisterServlet" method="POST">
-    <br>
-    <fmt:message key="label.login"/>
-    <br>
-    <input name="login" required type="text">
-    <br>
-    <fmt:message key="label.password"/>
-    <br>
-    <input name="password" required type="password">
-    <br>
-    <fmt:message key="label.name"/>
-    <br>
-    <input name="name" required type="text">
-    <br>
-    <fmt:message key="label.surname"/>
-    <br>
-    <input name="surname" required type="text">
-    <br>
-    <fmt:message key="label.age"/>
-    <br>
-    <input name="age" required type="text">
-    <br>
-    <fmt:message key="label.interests"/>
-    <br>
-    <input name="interests" required type="text">
-    <br>
-    <br>
-    <input type="submit" value="OK" />
+    <form action="studentRegisterServlet" method="POST">
+        <br>
+        <fmt:message key="label.login"/>
+        <br>
+        <input name="login" required type="text">
+        <br>
+        <fmt:message key="label.password"/>
+        <br>
+        <input name="password" required type="password">
+        <br>
+        <fmt:message key="label.name"/>
+        <br>
+        <input name="name" required type="text">
+        <br>
+        <fmt:message key="label.surname"/>
+        <br>
+        <input name="surname" required type="text">
+        <br>
+        <fmt:message key="label.age"/>
+        <br>
+        <input name="age" required type="text">
+        <br>
+        <fmt:message key="label.interests"/>
+        <br>
+        <input name="interests" required type="text">
+        <br>
+        <br>
+        <input type="submit" value="OK"/>
 
-</form>
+    </form>
 </div>
 </body>
 </html>

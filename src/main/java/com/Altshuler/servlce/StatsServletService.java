@@ -10,20 +10,19 @@ import java.util.List;
 public class StatsServletService {
     private final DAOStats daoStats = new DAOStatsImpl();
 
-    public void add(Stats stats){
+    public void add(Stats stats) {
         try {
             daoStats.save(stats);
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    public List<Stats> getAll()  {
-        List<Stats> statsList=null;
+
+    public List<Stats> getAll() {
+        List<Stats> statsList = null;
         try {
-            statsList =  daoStats.getAll(Stats.class);
-        }
-        catch (SQLException e){
+            statsList = daoStats.getAll(Stats.class);
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return statsList;

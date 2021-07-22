@@ -56,7 +56,7 @@ public class Course implements Serializable {
     @OneToOne(mappedBy = "course")
     private Stats stats;
 
-    public void addStudent(Student student){
+    public void addStudent(Student student) {
         if (students == null) {
             Set<Student> studentEmptySet = new HashSet<>();
             studentEmptySet.add(student);

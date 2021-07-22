@@ -29,15 +29,14 @@ public class AdminServletService {
         }
     }
 
-    public boolean validate(String login, String password){
-        Admin admin=Admin.builder().build();
-        try{
+    public boolean validate(String login, String password) {
+        Admin admin = Admin.builder().build();
+        try {
             admin = daoAdmin.get(1, Admin.class);
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-        return admin.getLogin().equals(login)&&admin.getPassword().equals(password);
+        return admin.getLogin().equals(login) && admin.getPassword().equals(password);
     }
 
 }

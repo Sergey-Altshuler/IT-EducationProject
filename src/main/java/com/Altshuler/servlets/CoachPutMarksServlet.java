@@ -22,25 +22,26 @@ public class CoachPutMarksServlet extends HttpServlet {
     CourseServletService courseServletService = new CourseServletService();
     ParseUtil parseUtil = new ParseUtil();
     String regex = "[0-9]+";
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         Course course = courseServletService.getById(Integer.parseInt(request.getParameter("number")));
         ProjectInfo.setCourse(course);
         Student anyStudent = course.getStudents().stream().findAny().get();
-        Map<Student, Map<String,String>> courseMap = ProjectInfo.getMarks().get(course);
-        request.setAttribute("courseMap",courseMap);
+        Map<Student, Map<String, String>> courseMap = ProjectInfo.getMarks().get(course);
+        request.setAttribute("courseMap", courseMap);
         Map<String, String> studentMap = new LinkedHashMap<>(courseMap.get(anyStudent));
         List<String> elements = new ArrayList<>(studentMap.keySet());
-        for (String element: elements){
+        for (String element : elements) {
             if (!element.matches(regex)) studentMap.remove(element);
         }
         request.setAttribute("titles", studentMap);
         Map<Integer, String> studentAdditionalMap = new LinkedHashMap<>();
-        for (Student student: course.getStudents()){
+        for (Student student : course.getStudents()) {
             studentAdditionalMap.put(student.getId(), parseUtil.parseStudent(student));
         }
         request.setAttribute("studentMap", studentAdditionalMap);
-        request.getRequestDispatcher("/coachPutMarks.jsp").forward(request,response);
+        request.getRequestDispatcher("/coachPutMarks.jsp").forward(request, response);
 
     }
 }

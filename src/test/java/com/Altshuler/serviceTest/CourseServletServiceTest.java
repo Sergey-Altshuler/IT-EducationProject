@@ -18,43 +18,43 @@ public class CourseServletServiceTest {
 
     @Test
     void add() {
-        try{
+        try {
             List<Course> list1 = daoCourse.getAll(Course.class);
             courseServletService.add(Course.builder().title("testCourse").build());
             List<Course> list2 = daoCourse.getAll(Course.class);
-            assertEquals(list1.size()+1,list2.size());
-        }
-        catch (SQLException e){
+            assertEquals(list1.size() + 1, list2.size());
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
     @Test
     void getById() {
-        try{
+        try {
             courseServletService.add(Course.builder().title("testCourse2").build());
             List<Course> list = daoCourse.getAll(Course.class);
             Course course1 = courseServletService.getById(list.size());
             Course course2 = daoCourse.get(list.size(), Course.class);
             assertEquals(course1, course2);
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
     @Test
-    void getAll(){
-        try{
+    void getAll() {
+        try {
             courseServletService.add(Course.builder().title("testCourse3").build());
             List<Course> daoList = daoCourse.getAll(Course.class);
             List<Course> serviceList = courseServletService.getAll();
             assertEquals(daoList, serviceList);
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
     @Test
-    void deleteById(){
+    void deleteById() {
         courseServletService.add(Course.builder().title("testCourse4").build());
         List<Course> courseList = courseServletService.getAll();
         int number = courseList.size();

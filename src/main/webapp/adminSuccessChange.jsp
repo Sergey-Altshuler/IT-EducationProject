@@ -13,13 +13,13 @@
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
-<h1> <fmt:message key="label.yourRoleAdmin"/><br> <fmt:message key="label.newLoginAndPassword"/></h1>
+<h1><fmt:message key="label.yourRoleAdmin"/><br> <fmt:message key="label.newLoginAndPassword"/></h1>
 <br>
 <br>
 <a href="adminValidate.jsp"> <fmt:message key="label.logOut"/></a>
 <a href="adminActions.jsp"><fmt:message key="label.goBack"/></a>
 <br>
-<h2> <fmt:message key="label.changesConfirmed"/> </h2>
+<h2><fmt:message key="label.changesConfirmed"/></h2>
 <br>
 <div align="center">
     <h2>

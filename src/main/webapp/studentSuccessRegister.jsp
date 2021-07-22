@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
-<h1> <fmt:message key="label.yourRoleStudent"/> <br> <fmt:message key="label.successRegister"/> </h1>
+<h1><fmt:message key="label.yourRoleStudent"/> <br> <fmt:message key="label.successRegister"/></h1>
 <br>
 <br>
 <a href="studentValidate.jsp"> <fmt:message key="label.goBack"/> </a>

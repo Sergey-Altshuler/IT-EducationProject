@@ -1,7 +1,6 @@
 package com.Altshuler.util;
 
 import com.Altshuler.model.Coach;
-import com.Altshuler.model.Course;
 import com.Altshuler.model.Student;
 import org.hibernate.Session;
 import org.hibernate.query.Query;

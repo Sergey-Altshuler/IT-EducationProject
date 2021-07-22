@@ -4,7 +4,9 @@ import com.Altshuler.model.Coach;
 import com.Altshuler.model.Course;
 import com.Altshuler.model.Student;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class ProjectInfo {
     private static Student currentStudent = null;
@@ -12,7 +14,7 @@ public class ProjectInfo {
     private static Course currentCourse = null;
     private static Map<Course, Map<Student, Map<String, String>>> marks = new LinkedHashMap<>();
     private static final Map<String, String> roles = new HashMap<>();
-    private static Map <String, Integer> courseGroups = new HashMap<>();
+    private static Map<String, Integer> courseGroups = new HashMap<>();
 
     static {
         roles.put("admin", "/adminValidate.jsp");

@@ -10,7 +10,7 @@ public class AdminServletServiceTest extends H2DataGenerator {
     AdminServletService adminServletService = new AdminServletService();
 
     @Test
-    void validate(){
+    void validate() {
         adminServletService.initialize();
         assertTrue(adminServletService.validate("admin", "password"));
         adminServletService.changeProperties("login", "pass");

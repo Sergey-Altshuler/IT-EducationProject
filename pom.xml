@@ -57,7 +57,6 @@
             <artifactId>hibernate-core</artifactId>
             <version>5.4.31.Final</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl-api -->
         <dependency>
             <groupId>javax.servlet.jsp.jstl</groupId>
             <artifactId>jstl-api</artifactId>
@@ -103,6 +102,31 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>1.8.3</version>
+                <configuration>
+                    <container>
+                        <containerId>tomcat9x</containerId>
+                        <type>embedded</type>
+                    </container>
+                    <configuration>
+                        <properties>
+                            <cargo.servlet.port>8080</cargo.servlet.port>
+                        </properties>
+                    </configuration>
+                    <deployables>
+                        <deployable>
+                            <type>war</type>
+                            <location>${project.build.directory}/${project.build.finalName}.war</location>
+                            <properties>
+                                <context>/</context>
+                            </properties>
+                        </deployable>
+                    </deployables>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>

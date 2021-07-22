@@ -14,10 +14,11 @@ import java.io.IOException;
 public class AdminAddCourseServlet extends HttpServlet {
     CourseServletService courseServletService = new CourseServletService();
     CourseConverter courseConverter = new CourseConverter();
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-      courseServletService.add(courseConverter.convert(request));
-      request.setAttribute("courses", courseServletService.getAll());
-      request.getRequestDispatcher("/adminSuccessAdd.jsp").forward(request, response);
+        courseServletService.add(courseConverter.convert(request));
+        request.setAttribute("courses", courseServletService.getAll());
+        request.getRequestDispatcher("/adminSuccessAdd.jsp").forward(request, response);
 
     }
 }

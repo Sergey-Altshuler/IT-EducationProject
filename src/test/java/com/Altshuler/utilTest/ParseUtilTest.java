@@ -16,21 +16,21 @@ public class ParseUtilTest {
     void parseRightDate() {
         String stringDate = "2020-12-12";
         Date date = Date.valueOf(LocalDate.parse(stringDate));
-        assertEquals (date, parseUtil.parseDate(stringDate));
+        assertEquals(date, parseUtil.parseDate(stringDate));
     }
+
     @Test
-    void parseWrongDate(){
-       try {
+    void parseWrongDate() {
+        try {
             parseUtil.parseDate("2020-12-32");
             fail("Expected ParseException");
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             assertNotEquals("", e.getMessage());
         }
     }
 
     @Test
-    void parseStudent(){
+    void parseStudent() {
         Student student = Student.builder().id(1).name("name").surname("surname").build();
         assertEquals("№1. name surname", parseUtil.parseStudent(student));
     }

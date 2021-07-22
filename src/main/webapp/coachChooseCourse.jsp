@@ -9,16 +9,16 @@
 <fmt:setBundle basename="text"/>
 <html lang="${language}">
 <head>
-<title>StudentChooseCourse</title>
+    <title>StudentChooseCourse</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
-<h1><fmt:message key="label.hello"/>  <%=ProjectInfo.getCoach().getName()%> <%=ProjectInfo.getCoach().getSurname()%>!<br>
-    <fmt:message key="label.selectCourse"/> </h1>
+<h1><fmt:message key="label.hello"/> <%=ProjectInfo.getCoach().getName()%> <%=ProjectInfo.getCoach().getSurname()%>!<br>
+    <fmt:message key="label.selectCourse"/></h1>
 <br>
 <br>
-<a href="coachValidate.jsp">  <fmt:message key="label.logOut"/> </a>
+<a href="coachValidate.jsp"> <fmt:message key="label.logOut"/> </a>
 <br>
 <table>
     <tr>
@@ -34,8 +34,8 @@
         <th><fmt:message key="label.placesRemaining"/></th>
         <th><fmt:message key="label.coachRequired"/></th>
         <th><fmt:message key="label.isStarted"/></th>
-        <th><fmt:message key="label.pressAndRegister"/> </th>
-        <th><fmt:message key="label.pressAndPutMarks"/> </th>
+        <th><fmt:message key="label.pressAndRegister"/></th>
+        <th><fmt:message key="label.pressAndPutMarks"/></th>
     </tr>
     <c:forEach var="courses" items="${courses}">
         <tr>
@@ -51,8 +51,8 @@
             <td>${courses.remaining}</td>
             <td>${courses.coachRequired}</td>
             <td>${courses.isStarted}</td>
-            <td><a href="coachChooseCourseServlet?number=${courses.id}"><fmt:message key="label.register"/></a> </td>
-            <td><a href="coachPutMarksServlet?number=${courses.id}"><fmt:message key="label.putMarks"/></a> </td>
+            <td><a href="coachChooseCourseServlet?number=${courses.id}"><fmt:message key="label.register"/></a></td>
+            <td><a href="coachPutMarksServlet?number=${courses.id}"><fmt:message key="label.putMarks"/></a></td>
         </tr>
     </c:forEach>
 </table>
