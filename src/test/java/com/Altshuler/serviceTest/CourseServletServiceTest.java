@@ -1,5 +1,6 @@
 package com.Altshuler.serviceTest;
 
+import com.Altshuler.TestInfo.TestDataCreator;
 import com.Altshuler.dao.DAOCourse;
 import com.Altshuler.dao.DAOCourseImpl;
 import com.Altshuler.model.Course;
@@ -20,7 +21,7 @@ public class CourseServletServiceTest {
     void add() {
         try {
             List<Course> list1 = daoCourse.getAll(Course.class);
-            courseServletService.add(Course.builder().title("testCourse").build());
+            courseServletService.add(TestDataCreator.createTestAddCourse());
             List<Course> list2 = daoCourse.getAll(Course.class);
             assertEquals(list1.size() + 1, list2.size());
         } catch (SQLException e) {
@@ -31,7 +32,7 @@ public class CourseServletServiceTest {
     @Test
     void getById() {
         try {
-            courseServletService.add(Course.builder().title("testCourse2").build());
+            courseServletService.add(TestDataCreator.createTestGetByIdCourse());
             List<Course> list = daoCourse.getAll(Course.class);
             Course course1 = courseServletService.getById(list.size());
             Course course2 = daoCourse.get(list.size(), Course.class);
@@ -44,7 +45,7 @@ public class CourseServletServiceTest {
     @Test
     void getAll() {
         try {
-            courseServletService.add(Course.builder().title("testCourse3").build());
+            courseServletService.add(TestDataCreator.createTestGetAllCourse());
             List<Course> daoList = daoCourse.getAll(Course.class);
             List<Course> serviceList = courseServletService.getAll();
             assertEquals(daoList, serviceList);
@@ -55,7 +56,7 @@ public class CourseServletServiceTest {
 
     @Test
     void deleteById() {
-        courseServletService.add(Course.builder().title("testCourse4").build());
+        courseServletService.add(TestDataCreator.createTestDeleteByIdCourse());
         List<Course> courseList = courseServletService.getAll();
         int number = courseList.size();
         courseServletService.deleteById(number);

@@ -17,31 +17,35 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet("/coachPutMarksServlet")
+import static com.Altshuler.info.ProjectAttributeConstants.*;
+import static com.Altshuler.info.ProjectPageConstants.PAGE_COACH_PUT_MARKS;
+import static com.Altshuler.info.ProjectParamConstants.PARAM_NUMBER;
+
+@WebServlet("/coachPutMarks")
 public class CoachPutMarksServlet extends HttpServlet {
-    CourseServletService courseServletService = new CourseServletService();
-    ParseUtil parseUtil = new ParseUtil();
-    String regex = "[0-9]+";
+    private final CourseServletService courseServletService = new CourseServletService();
+    private final ParseUtil parseUtil = new ParseUtil();
+    private final String regex = "[0-9]+";
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        Course course = courseServletService.getById(Integer.parseInt(request.getParameter("number")));
+        Course course = courseServletService.getById(Integer.parseInt(request.getParameter(PARAM_NUMBER)));
         ProjectInfo.setCourse(course);
         Student anyStudent = course.getStudents().stream().findAny().get();
         Map<Student, Map<String, String>> courseMap = ProjectInfo.getMarks().get(course);
-        request.setAttribute("courseMap", courseMap);
+        request.setAttribute(ATTR_COURSE_MAP, courseMap);
         Map<String, String> studentMap = new LinkedHashMap<>(courseMap.get(anyStudent));
         List<String> elements = new ArrayList<>(studentMap.keySet());
         for (String element : elements) {
             if (!element.matches(regex)) studentMap.remove(element);
         }
-        request.setAttribute("titles", studentMap);
+        request.setAttribute(ATTR_TITLES, studentMap);
         Map<Integer, String> studentAdditionalMap = new LinkedHashMap<>();
         for (Student student : course.getStudents()) {
             studentAdditionalMap.put(student.getId(), parseUtil.parseStudent(student));
         }
-        request.setAttribute("studentMap", studentAdditionalMap);
-        request.getRequestDispatcher("/coachPutMarks.jsp").forward(request, response);
+        request.setAttribute(ATTR_STUDENT_MAP, studentAdditionalMap);
+        request.getRequestDispatcher(PAGE_COACH_PUT_MARKS).forward(request, response);
 
     }
 }

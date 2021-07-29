@@ -49,8 +49,7 @@
             <td>${courses.remaining}</td>
             <td>${courses.coachRequired}</td>
             <td>${courses.isStarted}</td>
-            <td><a href="adminLaunchCourseServlet?launchId=${courses.id}"> <fmt:message key="label.launchCourse"/> </a>
-            </td>
+            <td><a href="adminLaunchCourse?launchId=${courses.id}"> <fmt:message key="label.launchCourse"/> </a></td>
         </tr>
     </c:forEach>
 </table>

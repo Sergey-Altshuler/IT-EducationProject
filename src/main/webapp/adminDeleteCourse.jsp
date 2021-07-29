@@ -47,7 +47,7 @@
             <td>${courses.finishDate}</td>
             <td>${courses.remaining}</td>
             <td>${courses.isStarted}</td>
-            <td><a href="adminDropCourseServlet?deleteId=${courses.id}"> <fmt:message key="label.deleteCourse"/> </a>
+            <td><a href="adminDropCourse?deleteId=${courses.id}"> <fmt:message key="label.deleteCourse"/> </a>
             </td>
         </tr>
     </c:forEach>

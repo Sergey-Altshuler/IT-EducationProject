@@ -1,7 +1,9 @@
 package com.Altshuler.servlets;
 
-import com.Altshuler.converters.CoachConverter;
+import com.Altshuler.converters.ConverterProvider;
+import com.Altshuler.model.Coach;
 import com.Altshuler.servlce.CoachServletService;
+import lombok.SneakyThrows;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,16 +12,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/coachRegisterServlet")
-public class CoachRegisterServlet extends HttpServlet {
-    CoachServletService coachServletService = new CoachServletService();
-    CoachConverter coachConverter = new CoachConverter();
+import static com.Altshuler.info.ProjectPageConstants.PAGE_COACH_SUCCESS_REGISTER;
+import static com.Altshuler.info.ProjectParamConstants.PARAM_LOGIN;
+import static com.Altshuler.info.ProjectParamConstants.PARAM_PASSWORD;
 
+@WebServlet("/coachRegister")
+public class CoachRegisterServlet extends HttpServlet {
+    private final CoachServletService coachServletService = new CoachServletService();
+
+    @SneakyThrows
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        coachServletService.add(coachConverter.convert(request));
-        request.setAttribute("login", request.getParameter("login"));
-        request.setAttribute("password", request.getParameter("password"));
-        request.getRequestDispatcher("/coachSuccessRegister.jsp").forward(request, response);
+        coachServletService.add(ConverterProvider.convert(Coach.class, request));
+        request.setAttribute(PARAM_LOGIN, request.getParameter(PARAM_LOGIN));
+        request.setAttribute(PARAM_PASSWORD, request.getParameter(PARAM_PASSWORD));
+        request.getRequestDispatcher(PAGE_COACH_SUCCESS_REGISTER).forward(request, response);
     }
 
 }

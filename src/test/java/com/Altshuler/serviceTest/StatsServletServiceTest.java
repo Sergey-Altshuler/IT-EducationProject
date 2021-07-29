@@ -1,5 +1,6 @@
 package com.Altshuler.serviceTest;
 
+import com.Altshuler.TestInfo.TestDataCreator;
 import com.Altshuler.dao.DAOStats;
 import com.Altshuler.dao.DAOStatsImpl;
 import com.Altshuler.model.Stats;
@@ -19,7 +20,7 @@ public class StatsServletServiceTest {
     void add() {
         try {
             List<Stats> list1 = daoStats.getAll(Stats.class);
-            statsServletService.add(Stats.builder().avgMark(1d).build());
+            statsServletService.add(TestDataCreator.createTestAddStats());
             List<Stats> list2 = daoStats.getAll(Stats.class);
             assertEquals(list1.size() + 1, list2.size());
         } catch (SQLException e) {
@@ -30,7 +31,7 @@ public class StatsServletServiceTest {
     @Test
     void getAll() {
         try {
-            statsServletService.add(Stats.builder().avgMark(5d).build());
+            statsServletService.add(TestDataCreator.createTestGetAllStats());
             List<Stats> daoList = daoStats.getAll(Stats.class);
             List<Stats> serviceList = statsServletService.getAll();
             assertEquals(daoList, serviceList);

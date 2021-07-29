@@ -9,13 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/studentServlet")
+import static com.Altshuler.info.ProjectAttributeConstants.ATTR_COURSES;
+import static com.Altshuler.info.ProjectPageConstants.PAGE_STUDENT_CHOOSE_COURSE;
+
+@WebServlet("/student")
 public class StudentServlet extends HttpServlet {
-    CourseServletService courseServletService = new CourseServletService();
+    private final CourseServletService courseServletService = new CourseServletService();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        request.setAttribute("courses", courseServletService.getAll());
-        request.getRequestDispatcher("/studentChooseCourse.jsp").forward(request, response);
+        request.setAttribute(ATTR_COURSES, courseServletService.getAll());
+        request.getRequestDispatcher(PAGE_STUDENT_CHOOSE_COURSE).forward(request, response);
     }
 }

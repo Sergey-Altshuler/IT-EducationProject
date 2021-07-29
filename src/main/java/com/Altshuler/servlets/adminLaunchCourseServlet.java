@@ -11,19 +11,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/adminLaunchCourseServlet")
+import static com.Altshuler.info.ProjectAttributeConstants.ATTR_COURSES;
+import static com.Altshuler.info.ProjectNamedConstants.YES;
+import static com.Altshuler.info.ProjectPageConstants.PAGE_ADMIN_LAUNCH_COURSE;
+import static com.Altshuler.info.ProjectParamConstants.PARAM_LAUNCH_ID;
+
+@WebServlet("/adminLaunchCourse")
 public class adminLaunchCourseServlet extends HttpServlet {
-    CourseServletService courseServletService = new CourseServletService();
-    MarkUtil markUtil = new MarkUtil();
+    private final CourseServletService courseServletService = new CourseServletService();
+    private final MarkUtil markUtil = new MarkUtil();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        if (request.getParameter("launchId") != null) {
-            Course course = courseServletService.getById(Integer.parseInt(request.getParameter("launchId")));
-            course.setIsStarted("Yes");
+        if (request.getParameter(PARAM_LAUNCH_ID) != null) {
+            Course course = courseServletService.getById(Integer.parseInt(request.getParameter(PARAM_LAUNCH_ID)));
+            course.setIsStarted(YES);
             courseServletService.add(course);
             markUtil.initializeMarks(course);
         }
-        request.setAttribute("courses", courseServletService.getAll());
-        request.getRequestDispatcher("/adminLaunchCourse.jsp").forward(request, response);
+        request.setAttribute(ATTR_COURSES, courseServletService.getAll());
+        request.getRequestDispatcher(PAGE_ADMIN_LAUNCH_COURSE).forward(request, response);
     }
 }

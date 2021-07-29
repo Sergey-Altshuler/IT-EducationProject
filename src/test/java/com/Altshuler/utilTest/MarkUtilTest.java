@@ -1,5 +1,6 @@
 package com.Altshuler.utilTest;
 
+import com.Altshuler.TestInfo.TestDataCreator;
 import com.Altshuler.model.Course;
 import com.Altshuler.util.MarkUtil;
 import org.junit.jupiter.api.Test;
@@ -8,49 +9,26 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MarkUtilTest {
     MarkUtil markUtil = new MarkUtil();
-    Course course = Course.builder().build();
-
+    Course course = TestDataCreator.createEmptyTestCourse();
 
     @Test
     void initializeMarks() {
-        try {
-            markUtil.initializeMarks(course);
-            fail();
-        } catch (NullPointerException e) {
-            assertNotEquals("", e.getMessage());
-        }
+        assertThrows(NullPointerException.class, () -> markUtil.initializeMarks(course));
 
     }
 
     @Test
     void getIsFinished() {
-        int result = -1;
-        try {
-            result = markUtil.getIsFinished(course);
-            fail();
-        } catch (NullPointerException e) {
-            assertEquals(result, -1);
-        }
+        assertThrows(NullPointerException.class, () -> markUtil.getIsFinished(course));
     }
 
     @Test
     void calculateIndividualStatistics() {
-        try {
-            markUtil.calculateIndividualStatistics(course);
-            fail();
-        } catch (NullPointerException e) {
-            assertNotEquals("", e.getMessage());
-        }
+        assertThrows(NullPointerException.class, () -> markUtil.calculateIndividualStatistics(course));
     }
 
     @Test
     void calculateTotalStatistics() {
-        try {
-            markUtil.calculateTotalStatistics(course);
-            fail();
-        } catch (NullPointerException e) {
-            assertNotEquals("", e.getMessage());
-        }
-
+        assertThrows(NullPointerException.class, () -> markUtil.calculateTotalStatistics(course));
     }
 }

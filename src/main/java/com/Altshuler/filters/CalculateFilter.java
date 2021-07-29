@@ -9,17 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = "/calculateServlet")
+import static com.Altshuler.info.ProjectPageConstants.PAGE_WRONG_OPERATION;
+
+@WebFilter(urlPatterns = "/calculate")
 public class CalculateFilter implements Filter {
-    MarkUtil markUtil = new MarkUtil();
+    private final MarkUtil markUtil = new MarkUtil();
 
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         String contextPath = req.getContextPath();
-        if (markUtil.getIsFinished(ProjectInfo.getCourse()) == 0 && (ProjectInfo.getCourse().getStats() == null))
+        if ((ProjectInfo.getCourse()!=null)&&(markUtil.getIsFinished(ProjectInfo.getCourse()) == 0 && (ProjectInfo.getCourse().getStats() == null)))
             filterChain.doFilter(req, resp);
-        else resp.sendRedirect(contextPath + "/wrongOperation.jsp");
+        else resp.sendRedirect(contextPath + PAGE_WRONG_OPERATION);
 
     }
 }

@@ -9,12 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/adminDisplayStatsServlet")
+import static com.Altshuler.info.ProjectAttributeConstants.ATTR_STATS;
+import static com.Altshuler.info.ProjectPageConstants.PAGE_ADMIN_DISPLAY_STATS;
+
+@WebServlet("/adminDisplayStats")
 public class AdminDisplayStatsServlet extends HttpServlet {
-    StatsServletService statsServletService = new StatsServletService();
+    private final StatsServletService statsServletService = new StatsServletService();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        request.setAttribute("stats", statsServletService.getAll());
-        request.getRequestDispatcher("/adminDisplayStats.jsp").forward(request, response);
+        request.setAttribute(ATTR_STATS, statsServletService.getAll());
+        request.getRequestDispatcher(PAGE_ADMIN_DISPLAY_STATS).forward(request, response);
     }
 }

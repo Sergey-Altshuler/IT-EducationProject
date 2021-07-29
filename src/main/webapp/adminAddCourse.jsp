@@ -20,7 +20,7 @@
 <a href="adminActions.jsp"><fmt:message key="label.goBack"/></a>
 <br>
 <div align="center">
-    <form action="adminAddCourseServlet" method="POST">
+    <form action="adminAddCourse" method="POST">
         <br>
         <fmt:message key="label.title"/>
         <br>

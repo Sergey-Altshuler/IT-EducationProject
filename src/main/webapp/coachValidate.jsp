@@ -17,7 +17,7 @@
 <a href="chooseRole.jsp"> <fmt:message key="label.goBack"/> </a>
 <br>
 <div align="center">
-    <form action="coachServlet" method="get">
+    <form action="coach" method="get">
         <fmt:message key="label.login"/>
         <br>
         <input required name="login" type="text"/>

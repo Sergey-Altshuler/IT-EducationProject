@@ -9,7 +9,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Enumeration;
 
-@WebFilter(urlPatterns = "/coachFillMarksServlet")
+import static com.Altshuler.info.ProjectPageConstants.PAGE_WRONG_OPERATION;
+import static com.Altshuler.info.ProjectParamConstants.PARAM_NUM_OF_CURRENT_LESSON;
+
+@WebFilter(urlPatterns = "/coachFillMarks")
 public class CoachFillMarksFilter implements Filter {
     private final String regex = "[0-9]|10|N";
 
@@ -21,20 +24,20 @@ public class CoachFillMarksFilter implements Filter {
         boolean areRightParams = true;
         while (params.hasMoreElements()) {
             String param = params.nextElement();
-            if (!param.equals("numLesson")) {
-                if (!req.getParameter(param).matches(regex)) {
+            if (!param.equals(PARAM_NUM_OF_CURRENT_LESSON)) {
+                if ((req.getParameter(param)!=null)&&(!req.getParameter(param).matches(regex))) {
                     areRightParams = false;
                 }
             } else {
-                int numLesson = Integer.parseInt(req.getParameter("numLesson"));
-                if ((numLesson < 0) || (numLesson > ProjectInfo.getCourse().getNumOfLessons())) {
+                int numLesson = Integer.parseInt(req.getParameter(PARAM_NUM_OF_CURRENT_LESSON));
+                if ((ProjectInfo.getCourse()!=null)&&((numLesson < 0) || (numLesson > ProjectInfo.getCourse().getNumOfLessons()))) {
                     areRightParams = false;
                 }
             }
         }
         if (areRightParams)
             filterChain.doFilter(req, resp);
-        else resp.sendRedirect(contextPath + "/wrongOperation.jsp");
+        else resp.sendRedirect(contextPath + PAGE_WRONG_OPERATION);
 
     }
 }

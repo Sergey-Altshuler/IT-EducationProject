@@ -19,7 +19,7 @@
 <a href="studentValidate.jsp"> <fmt:message key="label.goBack"/> </a>
 <br>
 <div align="center">
-    <form action="studentRegisterServlet" method="POST">
+    <form action="studentRegister" method="POST">
         <br>
         <fmt:message key="label.login"/>
         <br>

@@ -10,21 +10,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = "/studentChooseCourseServlet")
+import static com.Altshuler.info.ProjectPageConstants.PAGE_WRONG_OPERATION;
+import static com.Altshuler.info.ProjectParamConstants.PARAM_NUMBER;
+
+@WebFilter(urlPatterns = "/studentChooseCourse")
 public class StudentChooseCourseFilter implements Filter {
-    CourseServletService courseServletService = new CourseServletService();
+    private final CourseServletService courseServletService = new CourseServletService();
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         String contextPath = req.getContextPath();
-        Course course = courseServletService.getById(Integer.parseInt(req.getParameter("number")));
-        if ((course.getRemaining() > 0) && (ProjectInfo.getStudent().getCourse() == null)) {
+        Course course = courseServletService.getById(Integer.parseInt(req.getParameter(PARAM_NUMBER)));
+        if ((course != null) && ((course.getRemaining() > 0) && (ProjectInfo.getStudent().getCourse() == null))) {
             course.setRemaining(course.getRemaining() - 1);
             courseServletService.add(course);
             filterChain.doFilter(req, resp);
-        } else resp.sendRedirect(contextPath + "/wrongOperation.jsp");
+        } else resp.sendRedirect(contextPath + PAGE_WRONG_OPERATION);
 
     }
 }

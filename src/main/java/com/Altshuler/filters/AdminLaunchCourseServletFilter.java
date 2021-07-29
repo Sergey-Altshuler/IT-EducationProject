@@ -2,6 +2,7 @@ package com.Altshuler.filters;
 
 import com.Altshuler.model.Course;
 import com.Altshuler.servlce.CourseServletService;
+import com.mysql.cj.util.StringUtils;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -9,7 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = "/adminLaunchCourseServlet")
+import static com.Altshuler.info.ProjectNamedConstants.NO;
+import static com.Altshuler.info.ProjectPageConstants.PAGE_WRONG_OPERATION;
+import static com.Altshuler.info.ProjectParamConstants.PARAM_LAUNCH_ID;
+
+@WebFilter(urlPatterns = "/adminLaunchCourse")
 public class AdminLaunchCourseServletFilter implements Filter {
     private final CourseServletService courseServletService = new CourseServletService();
 
@@ -18,13 +23,14 @@ public class AdminLaunchCourseServletFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         String contextPath = req.getContextPath();
-        if (req.getParameter("launchId") == null) filterChain.doFilter(req, resp);
+
+        if (StringUtils.isNullOrEmpty(req.getParameter(PARAM_LAUNCH_ID))) filterChain.doFilter(req, resp);
         else {
-            Course course = courseServletService.getById(Integer.parseInt(req.getParameter("launchId")));
-            if ((course.getRemaining() == 0) && (course.getCoachRequired().equals("No"))) {
+            Course course = courseServletService.getById(Integer.parseInt(req.getParameter(PARAM_LAUNCH_ID)));
+            if((!StringUtils.isNullOrEmpty(course.getCoachRequired()))&& ((course.getRemaining() == 0) && (course.getCoachRequired().equals(NO)))) {
                 filterChain.doFilter(req, resp);
             } else {
-                resp.sendRedirect(contextPath + "/wrongOperation.jsp");
+                resp.sendRedirect(contextPath + PAGE_WRONG_OPERATION);
             }
         }
     }

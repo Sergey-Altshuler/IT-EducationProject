@@ -19,11 +19,11 @@
 <br>
 <a href="adminAddCourse.jsp"><fmt:message key="label.createNewCourse"/> </a>
 <br>
-<a href="adminDropCourseServlet"><fmt:message key="label.deleteCourse"/></a>
+<a href="adminDropCourse"><fmt:message key="label.deleteCourse"/></a>
 <br>
-<a href="adminLaunchCourseServlet"> <fmt:message key="label.launchCourse"/></a>
+<a href="adminLaunchCourse"> <fmt:message key="label.launchCourse"/></a>
 <br>
-<a href="adminDisplayStatsServlet"><fmt:message key="label.displayStatistics"/></a>
+<a href="adminDisplayStats"><fmt:message key="label.displayStatistics"/></a>
 <br>
 <a href="adminChangeProperties.jsp"><fmt:message key="label.changeAdminLoginPassword"/></a>
 </body>

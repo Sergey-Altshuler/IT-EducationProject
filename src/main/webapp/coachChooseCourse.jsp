@@ -51,8 +51,8 @@
             <td>${courses.remaining}</td>
             <td>${courses.coachRequired}</td>
             <td>${courses.isStarted}</td>
-            <td><a href="coachChooseCourseServlet?number=${courses.id}"><fmt:message key="label.register"/></a></td>
-            <td><a href="coachPutMarksServlet?number=${courses.id}"><fmt:message key="label.putMarks"/></a></td>
+            <td><a href="coachChooseCourse?number=${courses.id}"><fmt:message key="label.register"/></a></td>
+            <td><a href="coachPutMarks?number=${courses.id}"><fmt:message key="label.putMarks"/></a></td>
         </tr>
     </c:forEach>
 </table>

@@ -6,24 +6,27 @@ import com.Altshuler.util.ParseUtil;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class CourseConverter {
-    CourseGroupUtil courseGroupUtil = new CourseGroupUtil();
-    ParseUtil parseUtil = new ParseUtil();
+import static com.Altshuler.info.ProjectNamedConstants.*;
+import static com.Altshuler.info.ProjectParamConstants.*;
+
+public class CourseConverter implements Converter<Course> {
+    private final CourseGroupUtil courseGroupUtil = new CourseGroupUtil();
+    private final ParseUtil parseUtil = new ParseUtil();
 
     public Course convert(HttpServletRequest request) {
         return Course.builder()
-                .title(request.getParameter("title"))
-                .educationType(request.getParameter("educationType"))
-                .price(Integer.parseInt(request.getParameter("price")))
-                .numOfLessons(Integer.parseInt(request.getParameter("numOfLessons")))
-                .address(request.getParameter("address"))
-                .numOfStudents(Integer.parseInt(request.getParameter("numOfStudents")))
-                .subgroupNum(courseGroupUtil.getCourseGroup(request.getParameter("title")))
-                .startDate(parseUtil.parseDate(request.getParameter("startDate")))
-                .finishDate(parseUtil.parseDate(request.getParameter("finishDate")))
-                .isStarted("No")
-                .coachRequired("Yes")
-                .remaining(Integer.parseInt(request.getParameter("numOfStudents"))).build();
+                .title(request.getParameter(PARAM_TITLE))
+                .educationType(request.getParameter(PARAM_EDUCATION_TYPE))
+                .price(Integer.parseInt(request.getParameter(PARAM_PRICE)))
+                .numOfLessons(Integer.parseInt(request.getParameter(PARAM_NUM_OF_LESSONS)))
+                .address(request.getParameter(PARAM_ADDRESS))
+                .numOfStudents(Integer.parseInt(request.getParameter(PARAM_NUM_OF_STUDENTS)))
+                .subgroupNum(courseGroupUtil.getCourseGroup(request.getParameter(PARAM_TITLE)))
+                .startDate(parseUtil.parseDate(request.getParameter(PARAM_START_DATE)))
+                .finishDate(parseUtil.parseDate(request.getParameter(PARAM_FINISH_DATE)))
+                .isStarted(NO)
+                .coachRequired(YES)
+                .remaining(Integer.parseInt(request.getParameter(PARAM_NUM_OF_STUDENTS))).build();
 
     }
 }

@@ -6,11 +6,14 @@ import com.Altshuler.model.Admin;
 
 import java.sql.SQLException;
 
+import static com.Altshuler.info.ProjectNamedConstants.START_ADMIN_LOGIN;
+import static com.Altshuler.info.ProjectNamedConstants.START_ADMIN_PASSWORD;
+
 public class AdminServletService {
     private final DAOAdmin daoAdmin = new DAOAdminImpl();
 
     public void initialize() {
-        Admin admin = Admin.builder().login("admin").password("password").build();
+        Admin admin = Admin.builder().login(START_ADMIN_LOGIN).password(START_ADMIN_PASSWORD).build();
         try {
             daoAdmin.save(admin);
         } catch (SQLException e) {

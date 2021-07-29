@@ -19,7 +19,7 @@
 <a href="coachValidate.jsp"> <fmt:message key="label.goBack"/> </a>
 <br>
 <div align="center">
-    <form action="coachRegisterServlet" method="POST">
+    <form action="coachRegister" method="POST">
         <br>
         <fmt:message key="label.login"/>
         <br>

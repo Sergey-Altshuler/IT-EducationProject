@@ -30,6 +30,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
+          <factory-entry name="IT_Education" />
           <factory-entry name="it_learning" />
         </datasource-mapping>
         <naming-strategy-map />

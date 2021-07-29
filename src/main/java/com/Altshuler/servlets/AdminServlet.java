@@ -7,10 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/adminServlet")
+import static com.Altshuler.info.ProjectPageConstants.PAGE_ADMIN_ACTIONS;
+
+@WebServlet("/admin")
 public class AdminServlet extends HttpServlet {
+
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        request.getRequestDispatcher("/adminActions.jsp").forward(request, response);
+        request.getRequestDispatcher(PAGE_ADMIN_ACTIONS).forward(request, response);
     }
 
 }

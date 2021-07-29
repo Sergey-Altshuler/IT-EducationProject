@@ -9,14 +9,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/adminChangePropertiesServlet")
+import static com.Altshuler.info.ProjectPageConstants.PAGE_ADMIN_SUCCESS_CHANGE;
+import static com.Altshuler.info.ProjectParamConstants.PARAM_LOGIN;
+import static com.Altshuler.info.ProjectParamConstants.PARAM_PASSWORD;
+
+@WebServlet("/adminChangeProperties")
 public class AdminChangePropertiesServlet extends HttpServlet {
     private final AdminServletService adminServletService = new AdminServletService();
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        adminServletService.changeProperties(request.getParameter("login"), request.getParameter("password"));
-        request.setAttribute("login", request.getParameter("login"));
-        request.setAttribute("password", request.getParameter("password"));
-        request.getRequestDispatcher("/adminSuccessChange.jsp").forward(request, response);
+        adminServletService.changeProperties(request.getParameter(PARAM_LOGIN), request.getParameter(PARAM_PASSWORD));
+        request.setAttribute(PARAM_LOGIN, request.getParameter(PARAM_LOGIN));
+        request.setAttribute(PARAM_PASSWORD, request.getParameter(PARAM_PASSWORD));
+        request.getRequestDispatcher(PAGE_ADMIN_SUCCESS_CHANGE).forward(request, response);
     }
 }

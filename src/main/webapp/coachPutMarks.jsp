@@ -45,7 +45,7 @@
 <br>
 <br>
 <div align="center">
-    <form action="coachFillMarksServlet" method="POST" class="decor">
+    <form action="coachFillMarks" method="POST" class="decor">
         <div class="form-inner">
             <fmt:message key="label.NumOfLesson"/> <input required name="numLesson" type="text">
             <c:forEach var="student" items="${studentMap}">
@@ -61,7 +61,7 @@
 <div align="center">
     <h2><fmt:message key="label.generateTotalStats"/></h2>
     <br>
-    <a href="calculateServlet"> <fmt:message key="label.generate"/> </a>
+    <a href="calculate"> <fmt:message key="label.generate"/> </a>
 </div>
 </body>
 </html>

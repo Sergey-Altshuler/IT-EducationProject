@@ -44,7 +44,7 @@
             <td>${courses.startDate}</td>
             <td>${courses.finishDate}</td>
             <td>${courses.remaining}</td>
-            <td><a href="studentChooseCourseServlet?number=${courses.id}"> <fmt:message
+            <td><a href="studentChooseCourse?number=${courses.id}"> <fmt:message
                     key="label.pressAndRegister"/> </a></td>
         </tr>
     </c:forEach>

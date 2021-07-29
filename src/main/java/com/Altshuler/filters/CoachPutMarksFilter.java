@@ -10,9 +10,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = "/coachPutMarksServlet")
+import static com.Altshuler.info.ProjectNamedConstants.YES;
+import static com.Altshuler.info.ProjectPageConstants.PAGE_WRONG_OPERATION;
+import static com.Altshuler.info.ProjectParamConstants.PARAM_NUMBER;
+
+@WebFilter(urlPatterns = "/coachPutMarks")
 public class CoachPutMarksFilter implements Filter {
-    CourseServletService courseServletService = new CourseServletService();
+   private final CourseServletService courseServletService = new CourseServletService();
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -20,10 +24,10 @@ public class CoachPutMarksFilter implements Filter {
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         String contextPath = req.getContextPath();
 
-        Course course = courseServletService.getById(Integer.parseInt(req.getParameter("number")));
-        if (("Yes").equals(course.getIsStarted()) && ((ProjectInfo.getCoach()).equals(course.getCoach()))) {
+        Course course = courseServletService.getById(Integer.parseInt(req.getParameter(PARAM_NUMBER)));
+        if ((YES).equals(course.getIsStarted()) && ((ProjectInfo.getCoach()).equals(course.getCoach()))) {
             filterChain.doFilter(req, resp);
-        } else resp.sendRedirect(contextPath + "/wrongOperation.jsp");
+        } else resp.sendRedirect(contextPath + PAGE_WRONG_OPERATION);
     }
 
 }

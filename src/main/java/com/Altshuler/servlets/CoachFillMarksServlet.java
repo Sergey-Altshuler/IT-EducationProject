@@ -14,23 +14,27 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet("/coachFillMarksServlet")
+import static com.Altshuler.info.ProjectAttributeConstants.ATTR_COURSES;
+import static com.Altshuler.info.ProjectPageConstants.PAGE_COACH_CHOOSE_COURSE;
+import static com.Altshuler.info.ProjectParamConstants.PARAM_NUM_OF_CURRENT_LESSON;
+
+@WebServlet("/coachFillMarks")
 public class CoachFillMarksServlet extends HttpServlet {
     private final MarkUtil markUtil = new MarkUtil();
     private final CourseServletService courseServletService = new CourseServletService();
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        int numLesson = Integer.parseInt(request.getParameter("numLesson"));
+        int numLesson = Integer.parseInt(request.getParameter(PARAM_NUM_OF_CURRENT_LESSON));
         Enumeration<String> params = request.getParameterNames();
         Map<String, String> studentsAndMarks = new HashMap<>();
         while (params.hasMoreElements()) {
             String param = params.nextElement();
-            if (!param.equals("numLesson"))
+            if (!param.equals(PARAM_NUM_OF_CURRENT_LESSON))
                 studentsAndMarks.put(param, request.getParameter(param));
         }
         markUtil.setLessonMarks(ProjectInfo.getCourse(), studentsAndMarks, numLesson);
-        request.setAttribute("courses", courseServletService.getAll());
-        request.getRequestDispatcher("/coachChooseCourse.jsp").forward(request, response);
+        request.setAttribute(ATTR_COURSES, courseServletService.getAll());
+        request.getRequestDispatcher(PAGE_COACH_CHOOSE_COURSE).forward(request, response);
     }
 }

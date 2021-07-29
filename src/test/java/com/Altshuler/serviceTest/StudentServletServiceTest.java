@@ -1,5 +1,6 @@
 package com.Altshuler.serviceTest;
 
+import com.Altshuler.TestInfo.TestDataCreator;
 import com.Altshuler.dao.DAOStudent;
 import com.Altshuler.dao.DAOStudentImpl;
 import com.Altshuler.info.ProjectInfo;
@@ -10,6 +11,7 @@ import org.testng.annotations.Test;
 import java.sql.SQLException;
 import java.util.List;
 
+import static com.Altshuler.TestInfo.TestConstants.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StudentServletServiceTest {
@@ -20,37 +22,37 @@ public class StudentServletServiceTest {
     void add() {
         try {
             List<Student> list1 = daoStudent.getAll(Student.class);
-            studentServletService.add(Student.builder().name("new Student").build());
+            studentServletService.add(TestDataCreator.createNewTestStudent());
             List<Student> list2 = daoStudent.getAll(Student.class);
             assertEquals(list1.size() + 1, list2.size());
         } catch (SQLException e) {
-            e.printStackTrace();
+            fail();
         }
     }
 
     @Test
     void validate() {
-        studentServletService.add(Student.builder().login("test").password("test").build());
-        assertTrue(studentServletService.validate("test", "test"));
+        studentServletService.add(TestDataCreator.createValidateTestStudent());
+        assertTrue(studentServletService.validate(VALIDATE_LOGIN, VALIDATE_PASSWORD));
     }
 
     @Test
     void logIn() {
-        studentServletService.add(Student.builder().login("test2").password("test2").build());
-        studentServletService.logIn("test2", "test2");
-        assertEquals(ProjectInfo.getStudent().getPassword(), "test2");
+        studentServletService.add(TestDataCreator.createLoginTestStudent());
+        studentServletService.logIn(ENTER_LOGIN, ENTER_PASSWORD);
+        assertEquals(ProjectInfo.getStudent().getPassword(), ENTER_PASSWORD);
     }
 
     @Test
     void getById() {
-        studentServletService.add(Student.builder().name("New student").build());
+        studentServletService.add(TestDataCreator.createNewTestStudent());
         Student student1 = null;
         Student student2 = null;
         try {
             student1 = daoStudent.get(1, Student.class);
             student2 = studentServletService.getById(1);
         } catch (SQLException e) {
-            e.printStackTrace();
+            fail();
         }
         assertNotNull(student1);
         assertEquals(student1, student2);

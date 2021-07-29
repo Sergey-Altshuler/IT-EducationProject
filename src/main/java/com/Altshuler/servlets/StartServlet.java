@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/startServlet")
+import static com.Altshuler.info.ProjectPageConstants.PAGE_CHOOSE_LANGUAGE;
+
+@WebServlet("/start")
 public class StartServlet extends HttpServlet {
     private final AdminServletService adminServletService = new AdminServletService();
 
@@ -18,6 +20,6 @@ public class StartServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        request.getRequestDispatcher("/chooseLanguage.jsp").forward(request, response);
+        request.getRequestDispatcher(PAGE_CHOOSE_LANGUAGE).forward(request, response);
     }
 }

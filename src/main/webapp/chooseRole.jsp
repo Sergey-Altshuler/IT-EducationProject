@@ -16,7 +16,7 @@
 <h1><fmt:message key="label.selectRole"/></h1>
 <a href="welcome.jsp"> <fmt:message key="label.goBack"/> </a>
 <div align="center">
-    <form action="chooseRole-servlet" method="post">
+    <form action="chooseRole" method="post">
         <p><input name="role" type="radio" value="admin" checked class="radio"> <fmt:message key="label.admin"/></p>
         <p><input name="role" type="radio" value="student" class="radio"> <fmt:message key="label.student"/></p>
         <p><input name="role" type="radio" value="coach" class="radio"> <fmt:message key="label.coach"/></p>

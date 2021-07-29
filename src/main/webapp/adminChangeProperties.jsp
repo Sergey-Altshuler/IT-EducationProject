@@ -20,7 +20,7 @@
 <a href="adminActions.jsp"><fmt:message key="label.goBack"/></a>
 <br>
 <div align="center">
-    <form action="adminChangePropertiesServlet" method="post">
+    <form action="adminChangeProperties" method="post">
         <fmt:message key="label.newLogin"/>
         <br>
         <input name="login" type="text"/>
