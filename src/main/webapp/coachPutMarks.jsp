@@ -59,9 +59,9 @@
 <br>
 <br>
 <div align="center">
-    <h2><fmt:message key="label.generateTotalStats"/></h2>
+    <h2><fmt:message key="label.finishCourse"/></h2>
     <br>
-    <a href="calculate"> <fmt:message key="label.generate"/> </a>
+    <a href="calculate?number=${number}"> <fmt:message key="label.finish"/> </a>
 </div>
 </body>
 </html>

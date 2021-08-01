@@ -7,4 +7,5 @@ public class ProjectAttributeConstants {
     public static final String ATTR_COURSE_MAP ="courseMap";
     public static final String ATTR_TITLES ="titles";
     public static final String ATTR_STUDENT_MAP ="studentMap";
+    public static final String ATTR_NUMBER="number";
 }

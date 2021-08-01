@@ -24,7 +24,7 @@ public class StudentChooseCourseFilter implements Filter {
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         String contextPath = req.getContextPath();
         Course course = courseService.getById(Integer.parseInt(req.getParameter(PARAM_NUMBER)));
-        if ((course != null) && ((course.getRemaining() > 0) && (ProjectInfo.getStudent().getCourse() == null))) {
+        if ((course != null) && ((course.getRemaining() > 0) && ((ProjectInfo.getStudent().getCourse()) == null)))  {
             course.setRemaining(course.getRemaining() - 1);
             courseService.add(course);
             filterChain.doFilter(req, resp);

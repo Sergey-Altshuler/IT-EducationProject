@@ -25,6 +25,7 @@ public class CourseConverter implements Converter<Course> {
                 .startDate(parseUtil.parseDate(request.getParameter(PARAM_START_DATE)))
                 .finishDate(parseUtil.parseDate(request.getParameter(PARAM_FINISH_DATE)))
                 .isStarted(NO)
+                .isFinished(NO)
                 .coachRequired(YES)
                 .remaining(Integer.parseInt(request.getParameter(PARAM_NUM_OF_STUDENTS))).build();
 

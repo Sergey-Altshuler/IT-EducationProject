@@ -43,6 +43,8 @@ public class Course implements Serializable {
     @Column
     private String isStarted;
     @Column
+    private String isFinished;
+    @Column
     private int remaining;
     @Column
     private String coachRequired;
@@ -93,6 +95,7 @@ public class Course implements Serializable {
                 ", finishDate=" + finishDate +
                 ", numOfLessons=" + numOfLessons +
                 ", isStarted='" + isStarted + '\'' +
+                ", isFinished='" + isFinished + '\'' +
                 ", remaining=" + remaining +
                 ", coachRequired='" + coachRequired + '\'' +
                 '}';

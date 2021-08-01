@@ -46,6 +46,7 @@ public class CoachPutMarksServlet extends HttpServlet {
             studentAdditionalMap.put(student.getId(), parseUtil.parseStudent(student));
         }
         request.setAttribute(ATTR_STUDENT_MAP, studentAdditionalMap);
+        request.setAttribute(ATTR_NUMBER, request.getParameter(PARAM_NUMBER));
         request.getRequestDispatcher(PAGE_COACH_PUT_MARKS).forward(request, response);
 
     }
