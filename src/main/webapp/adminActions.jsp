@@ -19,9 +19,7 @@
 <br>
 <a href="adminAddCourse.jsp"><fmt:message key="label.createNewCourse"/> </a>
 <br>
-<a href="adminDropCourse"><fmt:message key="label.deleteCourse"/></a>
-<br>
-<a href="adminLaunchCourse"> <fmt:message key="label.launchCourse"/></a>
+<a href="adminDisplayCourses"> <fmt:message key="label.displayCourses"/></a>
 <br>
 <a href="adminDisplayStats"><fmt:message key="label.displayStatistics"/></a>
 <br>

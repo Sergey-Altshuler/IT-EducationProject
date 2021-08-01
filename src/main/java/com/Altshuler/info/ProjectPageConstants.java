@@ -18,5 +18,6 @@ public class ProjectPageConstants {
     public static final String PAGE_STUDENT_SUCCESS_ENROLL = "/studentSuccessEnroll.jsp";
     public static final String PAGE_STUDENT_SUCCESS_REGISTER = "/studentSuccessRegister.jsp";
     public static final String PAGE_STUDENT_CHOOSE_COURSE = "/studentChooseCourse.jsp";
+    public static final String PAGE_ADMIN_DISPLAY_COURSES = "/adminDisplayCourses.jsp";
 
 }

@@ -14,11 +14,12 @@ import java.io.IOException;
 
 import static com.Altshuler.info.ProjectAttributeConstants.ATTR_COURSES;
 import static com.Altshuler.info.ProjectNamedConstants.YES;
-import static com.Altshuler.info.ProjectPageConstants.PAGE_ADMIN_LAUNCH_COURSE;
+import static com.Altshuler.info.ProjectPageConstants.PAGE_ADMIN_DISPLAY_COURSES;
+import static com.Altshuler.info.ProjectParamConstants.PARAM_DELETE_ID;
 import static com.Altshuler.info.ProjectParamConstants.PARAM_LAUNCH_ID;
 
-@WebServlet("/adminLaunchCourse")
-public class adminLaunchCourseServlet extends HttpServlet {
+@WebServlet("/adminDisplayCourses")
+public class adminDisplayCoursesServlet extends HttpServlet {
     private final CourseService courseService = new CourseServiceImpl();
     private final MarkUtil markUtil = new MarkUtil();
 
@@ -29,7 +30,10 @@ public class adminLaunchCourseServlet extends HttpServlet {
             courseService.add(course);
             markUtil.initializeMarks(course);
         }
+        if (request.getParameter(PARAM_DELETE_ID) != null) {
+            courseService.deleteById(Integer.parseInt(request.getParameter(PARAM_DELETE_ID)));
+        }
         request.setAttribute(ATTR_COURSES, courseService.getAll());
-        request.getRequestDispatcher(PAGE_ADMIN_LAUNCH_COURSE).forward(request, response);
+        request.getRequestDispatcher(PAGE_ADMIN_DISPLAY_COURSES).forward(request, response);
     }
 }

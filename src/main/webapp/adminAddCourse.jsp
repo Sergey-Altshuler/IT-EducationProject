@@ -29,29 +29,27 @@
         <fmt:message key="label.edType"/>
         <br>
         <select name="educationType" required>
-            <option disabled selected><fmt:message key="label.chooseTypeOfEducation"/></option>
-            <option value="<fmt:message key="label.online"/>"><fmt:message key="label.online"/></option>
-            <option value="<fmt:message key="label.evening"/>"><fmt:message key="label.evening"/></option>
+            <%--<option disabled selected><fmt:message key="label.chooseTypeOfEducation"/></option>--%>
+            <option selected value="онлайн"><fmt:message key="label.online"/></option>
+            <option value="вечерняя"><fmt:message key="label.evening"/></option>
         </select>
         <br>
         <fmt:message key="label.price"/>
         <br>
-        <input name="price" required type="text">
+        <input name="price" required type="text" pattern="[1-9][0-9]*">
         <br>
         <fmt:message key="label.address"/>
         <br>
         <select name="address" required>
-            <option disabled selected><fmt:message key="label.chooseAddress"/></option>
-            <option value="<fmt:message key="label.chooseAddress1"/>"><fmt:message key="label.chooseAddress1"/></option>
-            <option value="<fmt:message key="label.chooseAddress2"/>"><fmt:message key="label.chooseAddress2"/></option>
-            <option value="<fmt:message key="label.chooseAddress3"/>"><fmt:message key="label.chooseAddress3"/></option>
+            <option selected value="Минск, Скрыганова-14"><fmt:message key="label.chooseAddress1"/></option>
+            <option value="Минск, Гикало-3"><fmt:message key="label.chooseAddress2"/></option>
+            <option value="Могилёв"><fmt:message key="label.chooseAddress3"/></option>
         </select>
         <br>
         <fmt:message key="label.numOfStudents"/>
         <br>
         <select name="numOfStudents" required>
-            <option disabled selected><fmt:message key="label.chooseNumberOfStudents"/></option>
-            <option value="1"> 1</option>
+            <option selected value="1"> 1</option>
             <option value="2"> 2</option>
             <option value="3"> 3</option>
             <option value="4"> 4</option>
@@ -65,8 +63,7 @@
         <fmt:message key="label.numOfLessons"/>
         <br>
         <select name="numOfLessons" required>
-            <option disabled selected><fmt:message key="label.chooseNumberOfLessons"/></option>
-            <option value="4"> 4</option>
+            <option selected value="4"> 4</option>
             <option value="5"> 5</option>
             <option value="6"> 6</option>
             <option value="7"> 7</option>
@@ -76,15 +73,14 @@
         <br>
         <fmt:message key="label.startDate"/>
         <br>
-        <input name="startDate" type="text" required>
+        <input name="startDate" type="date" value="2021-08-01" min="2021-08-01" max="2024-01-01" required>
         <br>
         <fmt:message key="label.finishDate"/>
         <br>
-        <input name="finishDate" type="text" required>
+        <input name="finishDate" type="date" value="2021-08-01" min="2021-08-01" max="2024-01-01" required>
         <br>
         <br>
-        <input value=
-               <fmt:message key="label.createNewCourse"/> type="submit"/>
+        <input value=<fmt:message key="label.createNewCourse"/> type="submit"/>
     </form>
 </div>
 </body>

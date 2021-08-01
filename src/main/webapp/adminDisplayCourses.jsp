@@ -1,4 +1,3 @@
-<%@ page import="com.Altshuler.info.ProjectInfo" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -9,16 +8,17 @@
 <fmt:setBundle basename="text"/>
 <html lang="${language}">
 <head>
-    <title>StudentChooseCourse</title>
+    <title>adminDisplayCourses</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css" type="text/css">
 </head>
 <body>
-<h1><fmt:message key="label.hello"/> <%=ProjectInfo.getStudent().getName()%> <%=ProjectInfo.getStudent().getSurname()%>!<br>
-    <fmt:message key="label.selectCourse"/></h1>
+<body>
+<h1><fmt:message key="label.yourRoleAdmin"/><br> <fmt:message key="label.displayCourses"/></h1>
 <br>
 <br>
-<a href="studentValidate.jsp"> <fmt:message key="label.logOut"/> </a>
+<a href="adminValidate.jsp"> <fmt:message key="label.logOut"/></a>
+<a href="adminActions.jsp"><fmt:message key="label.goBack"/></a>
 <br>
 <table>
     <tr>
@@ -31,8 +31,10 @@
         <th><fmt:message key="label.startDate"/></th>
         <th><fmt:message key="label.finishDate"/></th>
         <th><fmt:message key="label.placesRemaining"/></th>
-        <th><fmt:message key="label.pressAndRegister"/></th>
-        <th><fmt:message key="label.pressAndUnregister"/></th>
+        <th><fmt:message key="label.coachRequired"/></th>
+        <th><fmt:message key="label.isStarted"/></th>
+        <th><fmt:message key="label.pressAndLaunch"/></th>
+        <th><fmt:message key="label.pressAndDelete"/></th>
     </tr>
     <c:forEach var="course" items="${courses}">
         <tr>
@@ -45,13 +47,12 @@
             <td>${course.startDate}</td>
             <td>${course.finishDate}</td>
             <td>${course.remaining}/${course.numOfStudents}</td>
-            <td><a href="studentChooseCourse?number=${course.id}"> <fmt:message
-                    key="label.pressAndRegister"/> </a></td>
-            <td><a href="studentUnregisterCourse?number=${course.id}"> <fmt:message
-                    key="label.pressAndUnregister"/> </a></td>
+            <td>${course.coachRequired}</td>
+            <td>${course.isStarted}</td>
+            <td><a href="adminDisplayCourses?launchId=${course.id}"> <fmt:message key="label.launchCourse"/> </a></td>
+            <td><a href="adminDisplayCourses?deleteId=${course.id}"> <fmt:message key="label.deleteCourse"/> </a>
         </tr>
     </c:forEach>
 </table>
-
 </body>
 </html>

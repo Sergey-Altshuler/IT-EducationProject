@@ -1,1 +1,1 @@
-<% response.sendRedirect(request.getContextPath() + "/coachServlet"); %>
+<% response.sendRedirect(request.getContextPath() + "/coach"); %>

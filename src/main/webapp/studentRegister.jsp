@@ -29,6 +29,10 @@
         <br>
         <input name="password" required type="password">
         <br>
+        <fmt:message key="label.confirmPassword"/>
+        <br>
+        <input name="repeated" required type="password">
+        <br>
         <fmt:message key="label.name"/>
         <br>
         <input name="name" required type="text">
@@ -39,7 +43,7 @@
         <br>
         <fmt:message key="label.age"/>
         <br>
-        <input name="age" required type="text">
+        <input name="age" required type="text" pattern="[1-9][0-9]{0,2}">
         <br>
         <fmt:message key="label.interests"/>
         <br>

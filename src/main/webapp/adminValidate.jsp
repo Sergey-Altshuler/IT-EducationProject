@@ -19,15 +19,15 @@
     <form action="admin" method="post">
         <fmt:message key="label.login"/>
         <br>
-        <input name="login" type="text"/>
+        <input required name="login" type="text"/>
         <br>
         <fmt:message key="label.password"/>
         <br>
-        <input name="password" type="password"/>
+        <input required name="password" type="password"/>
         <br>
         <fmt:message key="label.confirmPassword"/>
         <br>
-        <input name="repeated" type="password"/>
+        <input required name="repeated" type="password"/>
         <br>
         <br>
         <input type="submit" value="OK"/>

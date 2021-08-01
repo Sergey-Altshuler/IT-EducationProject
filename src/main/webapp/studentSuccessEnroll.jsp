@@ -29,6 +29,7 @@
         <th><fmt:message key="label.edType"/></th>
         <th><fmt:message key="label.price"/></th>
         <th><fmt:message key="label.address"/></th>
+        <th><fmt:message key="label.placesRemaining"/></th>
         <th><fmt:message key="label.startDate"/></th>
         <th><fmt:message key="label.finishDate"/></th>
     </tr>
@@ -39,6 +40,7 @@
         <td>${course.educationType}</td>
         <td>${course.price}</td>
         <td>${course.address}</td>
+        <td>${course.remaining}/${course.numOfStudents}</td>
         <td>${course.startDate}</td>
         <td>${course.finishDate}</td>
     </tr>

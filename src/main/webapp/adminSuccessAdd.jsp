@@ -25,7 +25,6 @@
             <th><fmt:message key="label.id"/></th>
             <th><fmt:message key="label.title"/></th>
             <th><fmt:message key="label.subgroup"/></th>
-            <th><fmt:message key="label.numOfStudents"/></th>
             <th><fmt:message key="label.edType"/></th>
             <th><fmt:message key="label.price"/></th>
             <th><fmt:message key="label.address"/></th>
@@ -34,19 +33,18 @@
             <th><fmt:message key="label.placesRemaining"/></th>
             <th><fmt:message key="label.isStarted"/></th>
         </tr>
-        <c:forEach var="courses" items="${courses}">
+        <c:forEach var="course" items="${courses}">
             <tr>
-                <td>${courses.id}</td>
-                <td>${courses.title}</td>
-                <td>${courses.subgroupNum}</td>
-                <td>${courses.numOfStudents}</td>
-                <td>${courses.educationType}</td>
-                <td>${courses.price}</td>
-                <td>${courses.address}</td>
-                <td>${courses.startDate}</td>
-                <td>${courses.finishDate}</td>
-                <td>${courses.remaining}</td>
-                <td>${courses.isStarted}</td>
+                <td>${course.id}</td>
+                <td>${course.title}</td>
+                <td>${course.subgroupNum}</td>
+                <td>${course.educationType}</td>
+                <td>${course.price}</td>
+                <td>${course.address}</td>
+                <td>${course.startDate}</td>
+                <td>${course.finishDate}</td>
+                <td>${course.remaining}/${course.numOfStudents}</td>
+                <td>${course.isStarted}</td>
             </tr>
         </c:forEach>
     </table>

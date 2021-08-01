@@ -1,1 +1,1 @@
-<% response.sendRedirect(request.getContextPath() + "/studentServlet"); %>
+<% response.sendRedirect(request.getContextPath() + "/student"); %>
