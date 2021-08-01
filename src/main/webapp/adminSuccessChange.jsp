@@ -23,7 +23,6 @@
 <br>
 <div align="center">
     <h2>
-        <fmt:message key="label.newLogin"/> ${login} <br>
         <fmt:message key="label.newPassword"/> ${password}
     </h2>
 </div>

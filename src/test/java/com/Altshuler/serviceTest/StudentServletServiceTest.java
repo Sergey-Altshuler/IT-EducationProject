@@ -5,7 +5,8 @@ import com.Altshuler.dao.DAOStudent;
 import com.Altshuler.dao.DAOStudentImpl;
 import com.Altshuler.info.ProjectInfo;
 import com.Altshuler.model.Student;
-import com.Altshuler.servlce.StudentServletService;
+import com.Altshuler.servlce.StudentService;
+import com.Altshuler.servlce.StudentServiceImpl;
 import org.testng.annotations.Test;
 
 import java.sql.SQLException;
@@ -16,13 +17,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class StudentServletServiceTest {
     DAOStudent daoStudent = new DAOStudentImpl();
-    StudentServletService studentServletService = new StudentServletService();
+    StudentService studentService = new StudentServiceImpl();
 
     @Test
     void add() {
         try {
             List<Student> list1 = daoStudent.getAll(Student.class);
-            studentServletService.add(TestDataCreator.createNewTestStudent());
+            studentService.add(TestDataCreator.createNewTestStudent());
             List<Student> list2 = daoStudent.getAll(Student.class);
             assertEquals(list1.size() + 1, list2.size());
         } catch (SQLException e) {
@@ -32,25 +33,25 @@ public class StudentServletServiceTest {
 
     @Test
     void validate() {
-        studentServletService.add(TestDataCreator.createValidateTestStudent());
-        assertTrue(studentServletService.validate(VALIDATE_LOGIN, VALIDATE_PASSWORD));
+        studentService.add(TestDataCreator.createValidateTestStudent());
+        assertTrue(studentService.validate(VALIDATE_LOGIN, VALIDATE_PASSWORD));
     }
 
     @Test
     void logIn() {
-        studentServletService.add(TestDataCreator.createLoginTestStudent());
-        studentServletService.logIn(ENTER_LOGIN, ENTER_PASSWORD);
+        studentService.add(TestDataCreator.createLoginTestStudent());
+        studentService.logIn(ENTER_LOGIN, ENTER_PASSWORD);
         assertEquals(ProjectInfo.getStudent().getPassword(), ENTER_PASSWORD);
     }
 
     @Test
     void getById() {
-        studentServletService.add(TestDataCreator.createNewTestStudent());
+        studentService.add(TestDataCreator.createNewTestStudent());
         Student student1 = null;
         Student student2 = null;
         try {
             student1 = daoStudent.get(1, Student.class);
-            student2 = studentServletService.getById(1);
+            student2 = studentService.getById(1);
         } catch (SQLException e) {
             fail();
         }

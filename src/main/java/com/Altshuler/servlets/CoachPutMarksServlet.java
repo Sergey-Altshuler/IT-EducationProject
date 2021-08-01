@@ -3,7 +3,8 @@ package com.Altshuler.servlets;
 import com.Altshuler.info.ProjectInfo;
 import com.Altshuler.model.Course;
 import com.Altshuler.model.Student;
-import com.Altshuler.servlce.CourseServletService;
+import com.Altshuler.servlce.CourseService;
+import com.Altshuler.servlce.CourseServiceImpl;
 import com.Altshuler.util.ParseUtil;
 
 import javax.servlet.ServletException;
@@ -23,13 +24,13 @@ import static com.Altshuler.info.ProjectParamConstants.PARAM_NUMBER;
 
 @WebServlet("/coachPutMarks")
 public class CoachPutMarksServlet extends HttpServlet {
-    private final CourseServletService courseServletService = new CourseServletService();
+    private final CourseService courseService = new CourseServiceImpl();
     private final ParseUtil parseUtil = new ParseUtil();
     private final String regex = "[0-9]+";
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        Course course = courseServletService.getById(Integer.parseInt(request.getParameter(PARAM_NUMBER)));
+        Course course = courseService.getById(Integer.parseInt(request.getParameter(PARAM_NUMBER)));
         ProjectInfo.setCourse(course);
         Student anyStudent = course.getStudents().stream().findAny().get();
         Map<Student, Map<String, String>> courseMap = ProjectInfo.getMarks().get(course);

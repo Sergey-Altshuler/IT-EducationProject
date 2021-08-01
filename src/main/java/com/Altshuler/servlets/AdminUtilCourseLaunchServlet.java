@@ -1,6 +1,7 @@
 package com.Altshuler.servlets;
 
-import com.Altshuler.servlce.CourseServletService;
+import com.Altshuler.servlce.CourseService;
+import com.Altshuler.servlce.CourseServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,10 +15,10 @@ import static com.Altshuler.info.ProjectPageConstants.PAGE_ADMIN_LAUNCH_COURSE;
 
 @WebServlet("/adminUtilLaunchCourse")
 public class AdminUtilCourseLaunchServlet extends HttpServlet {
-    private final CourseServletService courseServletService = new CourseServletService();
+    private final CourseService courseService = new CourseServiceImpl();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        request.setAttribute(ATTR_COURSES, courseServletService.getAll());
+        request.setAttribute(ATTR_COURSES, courseService.getAll());
         request.getRequestDispatcher(PAGE_ADMIN_LAUNCH_COURSE).forward(request, response);
     }
 }

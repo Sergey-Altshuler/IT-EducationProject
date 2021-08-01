@@ -1,6 +1,7 @@
 package com.Altshuler.servlets;
 
-import com.Altshuler.servlce.StatsServletService;
+import com.Altshuler.servlce.StatsService;
+import com.Altshuler.servlce.StatsServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,10 +15,10 @@ import static com.Altshuler.info.ProjectPageConstants.PAGE_ADMIN_DISPLAY_STATS;
 
 @WebServlet("/adminDisplayStats")
 public class AdminDisplayStatsServlet extends HttpServlet {
-    private final StatsServletService statsServletService = new StatsServletService();
+    private final StatsService statsService = new StatsServiceImpl();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        request.setAttribute(ATTR_STATS, statsServletService.getAll());
+        request.setAttribute(ATTR_STATS, statsService.getAll());
         request.getRequestDispatcher(PAGE_ADMIN_DISPLAY_STATS).forward(request, response);
     }
 }

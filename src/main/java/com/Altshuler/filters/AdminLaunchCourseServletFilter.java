@@ -1,7 +1,8 @@
 package com.Altshuler.filters;
 
 import com.Altshuler.model.Course;
-import com.Altshuler.servlce.CourseServletService;
+import com.Altshuler.servlce.CourseService;
+import com.Altshuler.servlce.CourseServiceImpl;
 import com.mysql.cj.util.StringUtils;
 
 import javax.servlet.*;
@@ -16,7 +17,7 @@ import static com.Altshuler.info.ProjectParamConstants.PARAM_LAUNCH_ID;
 
 @WebFilter(urlPatterns = "/adminLaunchCourse")
 public class AdminLaunchCourseServletFilter implements Filter {
-    private final CourseServletService courseServletService = new CourseServletService();
+    private final CourseService courseService = new CourseServiceImpl();
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -26,7 +27,7 @@ public class AdminLaunchCourseServletFilter implements Filter {
 
         if (StringUtils.isNullOrEmpty(req.getParameter(PARAM_LAUNCH_ID))) filterChain.doFilter(req, resp);
         else {
-            Course course = courseServletService.getById(Integer.parseInt(req.getParameter(PARAM_LAUNCH_ID)));
+            Course course = courseService.getById(Integer.parseInt(req.getParameter(PARAM_LAUNCH_ID)));
             if((!StringUtils.isNullOrEmpty(course.getCoachRequired()))&& ((course.getRemaining() == 0) && (course.getCoachRequired().equals(NO)))) {
                 filterChain.doFilter(req, resp);
             } else {

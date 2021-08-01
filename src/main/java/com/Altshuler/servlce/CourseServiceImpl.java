@@ -7,7 +7,7 @@ import com.Altshuler.model.Course;
 import java.sql.SQLException;
 import java.util.List;
 
-public class CourseServletService {
+public class CourseServiceImpl implements CourseService {
     private final DAOCourse daoCourse = new DAOCourseImpl();
 
     public void add(Course course) {

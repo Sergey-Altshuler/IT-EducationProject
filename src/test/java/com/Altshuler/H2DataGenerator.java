@@ -13,19 +13,19 @@ public class H2DataGenerator {
 
     @BeforeEach
     public void generateData() {
-        StudentServletService studentServletService = new StudentServletService();
-        AdminServletService adminServletService = new AdminServletService();
-        CoachServletService coachServletService = new CoachServletService();
-        StatsServletService statsServletService = new StatsServletService();
-        CourseServletService courseServletService = new CourseServletService();
-        adminServletService.initialize();
+        StudentService studentService = new StudentServiceImpl();
+        AdminService adminService = new AdminServiceImpl();
+        CoachService coachService = new CoachServiceImpl();
+        StatsService statsService = new StatsServiceImpl();
+        CourseService courseService = new CourseServiceImpl();
+        adminService.initialize();
         student = TestDataCreator.createTestStudent();
         coach = TestDataCreator.createTestCoach();
         stats = TestDataCreator.createTestStats();
         course = TestDataCreator.createTestCourse();
-        studentServletService.add(student);
-        coachServletService.add(coach);
-        statsServletService.add(stats);
-        courseServletService.add(course);
+        studentService.add(student);
+        coachService.add(coach);
+        statsService.add(stats);
+        courseService.add(course);
     }
 }

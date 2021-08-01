@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import static com.Altshuler.info.ProjectNamedConstants.START_ADMIN_LOGIN;
 import static com.Altshuler.info.ProjectNamedConstants.START_ADMIN_PASSWORD;
 
-public class AdminServletService {
+public class AdminServiceImpl implements AdminService{
     private final DAOAdmin daoAdmin = new DAOAdminImpl();
 
     public void initialize() {

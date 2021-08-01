@@ -37,22 +37,22 @@
         <th><fmt:message key="label.pressAndRegister"/></th>
         <th><fmt:message key="label.pressAndPutMarks"/></th>
     </tr>
-    <c:forEach var="courses" items="${courses}">
+    <c:forEach var="course" items="${courses}">
         <tr>
-            <td>${courses.id}</td>
-            <td>${courses.title}</td>
-            <td>${courses.subgroupNum}</td>
-            <td>${courses.numOfStudents}</td>
-            <td>${courses.educationType}</td>
-            <td>${courses.price}</td>
-            <td>${courses.address}</td>
-            <td>${courses.startDate}</td>
-            <td>${courses.finishDate}</td>
-            <td>${courses.remaining}</td>
-            <td>${courses.coachRequired}</td>
-            <td>${courses.isStarted}</td>
-            <td><a href="coachChooseCourse?number=${courses.id}"><fmt:message key="label.register"/></a></td>
-            <td><a href="coachPutMarks?number=${courses.id}"><fmt:message key="label.putMarks"/></a></td>
+            <td>${course.id}</td>
+            <td>${course.title}</td>
+            <td>${course.subgroupNum}</td>
+            <td>${course.numOfStudents}</td>
+            <td>${course.educationType}</td>
+            <td>${course.price}</td>
+            <td>${course.address}</td>
+            <td>${course.startDate}</td>
+            <td>${course.finishDate}</td>
+            <td>${course.remaining}</td>
+            <td>${course.coachRequired}</td>
+            <td>${course.isStarted}</td>
+            <td><a href="coachChooseCourse?number=${course.id}"><fmt:message key="label.register"/></a></td>
+            <td><a href="coachPutMarks?number=${course.id}"><fmt:message key="label.putMarks"/></a></td>
         </tr>
     </c:forEach>
 </table>

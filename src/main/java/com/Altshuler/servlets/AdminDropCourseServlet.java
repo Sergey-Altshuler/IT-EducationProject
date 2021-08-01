@@ -1,6 +1,7 @@
 package com.Altshuler.servlets;
 
-import com.Altshuler.servlce.CourseServletService;
+import com.Altshuler.servlce.CourseService;
+import com.Altshuler.servlce.CourseServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,13 +16,13 @@ import static com.Altshuler.info.ProjectParamConstants.PARAM_DELETE_ID;
 
 @WebServlet("/adminDropCourse")
 public class AdminDropCourseServlet extends HttpServlet {
-    private final CourseServletService courseServletService = new CourseServletService();
+    private final CourseService courseService = new CourseServiceImpl();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if (request.getParameter(PARAM_DELETE_ID) != null) {
-            courseServletService.deleteById(Integer.parseInt(request.getParameter(PARAM_DELETE_ID)));
+            courseService.deleteById(Integer.parseInt(request.getParameter(PARAM_DELETE_ID)));
         }
-        request.setAttribute(ATTR_COURSES, courseServletService.getAll());
+        request.setAttribute(ATTR_COURSES, courseService.getAll());
         request.getRequestDispatcher(PAGE_ADMIN_DELETE_COURSE).forward(request, response);
 
     }

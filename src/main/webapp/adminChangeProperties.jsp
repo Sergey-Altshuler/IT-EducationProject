@@ -21,13 +21,21 @@
 <br>
 <div align="center">
     <form action="adminChangeProperties" method="post">
-        <fmt:message key="label.newLogin"/>
+        <fmt:message key="label.login"/>
         <br>
         <input name="login" type="text"/>
         <br>
-        <fmt:message key="label.newPassword"/>
+        <fmt:message key="label.password"/>
         <br>
         <input name="password" type="password"/>
+        <br>
+        <fmt:message key="label.newPassword"/>
+        <br>
+        <input name="changed" type="password"/>
+        <br>
+        <fmt:message key="label.confirmPassword"/>
+        <br>
+        <input name="repeated" type="password"/>
         <br>
         <input type="submit" value="OK"/>
     </form>

@@ -1,1 +1,1 @@
-<% response.sendRedirect(request.getContextPath() + "/startServlet"); %>
+<% response.sendRedirect(request.getContextPath() + "/start"); %>

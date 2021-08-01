@@ -5,7 +5,8 @@ import com.Altshuler.dao.DAOCoach;
 import com.Altshuler.dao.DAOCoachImpl;
 import com.Altshuler.info.ProjectInfo;
 import com.Altshuler.model.Coach;
-import com.Altshuler.servlce.CoachServletService;
+import com.Altshuler.servlce.CoachService;
+import com.Altshuler.servlce.CoachServiceImpl;
 import org.testng.annotations.Test;
 
 import java.sql.SQLException;
@@ -16,13 +17,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CoachServletServiceTest {
     DAOCoach daoCoach = new DAOCoachImpl();
-    CoachServletService coachServletService = new CoachServletService();
+    CoachService coachService = new CoachServiceImpl();
 
     @Test
     void add() {
         try {
             List<Coach> list1 = daoCoach.getAll(Coach.class);
-            coachServletService.add(TestDataCreator.createNewTestCoach());
+            coachService.add(TestDataCreator.createNewTestCoach());
             List<Coach> list2 = daoCoach.getAll(Coach.class);
             assertEquals(list1.size() + 1, list2.size());
         } catch (SQLException e) {
@@ -32,14 +33,14 @@ public class CoachServletServiceTest {
 
     @Test
     void validate() {
-        coachServletService.add(TestDataCreator.createValidateTestCoach());
-        assertTrue(coachServletService.validate(VALIDATE_LOGIN, VALIDATE_PASSWORD));
+        coachService.add(TestDataCreator.createValidateTestCoach());
+        assertTrue(coachService.validate(VALIDATE_LOGIN, VALIDATE_PASSWORD));
     }
 
     @Test
     void logIn() {
-        coachServletService.add(TestDataCreator.createLoginTestCoach());
-        coachServletService.logIn(ENTER_LOGIN, ENTER_PASSWORD);
+        coachService.add(TestDataCreator.createLoginTestCoach());
+        coachService.logIn(ENTER_LOGIN, ENTER_PASSWORD);
         assertEquals(ProjectInfo.getCoach().getPassword(), ENTER_PASSWORD);
     }
 }

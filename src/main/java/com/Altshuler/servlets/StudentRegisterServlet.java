@@ -2,7 +2,8 @@ package com.Altshuler.servlets;
 
 import com.Altshuler.converters.ConverterProvider;
 import com.Altshuler.model.Student;
-import com.Altshuler.servlce.StudentServletService;
+import com.Altshuler.servlce.StudentService;
+import com.Altshuler.servlce.StudentServiceImpl;
 import lombok.SneakyThrows;
 
 import javax.servlet.ServletException;
@@ -18,11 +19,11 @@ import static com.Altshuler.info.ProjectParamConstants.PARAM_PASSWORD;
 
 @WebServlet("/studentRegister")
 public class StudentRegisterServlet extends HttpServlet {
-    private final StudentServletService studentServletService = new StudentServletService();
+    private final StudentService studentService = new StudentServiceImpl();
 
     @SneakyThrows
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        studentServletService.add(ConverterProvider.convert(Student.class, request));
+        studentService.add(ConverterProvider.convert(Student.class, request));
         request.setAttribute(PARAM_LOGIN, request.getParameter(PARAM_LOGIN));
         request.setAttribute(PARAM_PASSWORD, request.getParameter(PARAM_PASSWORD));
         request.getRequestDispatcher(PAGE_STUDENT_SUCCESS_REGISTER).forward(request, response);

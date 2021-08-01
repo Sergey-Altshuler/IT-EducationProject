@@ -14,4 +14,11 @@ public class ParseUtil {
     public String parseStudent(Student student) {
         return "№" + student.getId() + ". " + student.getName() + " " + student.getSurname();
     }
+    public String encryptPassword(String password){
+        StringBuilder encrypted = new StringBuilder();
+        for (int i=0; i<password.length(); i++){
+            encrypted.append("*");
+        }
+        return encrypted.toString();
+    }
 }

@@ -8,7 +8,7 @@ import com.Altshuler.util.HQLUtil;
 
 import java.sql.SQLException;
 
-public class StudentServletService {
+public class StudentServiceImpl implements StudentService{
     private final DAOStudent daoStudent = new DAOStudentImpl();
     private final HQLUtil hqlUtil = new HQLUtil();
 

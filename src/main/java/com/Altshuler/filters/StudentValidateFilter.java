@@ -1,6 +1,7 @@
 package com.Altshuler.filters;
 
-import com.Altshuler.servlce.StudentServletService;
+import com.Altshuler.servlce.StudentService;
+import com.Altshuler.servlce.StudentServiceImpl;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -14,7 +15,7 @@ import static com.Altshuler.info.ProjectParamConstants.PARAM_PASSWORD;
 
 @WebFilter(urlPatterns = "/student")
 public class StudentValidateFilter implements Filter {
-    private final StudentServletService studentServletService = new StudentServletService();
+    private final StudentService studentService = new StudentServiceImpl();
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -24,8 +25,8 @@ public class StudentValidateFilter implements Filter {
         if ((req.getParameter(PARAM_LOGIN) == null) && (req.getParameter(PARAM_PASSWORD) == null))
             filterChain.doFilter(req, resp);
         else {
-            if (studentServletService.validate(req.getParameter(PARAM_LOGIN), req.getParameter(PARAM_PASSWORD))) {
-                studentServletService.logIn(req.getParameter(PARAM_LOGIN), req.getParameter(PARAM_PASSWORD));
+            if (studentService.validate(req.getParameter(PARAM_LOGIN), req.getParameter(PARAM_PASSWORD))) {
+                studentService.logIn(req.getParameter(PARAM_LOGIN), req.getParameter(PARAM_PASSWORD));
                 filterChain.doFilter(req, resp);
             } else resp.sendRedirect(contextPath + PAGE_WRONG_DATA);
         }

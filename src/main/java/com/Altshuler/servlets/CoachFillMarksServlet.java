@@ -1,7 +1,8 @@
 package com.Altshuler.servlets;
 
 import com.Altshuler.info.ProjectInfo;
-import com.Altshuler.servlce.CourseServletService;
+import com.Altshuler.servlce.CourseService;
+import com.Altshuler.servlce.CourseServiceImpl;
 import com.Altshuler.util.MarkUtil;
 
 import javax.servlet.ServletException;
@@ -21,7 +22,7 @@ import static com.Altshuler.info.ProjectParamConstants.PARAM_NUM_OF_CURRENT_LESS
 @WebServlet("/coachFillMarks")
 public class CoachFillMarksServlet extends HttpServlet {
     private final MarkUtil markUtil = new MarkUtil();
-    private final CourseServletService courseServletService = new CourseServletService();
+    private final CourseService courseService = new CourseServiceImpl();
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
@@ -34,7 +35,7 @@ public class CoachFillMarksServlet extends HttpServlet {
                 studentsAndMarks.put(param, request.getParameter(param));
         }
         markUtil.setLessonMarks(ProjectInfo.getCourse(), studentsAndMarks, numLesson);
-        request.setAttribute(ATTR_COURSES, courseServletService.getAll());
+        request.setAttribute(ATTR_COURSES, courseService.getAll());
         request.getRequestDispatcher(PAGE_COACH_CHOOSE_COURSE).forward(request, response);
     }
 }

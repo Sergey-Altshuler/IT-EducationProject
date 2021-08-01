@@ -1,6 +1,7 @@
 package com.Altshuler.servlets;
 
-import com.Altshuler.servlce.AdminServletService;
+import com.Altshuler.servlce.AdminService;
+import com.Altshuler.servlce.AdminServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,10 +14,10 @@ import static com.Altshuler.info.ProjectPageConstants.PAGE_CHOOSE_LANGUAGE;
 
 @WebServlet("/start")
 public class StartServlet extends HttpServlet {
-    private final AdminServletService adminServletService = new AdminServletService();
+    private final AdminService adminService = new AdminServiceImpl();
 
     public void init() {
-        adminServletService.initialize();
+        adminService.initialize();
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

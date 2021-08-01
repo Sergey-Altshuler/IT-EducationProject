@@ -2,7 +2,8 @@ package com.Altshuler.servlets;
 
 import com.Altshuler.converters.ConverterProvider;
 import com.Altshuler.model.Course;
-import com.Altshuler.servlce.CourseServletService;
+import com.Altshuler.servlce.CourseService;
+import com.Altshuler.servlce.CourseServiceImpl;
 import lombok.SneakyThrows;
 
 import javax.servlet.ServletException;
@@ -17,12 +18,12 @@ import static com.Altshuler.info.ProjectPageConstants.PAGE_ADMIN_SUCCESS_ADD;
 
 @WebServlet("/adminAddCourse")
 public class AdminAddCourseServlet extends HttpServlet {
-    private final CourseServletService courseServletService = new CourseServletService();
+    private final CourseService courseService = new CourseServiceImpl();
 
     @SneakyThrows
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        courseServletService.add(ConverterProvider.convert(Course.class, request));
-        request.setAttribute(ATTR_COURSES, courseServletService.getAll());
+        courseService.add(ConverterProvider.convert(Course.class, request));
+        request.setAttribute(ATTR_COURSES, courseService.getAll());
         request.getRequestDispatcher(PAGE_ADMIN_SUCCESS_ADD).forward(request, response);
 
     }

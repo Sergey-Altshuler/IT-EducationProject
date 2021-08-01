@@ -4,6 +4,8 @@ public class ProjectParamConstants {
     public static final String PARAM_LOGIN = "login";
     public static final String PARAM_AGE = "age";
     public static final String PARAM_PASSWORD = "password";
+    public static final String PARAM_REPEATED = "repeated";
+    public static final String PARAM_CHANGED = "changed";
     public static final String PARAM_NAME = "name";
     public static final String PARAM_SURNAME = "surname";
     public static final String PARAM_TITLE = "title";

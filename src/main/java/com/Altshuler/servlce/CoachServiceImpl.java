@@ -8,7 +8,7 @@ import com.Altshuler.util.HQLUtil;
 
 import java.sql.SQLException;
 
-public class CoachServletService {
+public class CoachServiceImpl implements CoachService {
     private final DAOCoach daoCoach = new DAOCoachImpl();
     private final HQLUtil hqlUtil = new HQLUtil();
 

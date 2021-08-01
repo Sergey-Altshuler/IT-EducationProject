@@ -4,18 +4,18 @@ import com.Altshuler.info.ProjectInfo;
 import com.Altshuler.model.Course;
 import com.Altshuler.model.Stats;
 import com.Altshuler.model.Student;
-import com.Altshuler.servlce.CourseServletService;
-import com.Altshuler.servlce.StatsServletService;
-import com.Altshuler.servlce.StudentServletService;
+import com.Altshuler.servlce.CourseServiceImpl;
+import com.Altshuler.servlce.StatsServiceImpl;
+import com.Altshuler.servlce.StudentServiceImpl;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class MarkUtil {
     private final ParseUtil parseUtil = new ParseUtil();
-    private final CourseServletService courseServletService = new CourseServletService();
-    private final StudentServletService studentServletService = new StudentServletService();
-    private final StatsServletService statsServletService = new StatsServletService();
+    private final CourseServiceImpl courseServiceImpl = new CourseServiceImpl();
+    private final StudentServiceImpl studentServiceImpl = new StudentServiceImpl();
+    private final StatsServiceImpl statsServiceImpl = new StatsServiceImpl();
     private final String regexMark = "[0-9]|10";
     private final String regexAttendance = "N";
 
@@ -57,7 +57,7 @@ public class MarkUtil {
         Map<Course, Map<Student, Map<String, String>>> markMap = ProjectInfo.getMarks();
         Map<Student, Map<String, String>> middleMap = markMap.get(course);
         for (Map.Entry<String, String> mapEntry : studentsMarksMap.entrySet()) {
-            Student student = studentServletService.getById(Integer.parseInt(mapEntry.getKey()));
+            Student student = studentServiceImpl.getById(Integer.parseInt(mapEntry.getKey()));
             middleMap.get(student).put(String.valueOf(numLesson), mapEntry.getValue());
         }
         markMap.put(course, middleMap);
@@ -111,8 +111,8 @@ public class MarkUtil {
         stats.setCourse(course);
         course.setStats(stats);
         ProjectInfo.setCourse(course);
-        courseServletService.add(course);
-        statsServletService.add(stats);
+        courseServiceImpl.add(course);
+        statsServiceImpl.add(stats);
 
     }
 }

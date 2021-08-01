@@ -1,7 +1,8 @@
 package com.Altshuler.servlets;
 
 import com.Altshuler.info.ProjectInfo;
-import com.Altshuler.servlce.StatsServletService;
+import com.Altshuler.servlce.StatsService;
+import com.Altshuler.servlce.StatsServiceImpl;
 import com.Altshuler.util.MarkUtil;
 
 import javax.servlet.ServletException;
@@ -17,12 +18,12 @@ import static com.Altshuler.info.ProjectPageConstants.PAGE_COACH_DISPLAY_STATS;
 @WebServlet("/calculate")
 public class CalculateServlet extends HttpServlet {
     private final MarkUtil markUtil = new MarkUtil();
-    private final StatsServletService statsServletService = new StatsServletService();
+    private final StatsService statsService = new StatsServiceImpl();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         markUtil.calculateIndividualStatistics(ProjectInfo.getCourse());
         markUtil.calculateTotalStatistics(ProjectInfo.getCourse());
-        request.setAttribute(ATTR_STATS, statsServletService.getAll());
+        request.setAttribute(ATTR_STATS, statsService.getAll());
         request.getRequestDispatcher(PAGE_COACH_DISPLAY_STATS).forward(request, response);
     }
 }

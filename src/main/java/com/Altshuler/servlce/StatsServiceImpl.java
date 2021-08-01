@@ -7,7 +7,7 @@ import com.Altshuler.model.Stats;
 import java.sql.SQLException;
 import java.util.List;
 
-public class StatsServletService {
+public class StatsServiceImpl implements StatsService{
     private final DAOStats daoStats = new DAOStatsImpl();
 
     public void add(Stats stats) {
