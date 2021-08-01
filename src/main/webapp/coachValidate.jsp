@@ -26,6 +26,10 @@
         <br>
         <input required name="password" type="password"/>
         <br>
+        <fmt:message key="label.confirmPassword"/>
+        <br>
+        <input required name="repeated" type="password"/>
+        <br>
         <input type="submit" value="OK"/>
     </form>
 </div>

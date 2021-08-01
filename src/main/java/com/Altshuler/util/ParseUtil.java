@@ -12,7 +12,7 @@ public class ParseUtil {
     }
 
     public String parseStudent(Student student) {
-        return "№" + student.getId() + ". " + student.getName() + " " + student.getSurname();
+        return student.getName() + " " + student.getSurname();
     }
     public String encryptPassword(String password){
         StringBuilder encrypted = new StringBuilder();

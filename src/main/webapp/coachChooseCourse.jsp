@@ -25,7 +25,6 @@
         <th><fmt:message key="label.id"/></th>
         <th><fmt:message key="label.title"/></th>
         <th><fmt:message key="label.subgroup"/></th>
-        <th><fmt:message key="label.numOfStudents"/></th>
         <th><fmt:message key="label.edType"/></th>
         <th><fmt:message key="label.price"/></th>
         <th><fmt:message key="label.address"/></th>
@@ -35,6 +34,7 @@
         <th><fmt:message key="label.coachRequired"/></th>
         <th><fmt:message key="label.isStarted"/></th>
         <th><fmt:message key="label.pressAndRegister"/></th>
+        <th><fmt:message key="label.pressAndUnregister"/></th>
         <th><fmt:message key="label.pressAndPutMarks"/></th>
     </tr>
     <c:forEach var="course" items="${courses}">
@@ -42,16 +42,17 @@
             <td>${course.id}</td>
             <td>${course.title}</td>
             <td>${course.subgroupNum}</td>
-            <td>${course.numOfStudents}</td>
             <td>${course.educationType}</td>
             <td>${course.price}</td>
             <td>${course.address}</td>
             <td>${course.startDate}</td>
             <td>${course.finishDate}</td>
-            <td>${course.remaining}</td>
+            <td>${course.remaining}/${course.numOfStudents}</td>
             <td>${course.coachRequired}</td>
             <td>${course.isStarted}</td>
             <td><a href="coachChooseCourse?number=${course.id}"><fmt:message key="label.register"/></a></td>
+            <td><a href="coachUnregisterCourse?number=${course.id}"> <fmt:message
+                    key="label.pressAndUnregister"/> </a></td>
             <td><a href="coachPutMarks?number=${course.id}"><fmt:message key="label.putMarks"/></a></td>
         </tr>
     </c:forEach>

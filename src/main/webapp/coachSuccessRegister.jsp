@@ -20,7 +20,6 @@
 <br>
 <div align="center">
     <h2>
-        <fmt:message key="label.login"/> ${login} <br>
         <fmt:message key="label.password"/> ${password}
     </h2>
 </div>

@@ -10,8 +10,8 @@ import static com.Altshuler.info.ProjectPageConstants.PAGE_WRONG_DATA;
 import static com.Altshuler.info.ProjectParamConstants.PARAM_PASSWORD;
 import static com.Altshuler.info.ProjectParamConstants.PARAM_REPEATED;
 
-@WebFilter(urlPatterns = "/studentRegister")
-public class StudentRegisterFilter implements Filter {
+@WebFilter(urlPatterns = {"/studentRegister", "/coachRegister"})
+public class RegisterFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {

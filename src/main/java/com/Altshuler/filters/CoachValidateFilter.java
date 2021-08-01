@@ -10,8 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 import static com.Altshuler.info.ProjectPageConstants.PAGE_WRONG_DATA;
-import static com.Altshuler.info.ProjectParamConstants.PARAM_LOGIN;
-import static com.Altshuler.info.ProjectParamConstants.PARAM_PASSWORD;
+import static com.Altshuler.info.ProjectParamConstants.*;
 
 @WebFilter(urlPatterns = "/coach")
 public class CoachValidateFilter implements Filter {
@@ -25,7 +24,8 @@ public class CoachValidateFilter implements Filter {
         if ((req.getParameter(PARAM_LOGIN) == null) && (req.getParameter(PARAM_PASSWORD) == null))
             filterChain.doFilter(req, resp);
         else {
-            if (coachService.validate(req.getParameter(PARAM_LOGIN), req.getParameter(PARAM_PASSWORD))) {
+            if ((coachService.validate(req.getParameter(PARAM_LOGIN), req.getParameter(PARAM_PASSWORD)))
+            && ((req.getParameter(PARAM_PASSWORD)).equals(req.getParameter(PARAM_REPEATED)))){
                 coachService.logIn(req.getParameter(PARAM_LOGIN), req.getParameter(PARAM_PASSWORD));
                 filterChain.doFilter(req, resp);
             } else resp.sendRedirect(contextPath + PAGE_WRONG_DATA);
