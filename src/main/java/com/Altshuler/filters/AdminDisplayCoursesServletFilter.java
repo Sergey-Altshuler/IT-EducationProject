@@ -38,7 +38,7 @@ public class AdminDisplayCoursesServletFilter implements Filter {
             }
             if (!StringUtils.isNullOrEmpty(req.getParameter(PARAM_DELETE_ID))) {
                 Course course = courseService.getById(Integer.parseInt(req.getParameter(PARAM_DELETE_ID)));
-                if (((course.getStudents()==null) ||(course.getStudents().size()==0))&& (course.getCoach() == null)) {
+                if (((course.getStudents() == null) || (course.getStudents().size() == 0)) && (course.getCoach() == null)) {
                     filterChain.doFilter(req, resp);
                 } else {
                     resp.sendRedirect(contextPath + PAGE_WRONG_OPERATION);

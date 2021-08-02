@@ -9,13 +9,14 @@ import com.Altshuler.servlce.CoachService;
 import com.Altshuler.servlce.CoachServiceImpl;
 import org.testng.annotations.Test;
 
+
 import java.sql.SQLException;
 import java.util.List;
 
 import static com.Altshuler.TestInfo.TestConstants.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CoachServletServiceTest {
+public class CoachServiceTest {
     DAOCoach daoCoach = new DAOCoachImpl();
     CoachService coachService = new CoachServiceImpl();
 

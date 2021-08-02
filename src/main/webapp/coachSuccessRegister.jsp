@@ -10,7 +10,7 @@
 <head>
     <title>CoachSuccessRegister</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="stylesheet" href="myStyles.css" type="text/css">
 </head>
 <body>
 <h1><fmt:message key="label.yourRoleCoach"/> <br> <fmt:message key="label.successRegister"/></h1>
@@ -21,6 +21,8 @@
 <div align="center">
     <h2>
         <fmt:message key="label.password"/> ${password}
+        <br>
+        <fmt:message key="label.sendToEmail"/>
     </h2>
 </div>
 </body>

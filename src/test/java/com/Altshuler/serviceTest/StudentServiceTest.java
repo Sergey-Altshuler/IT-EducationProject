@@ -9,13 +9,14 @@ import com.Altshuler.servlce.StudentService;
 import com.Altshuler.servlce.StudentServiceImpl;
 import org.testng.annotations.Test;
 
+
 import java.sql.SQLException;
 import java.util.List;
 
 import static com.Altshuler.TestInfo.TestConstants.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class StudentServletServiceTest {
+public class StudentServiceTest {
     DAOStudent daoStudent = new DAOStudentImpl();
     StudentService studentService = new StudentServiceImpl();
 

@@ -7,7 +7,6 @@ public class TestConstants {
     public static final String PASSWORD = "password";
     public static final String COACH_NAME = "coach";
     public static final String COACH_SURNAME = "coach";
-    public static final String COURSE_TITLE = "course";
     public static final String COURSE_TITLE_TEST1 = "course1";
     public static final String COURSE_TITLE_TEST2 = "course2";
     public static final String COURSE_TITLE_TEST3 = "course3";

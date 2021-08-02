@@ -8,12 +8,14 @@ import com.Altshuler.servlce.StatsService;
 import com.Altshuler.servlce.StatsServiceImpl;
 import org.testng.annotations.Test;
 
+
 import java.sql.SQLException;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
-public class StatsServiceImplTest {
+public class StatsServiceTest {
     StatsService statsService = new StatsServiceImpl();
     DAOStats daoStats = new DAOStatsImpl();
 
@@ -25,7 +27,7 @@ public class StatsServiceImplTest {
             List<Stats> list2 = daoStats.getAll(Stats.class);
             assertEquals(list1.size() + 1, list2.size());
         } catch (SQLException e) {
-            e.printStackTrace();
+            fail();
         }
     }
 
@@ -37,7 +39,7 @@ public class StatsServiceImplTest {
             List<Stats> serviceList = statsService.getAll();
             assertEquals(daoList, serviceList);
         } catch (SQLException e) {
-            e.printStackTrace();
+            fail();
         }
     }
 }

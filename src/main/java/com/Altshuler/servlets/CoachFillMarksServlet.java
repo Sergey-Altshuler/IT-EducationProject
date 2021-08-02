@@ -16,14 +16,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.Altshuler.info.ProjectAttributeConstants.ATTR_COURSES;
-import static com.Altshuler.info.ProjectPageConstants.PAGE_COACH_CHOOSE_COURSE;
-import static com.Altshuler.info.ProjectPageConstants.PAGE_COACH_PUT_MARKS;
+import static com.Altshuler.info.ProjectPageConstants.*;
 import static com.Altshuler.info.ProjectParamConstants.PARAM_NUM_OF_CURRENT_LESSON;
 
 @WebServlet("/coachFillMarks")
 public class CoachFillMarksServlet extends HttpServlet {
     private final MarkUtil markUtil = new MarkUtil();
-    private final CourseService courseService = new CourseServiceImpl();
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
@@ -36,7 +34,6 @@ public class CoachFillMarksServlet extends HttpServlet {
                 studentsAndMarks.put(param, request.getParameter(param));
         }
         markUtil.setLessonMarks(ProjectInfo.getCourse(), studentsAndMarks, numLesson);
-       // request.setAttribute(ATTR_COURSES, courseService.getAll());
-        request.getRequestDispatcher("/coachMarksRedirect.jsp").forward(request, response);
+        request.getRequestDispatcher(PAGE_COACH_MARKS_REDIRECT).forward(request, response);
     }
 }

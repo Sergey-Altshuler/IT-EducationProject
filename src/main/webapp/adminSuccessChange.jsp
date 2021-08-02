@@ -10,7 +10,7 @@
 <head>
     <title>Admin_successChange</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="stylesheet" href="myStyles.css" type="text/css">
 </head>
 <body>
 <h1><fmt:message key="label.yourRoleAdmin"/><br> <fmt:message key="label.newLoginAndPassword"/></h1>
@@ -24,6 +24,8 @@
 <div align="center">
     <h2>
         <fmt:message key="label.newPassword"/> ${password}
+        <br>
+        <fmt:message key="label.sendToEmail"/>
     </h2>
 </div>
 </body>

@@ -10,7 +10,7 @@
 <head>
     <title>StudentValidation</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="stylesheet" href="myStyles.css" type="text/css">
 <body>
 <h1><fmt:message key="label.yourRoleStudent"/> <br> <fmt:message key="label.fillTheForm"/></h1>
 <a href="chooseRole.jsp"> <fmt:message key="label.goBack"/> </a>

@@ -1,14 +1,14 @@
 package com.Altshuler.serviceTest;
 
-import com.Altshuler.H2DataGenerator;
 import com.Altshuler.servlce.AdminService;
 import com.Altshuler.servlce.AdminServiceImpl;
 import org.testng.annotations.Test;
 
+
 import static com.Altshuler.TestInfo.TestConstants.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class AdminServletServiceTest extends H2DataGenerator {
+public class AdminServiceTest  {
     AdminService adminService = new AdminServiceImpl();
 
     @Test

@@ -14,16 +14,15 @@ import java.io.IOException;
 
 import static com.Altshuler.info.ProjectAttributeConstants.ATTR_STATS;
 import static com.Altshuler.info.ProjectPageConstants.PAGE_COACH_DISPLAY_STATS;
+import static com.Altshuler.info.ProjectPageConstants.PAGE_COACH_MARKS_REDIRECT;
 
 @WebServlet("/calculate")
 public class CalculateServlet extends HttpServlet {
     private final MarkUtil markUtil = new MarkUtil();
-    private final StatsService statsService = new StatsServiceImpl();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         markUtil.calculateIndividualStatistics(ProjectInfo.getCourse());
         markUtil.calculateTotalStatistics(ProjectInfo.getCourse());
-       // request.setAttribute(ATTR_STATS, statsService.getAll());
-        request.getRequestDispatcher("/coachMarksRedirect.jsp").forward(request, response);
+        request.getRequestDispatcher(PAGE_COACH_MARKS_REDIRECT).forward(request, response);
     }
 }

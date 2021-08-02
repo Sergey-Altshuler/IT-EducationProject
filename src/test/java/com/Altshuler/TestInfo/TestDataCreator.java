@@ -16,20 +16,12 @@ public class TestDataCreator {
         return Student.builder().name(STUDENT_NAME).surname(STUDENT_SURNAME).login(LOGIN).password(PASSWORD).build();
     }
 
-    public static Stats createTestStats() {
-        return Stats.builder().avgMark(10d).attendance(100d).build();
-    }
-
     public static Stats createTestAddStats() {
         return Stats.builder().avgMark(5d).attendance(100d).build();
     }
 
     public static Stats createTestGetAllStats() {
         return Stats.builder().avgMark(1d).attendance(100d).build();
-    }
-
-    public static Course createTestCourse() {
-        return Course.builder().title(COURSE_TITLE).build();
     }
 
     public static Course createTestAddCourse() {

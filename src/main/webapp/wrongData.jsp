@@ -11,9 +11,9 @@
 <head>
     <title>WrongData</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="stylesheet" href="myStyles.css" type="text/css">
 </head>
-<body>
+<body style="background-color: lightyellow">
 <h1 style="color: aliceblue;
     background-color: purple;
     text-align: center;

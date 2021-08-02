@@ -6,15 +6,15 @@ import com.Altshuler.dao.DAOCourseImpl;
 import com.Altshuler.model.Course;
 import com.Altshuler.servlce.CourseService;
 import com.Altshuler.servlce.CourseServiceImpl;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
+
 
 import java.sql.SQLException;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class CourseServiceImplTest {
+public class CourseServiceTest {
     CourseService courseService = new CourseServiceImpl();
     DAOCourse daoCourse = new DAOCourseImpl();
 
@@ -26,7 +26,7 @@ public class CourseServiceImplTest {
             List<Course> list2 = daoCourse.getAll(Course.class);
             assertEquals(list1.size() + 1, list2.size());
         } catch (SQLException e) {
-            e.printStackTrace();
+            fail();
         }
     }
 
@@ -39,7 +39,7 @@ public class CourseServiceImplTest {
             Course course2 = daoCourse.get(list.size(), Course.class);
             assertEquals(course1, course2);
         } catch (SQLException e) {
-            e.printStackTrace();
+            fail();
         }
     }
 
@@ -51,7 +51,7 @@ public class CourseServiceImplTest {
             List<Course> serviceList = courseService.getAll();
             assertEquals(daoList, serviceList);
         } catch (SQLException e) {
-            e.printStackTrace();
+            fail();
         }
     }
 

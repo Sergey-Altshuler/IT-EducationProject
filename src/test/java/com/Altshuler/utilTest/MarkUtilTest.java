@@ -3,7 +3,7 @@ package com.Altshuler.utilTest;
 import com.Altshuler.TestInfo.TestDataCreator;
 import com.Altshuler.model.Course;
 import com.Altshuler.util.MarkUtil;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
