@@ -5,7 +5,7 @@ import com.Altshuler.model.Course;
 import com.Altshuler.util.MarkUtil;
 import org.testng.annotations.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class MarkUtilTest {
     MarkUtil markUtil = new MarkUtil();

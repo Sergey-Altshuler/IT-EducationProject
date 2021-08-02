@@ -3,6 +3,7 @@ package com.Altshuler.servlce;
 import com.Altshuler.dao.DAOStudent;
 import com.Altshuler.dao.DAOStudentImpl;
 import com.Altshuler.info.ProjectInfo;
+import com.Altshuler.model.Coach;
 import com.Altshuler.model.Student;
 import com.Altshuler.util.HQLUtil;
 
@@ -12,12 +13,16 @@ public class StudentServiceImpl implements StudentService{
     private final DAOStudent daoStudent = new DAOStudentImpl();
     private final HQLUtil hqlUtil = new HQLUtil();
 
-    public void add(Student student) {
+    public Student add(Student student) {
         try {
-            daoStudent.save(student);
+            return daoStudent.save(student);
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
+    }
+    public void deleteAll(){
+        daoStudent.deleteAll(Student.class);
     }
 
     public Student getById(int id) {

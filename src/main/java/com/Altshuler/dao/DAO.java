@@ -1,10 +1,12 @@
 package com.Altshuler.dao;
 
+import com.Altshuler.model.Stats;
+
 import java.sql.SQLException;
 import java.util.List;
 
 public interface DAO<T> {
-    void save(T t) throws SQLException;
+    T save(T t) throws SQLException;
 
     T get(int id, Class<T> generic) throws SQLException;
 

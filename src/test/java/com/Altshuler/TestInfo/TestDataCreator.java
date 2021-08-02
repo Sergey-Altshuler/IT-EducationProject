@@ -24,7 +24,7 @@ public class TestDataCreator {
         return Stats.builder().avgMark(1d).attendance(100d).build();
     }
 
-    public static Course createTestAddCourse() {
+    public static Course createTestChangeCourse() {
         return Course.builder().title(COURSE_TITLE_TEST1).build();
     }
 
@@ -34,10 +34,6 @@ public class TestDataCreator {
 
     public static Course createTestGetAllCourse() {
         return Course.builder().title(COURSE_TITLE_TEST3).build();
-    }
-
-    public static Course createTestDeleteByIdCourse() {
-        return Course.builder().title(COURSE_TITLE_TEST4).build();
     }
 
     public static Student createTestStudentForParsing() {

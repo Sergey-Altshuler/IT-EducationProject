@@ -1,5 +1,6 @@
 package com.Altshuler.dao;
 
+import com.Altshuler.model.Stats;
 import com.Altshuler.util.SessionUtil;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -12,14 +13,13 @@ import java.util.List;
 public class DAOImpl<T> implements DAO<T> {
 
     @Override
-    public void save(T t) {
+    public T save(T t) {
         try (Session session = SessionUtil.getSession()) {
             session.getTransaction().begin();
             session.saveOrUpdate(t);
             session.getTransaction().commit();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
+        return t;
     }
 
     @Override

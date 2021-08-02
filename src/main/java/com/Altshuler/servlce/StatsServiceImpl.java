@@ -10,11 +10,12 @@ import java.util.List;
 public class StatsServiceImpl implements StatsService{
     private final DAOStats daoStats = new DAOStatsImpl();
 
-    public void add(Stats stats) {
+    public Stats add(Stats stats) {
         try {
-            daoStats.save(stats);
+            return daoStats.save(stats);
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         }
     }
 
@@ -26,5 +27,8 @@ public class StatsServiceImpl implements StatsService{
             e.printStackTrace();
         }
         return statsList;
+    }
+    public void deleteAll(){
+        daoStats.deleteAll(Stats.class);
     }
 }

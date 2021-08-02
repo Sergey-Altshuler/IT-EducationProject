@@ -10,7 +10,6 @@ public class TestConstants {
     public static final String COURSE_TITLE_TEST1 = "course1";
     public static final String COURSE_TITLE_TEST2 = "course2";
     public static final String COURSE_TITLE_TEST3 = "course3";
-    public static final String COURSE_TITLE_TEST4 = "course4";
     public static final String SUCCESS_DATE = "2020-12-12";
     public static final String FAIL_DATE = "2020-12-32";
     public static final String TEST_GROUP_NAME = "TestGroup";

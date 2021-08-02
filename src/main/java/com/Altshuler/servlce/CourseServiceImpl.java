@@ -10,12 +10,13 @@ import java.util.List;
 public class CourseServiceImpl implements CourseService {
     private final DAOCourse daoCourse = new DAOCourseImpl();
 
-    public void add(Course course) {
+    public Course add(Course course) {
         try {
-            daoCourse.save(course);
+            return daoCourse.save(course);
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
     public Course getById(int id) {
@@ -44,5 +45,9 @@ public class CourseServiceImpl implements CourseService {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void deleteAll(){
+        daoCourse.deleteAll(Course.class);
     }
 }

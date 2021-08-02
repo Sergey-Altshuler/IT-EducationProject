@@ -12,6 +12,10 @@ import java.util.Optional;
 public class ConverterProvider {
     private static final Map<Class<?>, Converter<?>> CONVERTER_MAP;
 
+    public static Map<Class<?>, Converter<?>> getConverterMap() {
+        return CONVERTER_MAP;
+    }
+
     static {
         CONVERTER_MAP = new HashMap<>();
         CONVERTER_MAP.put(Coach.class, new CoachConverter());
@@ -19,7 +23,7 @@ public class ConverterProvider {
         CONVERTER_MAP.put(Student.class, new StudentConverter());
     }
 
-    private static Converter<?> getConverter(Class<?> clazz) throws Exception {
+    public static Converter<?> getConverter(Class<?> clazz) throws Exception {
         return Optional.ofNullable(CONVERTER_MAP.get(clazz)).orElseThrow(Exception::new);
     }
 
