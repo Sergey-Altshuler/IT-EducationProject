@@ -29,8 +29,13 @@ public class CoachPutMarksServlet extends HttpServlet {
     private final String regex = "[0-9]+";
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
-        Course course = courseService.getById(Integer.parseInt(request.getParameter(PARAM_NUMBER)));
+        int courseNum;
+        if ((request.getParameter(PARAM_NUMBER)) == null) courseNum = ProjectInfo.getNumOfCurrentCourse();
+        else {
+            courseNum = Integer.parseInt(request.getParameter(PARAM_NUMBER));
+            ProjectInfo.setNumOfCurrentCourse(courseNum);
+        }
+        Course course = courseService.getById(courseNum);
         ProjectInfo.setCourse(course);
         Student anyStudent = course.getStudents().stream().findAny().get();
         Map<Student, Map<String, String>> courseMap = ProjectInfo.getMarks().get(course);
@@ -46,7 +51,8 @@ public class CoachPutMarksServlet extends HttpServlet {
             studentAdditionalMap.put(student.getId(), parseUtil.parseStudent(student));
         }
         request.setAttribute(ATTR_STUDENT_MAP, studentAdditionalMap);
-        request.setAttribute(ATTR_NUMBER, request.getParameter(PARAM_NUMBER));
+        request.setAttribute(ATTR_NUMBER, courseNum);
+
         request.getRequestDispatcher(PAGE_COACH_PUT_MARKS).forward(request, response);
 
     }

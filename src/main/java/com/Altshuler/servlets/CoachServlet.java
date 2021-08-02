@@ -16,7 +16,6 @@ import static com.Altshuler.info.ProjectPageConstants.PAGE_COACH_CHOOSE_COURSE;
 @WebServlet("/coach")
 public class CoachServlet extends HttpServlet {
     private final CourseService courseService = new CourseServiceImpl();
-
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.setAttribute(ATTR_COURSES, courseService.getAll());
         request.getRequestDispatcher(PAGE_COACH_CHOOSE_COURSE).forward(request, response);

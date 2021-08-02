@@ -23,7 +23,7 @@ public class CalculateServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         markUtil.calculateIndividualStatistics(ProjectInfo.getCourse());
         markUtil.calculateTotalStatistics(ProjectInfo.getCourse());
-        request.setAttribute(ATTR_STATS, statsService.getAll());
-        request.getRequestDispatcher(PAGE_COACH_DISPLAY_STATS).forward(request, response);
+       // request.setAttribute(ATTR_STATS, statsService.getAll());
+        request.getRequestDispatcher("/coachMarksRedirect.jsp").forward(request, response);
     }
 }

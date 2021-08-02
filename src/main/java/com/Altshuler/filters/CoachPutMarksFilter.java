@@ -24,8 +24,10 @@ public class CoachPutMarksFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         String contextPath = req.getContextPath();
-
-        Course course = courseService.getById(Integer.parseInt(req.getParameter(PARAM_NUMBER)));
+        int courseNum;
+        if ((req.getParameter(PARAM_NUMBER)) == null) courseNum = ProjectInfo.getNumOfCurrentCourse();
+        else courseNum = Integer.parseInt(req.getParameter(PARAM_NUMBER));
+        Course course = courseService.getById(courseNum);
         if ((YES).equals(course.getIsStarted()) && ((ProjectInfo.getCoach()).equals(course.getCoach()))) {
             filterChain.doFilter(req, resp);
         } else resp.sendRedirect(contextPath + PAGE_WRONG_OPERATION);

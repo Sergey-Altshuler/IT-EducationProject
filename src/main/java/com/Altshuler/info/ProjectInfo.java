@@ -15,11 +15,20 @@ public class ProjectInfo {
     private static Map<Course, Map<Student, Map<String, String>>> marks = new LinkedHashMap<>();
     private static final Map<String, String> roles = new HashMap<>();
     private static Map<String, Integer> courseGroups = new HashMap<>();
+    private static Integer numOfCurrentCourse = null;
 
     static {
         roles.put("admin", "/adminValidate.jsp");
         roles.put("student", "/studentValidate.jsp");
         roles.put("coach", "/coachValidate.jsp");
+    }
+
+    public static Integer getNumOfCurrentCourse() {
+        return numOfCurrentCourse;
+    }
+
+    public static void setNumOfCurrentCourse(Integer numOfCurrentCourse) {
+        ProjectInfo.numOfCurrentCourse = numOfCurrentCourse;
     }
 
     public static Map<String, Integer> getCourseGroups() {

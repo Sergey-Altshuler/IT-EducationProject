@@ -43,7 +43,7 @@
         <td>${course.address}</td>
         <td>${course.startDate}</td>
         <td>${course.finishDate}</td>
-        <td>${course.remaining}</td>
+        <td>${course.remaining}/${course.numOfStudents}</td>
         <td>${course.coachRequired}</td>
     </tr>
 </table>
